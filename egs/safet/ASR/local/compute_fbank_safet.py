@@ -30,7 +30,7 @@ from pathlib import Path
 import torch
 from lhotse import CutSet, Fbank, FbankConfig, LilcomHdf5Writer
 from lhotse.recipes.utils import read_manifests_if_cached
-
+from lhotse.utils import fastcopy
 from icefall.utils import get_executor
 
 # Torch's multithreaded behavior needs to be disabled or
@@ -41,20 +41,15 @@ torch.set_num_threads(1)
 torch.set_num_interop_threads(1)
 
 
-def compute_fbank_librispeech():
+def compute_fbank_safet():
     src_dir = Path("data/manifests")
     output_dir = Path("data/fbank")
     num_jobs = min(15, os.cpu_count())
     num_mel_bins = 80
 
     dataset_parts = (
-        "dev-clean",
-        "dev-other",
-        "test-clean",
-        "test-other",
-        "train-clean-100",
-        "train-clean-360",
-        "train-other-500",
+        "dev",
+        "train",
     )
     manifests = read_manifests_if_cached(
         dataset_parts=dataset_parts, output_dir=src_dir
@@ -73,12 +68,17 @@ def compute_fbank_librispeech():
                 recordings=m["recordings"],
                 supervisions=m["supervisions"],
             )
+            cut_set = cut_set.trim_to_supervisions()
+            cut_set = cut_set.map(lambda c: fastcopy(c, supervisions=[s for s in c.supervisions if s.start == 0 and abs(s.duration - c.duration) <= 1e-3]))
             if "train" in partition:
                 cut_set = (
                     cut_set
                     + cut_set.perturb_speed(0.9)
                     + cut_set.perturb_speed(1.1)
                 )
+            if partition != 'train':
+                print(f'filtering cuts in {partition} partition.')
+                cut_set = cut_set.filter(lambda c: c.duration >= 1)
             cut_set = cut_set.compute_and_store_features(
                 extractor=extractor,
                 storage_path=f"{output_dir}/feats_{partition}",
@@ -97,4 +97,4 @@ if __name__ == "__main__":
 
     logging.basicConfig(format=formatter, level=logging.INFO)
 
-    compute_fbank_librispeech()
+    compute_fbank_safet()

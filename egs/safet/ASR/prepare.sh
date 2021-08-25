@@ -24,16 +24,16 @@ log() {
   echo -e "$(date '+%Y-%m-%d %H:%M:%S') (${fname}:${BASH_LINENO[0]}:${FUNCNAME[1]}) $*"
 }
 
-if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
-  log "Stage 1: Prepare LibriSpeech manifest"
-  mkdir -p data/manifests
-  mkdir -p data/download
-  cd data/download 
-  ln -sf /export/common/data/corpora/ASR/openslr/SLR12/LibriSpeech safet
-  ln -sf /export/common/data/corpora/MUSAN/musan musan
-  cd ../..
-  lhotse prepare safet -j $nj data/download/safet data/manifests
-fi
+#if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
+#  log "Stage 1: Prepare LibriSpeech manifest"
+#  mkdir -p data/manifests
+#  mkdir -p data/download
+#  cd data/download 
+#  ln -sf /export/common/data/corpora/ASR/openslr/SLR12/LibriSpeech safet
+#  ln -sf /export/common/data/corpora/MUSAN/musan musan
+#  cd ../..
+#  lhotse prepare safet -j $nj data/download/safet data/manifests
+#fi
 
 if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
   log "Stage 2: Prepare musan manifest"
@@ -44,7 +44,7 @@ fi
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
   log "Stage 3: Compute fbank for librispeech"
   mkdir -p data/fbank
-  ./local/compute_fbank_librispeech.py
+  ./local/compute_fbank_safet.py
 fi
 
 if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
