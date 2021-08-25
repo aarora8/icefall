@@ -80,7 +80,7 @@ def get_parser():
 
 def main():
     args = get_parser().parse_args()
-    output_dir = Path('exp/data')
+    output_dir = Path('data/manifests')
     musan_dir = locate_corpus(
         Path('/export/corpora5/JHU/musan'),
         Path('/export/common/data/corpora/MUSAN/musan'),
@@ -97,17 +97,17 @@ def main():
 
     print('safet manifest preparation:')
     safet_manifests = prepare_safet(
-        corpus_dir='/exp/aarora/corpora/safet/',
+        corpus_dir='/exp/aarora/storage/corpora/safet/',
         output_dir=output_dir
     )
 
-    sups = load_manifest('exp/data/supervisions_safet_train.json')
-    f = open('exp/data/lm_train_text', 'w')
+    sups = load_manifest('data/manifests/supervisions_safet_train.json')
+    f = open('data/lm/lm_train_text', 'w')
     for s in sups:
         print(s.text, file=f)
 
-    sups = load_manifest('exp/data/supervisions_safet_dev.json')
-    f = open('exp/data/lm_dev_text', 'w')
+    sups = load_manifest('data/manifests/supervisions_safet_dev.json')
+    f = open('data/lm/lm_dev_text', 'w')
     for s in sups:
         print(s.text, file=f)
 
