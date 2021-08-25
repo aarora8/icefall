@@ -109,8 +109,8 @@ if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
   log "Stage 8: Compile HLG"
   ./local/compile_hlg.py --lang-dir data/lang_phone
 
-#  for vocab_size in ${vocab_sizes[@]}; do
-#    lang_dir=data/lang_bpe_${vocab_size}
-#    ./local/compile_hlg.py --lang-dir $lang_dir
-#  done
+  for vocab_size in ${vocab_sizes[@]}; do
+    lang_dir=data/lang_bpe_${vocab_size}
+    ./local/compile_hlg.py --lang-dir $lang_dir
+  done
 fi
