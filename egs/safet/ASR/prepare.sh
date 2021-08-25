@@ -47,7 +47,7 @@ if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
 fi
 
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
-  log "Stage 3: Compute fbank for librispeech"
+  log "Stage 3: Compute fbank for safet"
   mkdir -p data/fbank
   ./local/compute_fbank_safet.py
 fi

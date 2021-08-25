@@ -48,8 +48,8 @@ def compute_fbank_safet():
     num_mel_bins = 80
 
     dataset_parts = (
-        "dev",
-        "train",
+        "safet_dev",
+        "safet_train",
     )
     manifests = read_manifests_if_cached(
         dataset_parts=dataset_parts, output_dir=src_dir
