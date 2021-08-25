@@ -8,8 +8,9 @@ WORDLIST = dict()
 def read_lexicon_words(lexicon):
     with open(lexicon, 'r', encoding='utf-8') as f:
         for line in f:
-            line = re.sub(r'(?s)\s.*', '', line)
-            WORDLIST[line] = 1
+            parts = line.strip().split()
+            word = parts[0]
+            WORDLIST[word] = 1
 
 def process_transcript(transcript):
     global WORDLIST
@@ -55,14 +56,14 @@ def process_transcript(transcript):
 
 def main():
 
-    sups = load_manifest('exp/data/supervisions_safet_train.json')
-    f = open('exp/data/lm_train_text', 'w')
+    sups = load_manifest('data/manifestssupervisions_safet_train.json')
+    f = open('data/lm/lm_train_text', 'w')
     for s in sups:
         text = process_transcript(s.text)
         print(text, file=f)
 
-    sups = load_manifest('exp/data/supervisions_safet_dev_clean.json')
-    f = open('exp/data/lm_dev_text', 'w')
+    sups = load_manifest('data/manifests/supervisions_safet_dev_clean.json')
+    f = open('data/lm/lm_dev_text', 'w')
     for s in sups:
         text = process_transcript(s.text)
         print(text, file=f)
