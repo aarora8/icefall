@@ -95,45 +95,18 @@ def main():
         parts=('music', 'speech', 'noise')
     )
 
-    #print('safet manifest preparation:')
-    #safet_manifests = prepare_safet(
-    #    corpus_dir='/exp/aarora/corpora/safet/',
-    #    lexicon_dir='data/local/dict_nosp/lexicon/',
-    #    output_dir=output_dir
-    #)
-
     print('safet manifest preparation:')
-    safet_manifests = defaultdict(dict)
-    recording_set_dev_clean, supervision_set_dev_clean = lhotse.kaldi.load_kaldi_data_dir('/home/hltcoe/aarora/kaldi/egs/opensat20/s5/data/dev_clean', 16000)
-    validate_recordings_and_supervisions(recording_set_dev_clean, supervision_set_dev_clean)
-    supervision_set_dev_clean.to_json(output_dir / f'supervisions_safet_dev_clean.json')
-    safet_manifests['dev_clean'] = {
-                'recordings': recording_set_dev_clean,
-                'supervisions': supervision_set_dev_clean
-            }
-
-    recording_set_dev, supervision_set_dev = lhotse.kaldi.load_kaldi_data_dir('/home/hltcoe/aarora/kaldi/egs/opensat20/s5/data/safe_t_dev1', 16000)
-    validate_recordings_and_supervisions(recording_set_dev, supervision_set_dev)
-    supervision_set_dev.to_json(output_dir / f'supervisions_safet_dev.json')
-    safet_manifests['dev'] = {
-                'recordings': recording_set_dev,
-                'supervisions': supervision_set_dev
-            }
-
-    recording_set_train, supervision_set_train = lhotse.kaldi.load_kaldi_data_dir('/home/hltcoe/aarora/kaldi/egs/opensat20/s5/data/train_cleaned', 16000)
-    validate_recordings_and_supervisions(recording_set_train, supervision_set_train)
-    supervision_set_train.to_json(output_dir / f'supervisions_safet_train.json')
-    safet_manifests['train'] = {
-                'recordings': recording_set_train,
-                'supervisions': supervision_set_train
-            }
+    safet_manifests = prepare_safet(
+        corpus_dir='/exp/aarora/corpora/safet/',
+        output_dir=output_dir
+    )
 
     sups = load_manifest('exp/data/supervisions_safet_train.json')
     f = open('exp/data/lm_train_text', 'w')
     for s in sups:
         print(s.text, file=f)
 
-    sups = load_manifest('exp/data/supervisions_safet_dev_clean.json')
+    sups = load_manifest('exp/data/supervisions_safet_dev.json')
     f = open('exp/data/lm_dev_text', 'w')
     for s in sups:
         print(s.text, file=f)
