@@ -12,7 +12,7 @@
 #$ -l hostname='!r8n04'
 
 # big data config
-# qsub -l gpu=4 -q gpu.q@@v100 -l h_rt=72:00:00
+# -q gpu.q@@v100 -l gpu=4 -l h_rt=72:00:00
 # Activate dev environments and call programs
 
 source ~/.bashrc
