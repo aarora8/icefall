@@ -55,7 +55,7 @@ def process_transcript(transcript):
 
 
 def main():
-
+    read_lexicon_words('data/lm/librispeech-lexicon.txt')
     sups = load_manifest('data/manifests/supervisions_safet_train.json')
     f = open('data/lm/lm_train_text', 'w')
     for s in sups:

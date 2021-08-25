@@ -28,4 +28,4 @@ ngram-count -lm $tgtdir/lm.gz -kndiscount1 -gt1min 0 -kndiscount2 -gt2min 1 -knd
 
 ngram -order 3 -lm $tgtdir/lm.gz -unk -map-unk "<UNK>" -ppl $dev_text
 #file exp/data/lm_dev_text: 2100 sentences, 21134 words, 0 OOVs
-#0 zeroprobs, logprob= -33550.65 ppl= 27.79922 ppl1= 38.68301
+#0 zeroprobs, logprob= -34572 ppl= 27.8429 ppl1= 38.0887
