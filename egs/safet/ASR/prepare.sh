@@ -80,7 +80,7 @@ if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
     # We reuse words.txt from phone based lexicon
     # so that the two can share G.pt later.
     cp data/lang_phone/words.txt $lang_dir
-
+    local/prepare_lm.py
     if [ ! -f $lang_dir/train.txt ]; then
       log "Generate data for BPE training"
       cat data/lm/lm_train_text > $lang_dir/train.txt
