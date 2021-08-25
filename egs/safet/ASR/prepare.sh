@@ -27,18 +27,23 @@ log() {
 #if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
 #  log "Stage 1: Prepare LibriSpeech manifest"
 #  mkdir -p data/manifests
-#  mkdir -p data/download
-#  cd data/download 
-#  ln -sf /export/common/data/corpora/ASR/openslr/SLR12/LibriSpeech safet
+#  mkdir -p download
+#  cd download 
+#  ln -sf /exp/aarora/storage/corpora/safet/ safet
 #  ln -sf /export/common/data/corpora/MUSAN/musan musan
-#  cd ../..
-#  lhotse prepare safet -j $nj data/download/safet data/manifests
+#  cd ..
+#  lhotse prepare safet -j $nj download/safet data/manifests
 #fi
+
+if [ $stage -le 0 ]; then
+  mkdir -p data/lm data/manifests
+  local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/icef/bin/python3 local/prepare.py
+fi
 
 if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
   log "Stage 2: Prepare musan manifest"
   mkdir -p data/manifests
-  lhotse prepare musan data/download/musan data/manifests
+  lhotse prepare musan download/musan data/manifests
 fi
 
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
