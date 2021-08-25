@@ -36,13 +36,12 @@ log() {
 #fi
 
 if [ $stage -le 0 ]; then
-  mkdir -p data/lm data/manifests
+  mkdir -p data/manifests
   local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/icef/bin/python3 local/prepare.py
 fi
 
 if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
   log "Stage 2: Prepare musan manifest"
-  mkdir -p data/manifests
   lhotse prepare musan download/musan data/manifests
 fi
 
@@ -54,13 +53,12 @@ fi
 
 if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
   log "Stage 4: Compute fbank for musan"
-  mkdir -p data/fbank
   ./local/compute_fbank_musan.py
 fi
 
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
-  mkdir -p data/lang_phone
+  mkdir -p data/lang_phone data/lm
   wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
   (echo '!SIL SIL'; echo '<SPOKEN_NOISE> SPN'; echo '<UNK> SPN'; ) |
     cat - data/lm/librispeech-lexicon.txt |
@@ -81,6 +79,7 @@ if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
     # so that the two can share G.pt later.
     cp data/lang_phone/words.txt $lang_dir
     local/prepare_lm_text.py
+    local/train_lm.sh
     if [ ! -f $lang_dir/train.txt ]; then
       log "Generate data for BPE training"
       cat data/lm/lm_train_text > $lang_dir/train.txt
@@ -98,27 +97,12 @@ fi
 
 if [ $stage -le 7 ] && [ $stop_stage -ge 7 ]; then
   log "Stage 7: Prepare G"
-  # We assume you have install kaldilm, if not, please install
-  # it using: pip install kaldilm
-
   mkdir -p data/lm
-  if [ ! -f data/lm/G_3_gram.fst.txt ]; then
-    # It is used in building HLG
-    python3 -m kaldilm \
-      --read-symbol-table="data/lang_phone/words.txt" \
-      --disambig-symbol='#0' \
-      --max-order=3 \
-      $dl_dir/lm/3-gram.pruned.1e-7.arpa > data/lm/G_3_gram.fst.txt
-  fi
-
-  if [ ! -f data/lm/G_4_gram.fst.txt ]; then
-    # It is used for LM rescoring
-    python3 -m kaldilm \
-      --read-symbol-table="data/lang_phone/words.txt" \
-      --disambig-symbol='#0' \
-      --max-order=4 \
-      $dl_dir/lm/4-gram.arpa > data/lm/G_4_gram.fst.txt
-  fi
+  python3 -m kaldilm \
+    --read-symbol-table="data/lang_phone/words.txt" \
+    --disambig-symbol='#0' \
+    --max-order=3 \
+    data/lm/lm.gz > data/lm/G_3_gram.fst.txt
 fi
 
 if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
