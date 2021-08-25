@@ -7,12 +7,11 @@
 set -eou pipefail
 . ./local/path.sh
 . ./local/cmd.sh
-stage=0
+stage=3
 if [ $stage -le 0 ]; then
   mkdir -p data/lm data/manifests
   local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/icef/bin/python3 prepare.py
 fi
-exit
 
 if [ $stage -le 3 ]; then
   echo "LM preparation"
@@ -26,12 +25,3 @@ if [ $stage -le 3 ]; then
     --max-order=3 \
     data/local/lm/lm_tgmed.arpa >data/lang_nosp/G.fst.txt
 fi
-
-if [ $stage -le 4 ]; then
-  local/queue.pl --mem 20G --gpu 1 --config conf/coe.conf exp/train.log ~/miniconda3/envs/icef/bin/python3 mmi_bigram_train_1b.py
-fi
-
-if [ $stage -le 5 ]; then
-  local/queue.pl --mem 10G --gpu 1 --config conf/coe.conf exp/decode.log ~/miniconda3/envs/icef/bin/python3 mmi_bigram_decode.py --epoch 9
-fi
-

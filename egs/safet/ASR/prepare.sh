@@ -61,9 +61,9 @@ fi
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
   mkdir -p data/lang_phone
-
+  wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
   (echo '!SIL SIL'; echo '<SPOKEN_NOISE> SPN'; echo '<UNK> SPN'; ) |
-    cat - $dl_dir/lm/librispeech-lexicon.txt |
+    cat - data/lm/librispeech-lexicon.txt |
     sort | uniq > data/lang_phone/lexicon.txt
 
   if [ ! -f data/lang_phone/L_disambig.pt ]; then
@@ -83,14 +83,7 @@ if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
 
     if [ ! -f $lang_dir/train.txt ]; then
       log "Generate data for BPE training"
-      files=$(
-        find "$dl_dir/LibriSpeech/train-clean-100" -name "*.trans.txt"
-        find "$dl_dir/LibriSpeech/train-clean-360" -name "*.trans.txt"
-        find "$dl_dir/LibriSpeech/train-other-500" -name "*.trans.txt"
-      )
-      for f in ${files[@]}; do
-        cat $f | cut -d " " -f 2-
-      done > $lang_dir/train.txt
+      cat data/lm/lm_train_text > $lang_dir/train.txt
     fi
 
     ./local/train_bpe_model.py \

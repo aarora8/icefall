@@ -28,16 +28,6 @@ from snowfall.common import str2bool
 torch.set_num_threads(1)
 torch.set_num_interop_threads(1)
 
-
-def locate_corpus(*corpus_dirs):
-    for d in corpus_dirs:
-        if os.path.exists(d):
-            return d
-    print("Please create a place on your system to put the downloaded Librispeech data "
-          "and add it to `corpus_dirs`")
-    sys.exit(1)
-
-
 def get_parser():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument(
@@ -58,16 +48,5 @@ def main():
         output_dir=output_dir
     )
 
-    sups = load_manifest('data/manifests/supervisions_safet_train.json')
-    f = open('data/lm/lm_train_text', 'w')
-    for s in sups:
-        print(s.text, file=f)
-
-    sups = load_manifest('data/manifests/supervisions_safet_dev.json')
-    f = open('data/lm/lm_dev_text', 'w')
-    for s in sups:
-        print(s.text, file=f)
-
 if __name__ == '__main__':
     main()
-
