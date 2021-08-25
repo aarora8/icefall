@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+export PYTHONPATH=/exp/aarora/icefall_work_env/icefall:$PYTHONPATH
 set -eou pipefail
 
 nj=15
