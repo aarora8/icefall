@@ -5,8 +5,8 @@ set -eou pipefail
 nj=15
 stage=-1
 stop_stage=100
-. shared/parse_options.sh || exit 1
-
+. shared/parse_options.sh
+. ./local/path.sh || exit 1
 # vocab size for sentence piece models.
 # It will generate data/lang_bpe_xxx,
 # data/lang_bpe_yyy if the array contains xxx, yyy

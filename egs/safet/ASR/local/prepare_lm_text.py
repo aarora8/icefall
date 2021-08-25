@@ -56,13 +56,13 @@ def process_transcript(transcript):
 
 def main():
 
-    sups = load_manifest('data/manifestssupervisions_safet_train.json')
+    sups = load_manifest('data/manifests/supervisions_safet_train.json')
     f = open('data/lm/lm_train_text', 'w')
     for s in sups:
         text = process_transcript(s.text)
         print(text, file=f)
 
-    sups = load_manifest('data/manifests/supervisions_safet_dev_clean.json')
+    sups = load_manifest('data/manifests/supervisions_safet_dev.json')
     f = open('data/lm/lm_dev_text', 'w')
     for s in sups:
         text = process_transcript(s.text)
