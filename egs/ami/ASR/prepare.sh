@@ -29,7 +29,6 @@ log() {
 #  mkdir -p data/manifests
 #  mkdir -p download
 #  cd download 
-#  ln -sf /exp/aarora/storage/corpora/safet/ safet
 #  ln -sf /export/common/data/corpora/MUSAN/musan musan
 #  cd ..
 #  lhotse prepare safet -j $nj download/safet data/manifests
@@ -46,9 +45,9 @@ if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
 fi
 
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
-  log "Stage 3: Compute fbank for safet"
+  log "Stage 3: Compute fbank for ami"
   mkdir -p data/fbank
-  ./local/compute_fbank_safet.py
+  ./local/compute_fbank_ami.py
 fi
 
 if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then

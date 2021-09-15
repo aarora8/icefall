@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+export PYTHONPATH=/exp/aarora/icefall_work_env/icefall:$PYTHONPATH
 set -eou pipefail
 
 nj=15
@@ -55,33 +55,43 @@ log() {
 
 log "dl_dir: $dl_dir"
 
-if [ $stage -le -1 ] && [ $stop_stage -ge -1 ]; then
-  log "stage -1: Download LM"
-  [ ! -e $dl_dir/lm ] && mkdir -p $dl_dir/lm
-  ./local/download_lm.py --out-dir=$dl_dir/lm
-fi
+#if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
+#  log "Stage 1: Prepare LibriSpeech manifest"
+#  mkdir -p data/manifests
+#  mkdir -p download
+#  cd download 
+#  ln -sf /export/common/data/corpora/ASR/openslr/SLR12/LibriSpeech LibriSpeech
+#  ln -sf /export/common/data/corpora/MUSAN/musan musan
+#  cd ..
+#fi
 
-if [ $stage -le 0 ] && [ $stop_stage -ge 0 ]; then
-  log "stage 0: Download data"
+#if [ $stage -le -1 ] && [ $stop_stage -ge -1 ]; then
+#  log "stage -1: Download LM"
+#  [ ! -e $dl_dir/lm ] && mkdir -p $dl_dir/lm
+#  ./local/download_lm.py --out-dir=$dl_dir/lm
+#fi
 
-  # If you have pre-downloaded it to /path/to/LibriSpeech,
-  # you can create a symlink
-  #
-  #   ln -sfv /path/to/LibriSpeech $dl_dir/LibriSpeech
-  #
-  if [ ! -d $dl_dir/LibriSpeech/train-other-500 ]; then
-    lhotse download librispeech --full $dl_dir
-  fi
-
-  # If you have pre-downloaded it to /path/to/musan,
-  # you can create a symlink
-  #
-  #   ln -sfv /path/to/musan $dl_dir/
-  #
-  if [ ! -d $dl_dir/musan ]; then
-    lhotse download musan $dl_dir
-  fi
-fi
+#if [ $stage -le 0 ] && [ $stop_stage -ge 0 ]; then
+#  log "stage 0: Download data"
+#
+#  # If you have pre-downloaded it to /path/to/LibriSpeech,
+#  # you can create a symlink
+#  #
+#  #   ln -sfv /path/to/LibriSpeech $dl_dir/LibriSpeech
+#  #
+#  if [ ! -d $dl_dir/LibriSpeech/train-other-500 ]; then
+#    lhotse download librispeech --full $dl_dir
+#  fi
+#
+#  # If you have pre-downloaded it to /path/to/musan,
+#  # you can create a symlink
+#  #
+#  #   ln -sfv /path/to/musan $dl_dir/
+#  #
+#  if [ ! -d $dl_dir/musan ]; then
+#    lhotse download musan $dl_dir
+#  fi
+#fi
 
 if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
   log "Stage 1: Prepare LibriSpeech manifest"

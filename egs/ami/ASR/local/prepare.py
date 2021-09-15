@@ -14,7 +14,7 @@ import torch
 import lhotse
 from lhotse import CutSet, Fbank, FbankConfig, LilcomHdf5Writer, combine
 from lhotse import load_manifest
-from lhotse.recipes import prepare_safet, prepare_musan
+from lhotse.recipes import prepare_ami, prepare_musan
 from lhotse.utils import fastcopy
 from lhotse import validate_recordings_and_supervisions
 from lhotse.audio import Recording, RecordingSet
@@ -42,10 +42,10 @@ def main():
     args = get_parser().parse_args()
     output_dir = Path('data/manifests')
 
-    print('safet manifest preparation:')
-    safet_manifests = prepare_safet(
-        corpus_dir='/exp/aarora/storage/corpora/safet/',
-        output_dir=output_dir
+    print('ami manifest preparation:')
+    ami_manifests = prepare_ami(
+        '/export/common/data/corpora/amicorpus/',
+        output_dir
     )
 
 if __name__ == '__main__':
