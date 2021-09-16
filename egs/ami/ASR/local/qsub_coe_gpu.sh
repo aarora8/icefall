@@ -18,7 +18,7 @@
 
 source ~/.bashrc
 export PATH="/home/hltcoe/aarora/miniconda3/bin:$PATH"
- export PYTHONPATH=/exp/aarora/icefall_work_env/icefall:$PYTHONPATH
+export PYTHONPATH=/exp/aarora/icefall_work_env/icefall:$PYTHONPATH
 conda activate icef
 
 env| grep SGE_HGR_gpu
