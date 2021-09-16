@@ -318,31 +318,21 @@ class LibriSpeechAsrDataModule(DataModule):
     def train_cuts(self) -> CutSet:
         logging.info("About to get train cuts")
         cuts_train = load_manifest(
-            self.args.feature_dir / "cuts_train-clean-100.json.gz"
+            self.args.feature_dir / "cuts_train.json.gz"
         )
-        if self.args.full_libri:
-            cuts_train = (
-                cuts_train
-                + load_manifest(
-                    self.args.feature_dir / "cuts_train-clean-360.json.gz"
-                )
-                + load_manifest(
-                    self.args.feature_dir / "cuts_train-other-500.json.gz"
-                )
-            )
         return cuts_train
 
     @lru_cache()
     def valid_cuts(self) -> CutSet:
         logging.info("About to get dev cuts")
         cuts_valid = load_manifest(
-            self.args.feature_dir / "cuts_dev-clean.json.gz"
-        ) + load_manifest(self.args.feature_dir / "cuts_dev-other.json.gz")
+            self.args.feature_dir / "cuts_dev.json.gz"
+        )
         return cuts_valid
 
     @lru_cache()
     def test_cuts(self) -> List[CutSet]:
-        test_sets = ["test-clean", "test-other"]
+        test_sets = ["test"]
         cuts = []
         for test_set in test_sets:
             logging.debug("About to get test cuts")
