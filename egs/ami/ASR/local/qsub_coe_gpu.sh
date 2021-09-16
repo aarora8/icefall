@@ -7,7 +7,7 @@
 #$ -j y -o $JOB_NAME
 #$ -M ashish.arora.88888@gmail.com
 #$ -m bea
-#$ -l mem_free=30G
+#$ -l mem_free=32G
 #$ -l h_rt=24:00:00
 #$ -l hostname='!r7n04'
 
