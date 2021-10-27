@@ -1,0 +1,1011 @@
+Saved current collection of modules to: "default"
+
+SGE_HGR_gpu=7
+CUDA_VISIBLE_DEVICES=7
+Wed Sep 15 21:57:26 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA Tesla V1...  On   | 00000000:1A:00.0 Off |                    0 |
+| N/A   49C    P0   222W / 200W |   6503MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA Tesla V1...  On   | 00000000:1B:00.0 Off |                    0 |
+| N/A   54C    P0   224W / 200W |  28359MiB / 32510MiB |     97%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA Tesla V1...  On   | 00000000:1C:00.0 Off |                    0 |
+| N/A   45C    P0   149W / 200W |   6517MiB / 32510MiB |    100%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA Tesla V1...  On   | 00000000:3D:00.0 Off |                    0 |
+| N/A   54C    P0   177W / 200W |  31753MiB / 32510MiB |     99%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA Tesla V1...  On   | 00000000:3E:00.0 Off |                    0 |
+| N/A   28C    P0    35W / 200W |  31753MiB / 32510MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA Tesla V1...  On   | 00000000:8B:00.0 Off |                    0 |
+| N/A   46C    P0   151W / 200W |   6517MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA Tesla V1...  On   | 00000000:8C:00.0 Off |                    0 |
+| N/A   49C    P0   142W / 200W |  14665MiB / 32510MiB |     93%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA Tesla V1...  On   | 00000000:B4:00.0 Off |                    0 |
+| N/A   28C    P0    25W / 200W |      0MiB / 32510MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   8  NVIDIA Tesla V1...  On   | 00000000:B5:00.0 Off |                    0 |
+| N/A   42C    P0   171W / 200W |   2003MiB / 32510MiB |     65%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   9  NVIDIA Tesla V1...  On   | 00000000:B6:00.0 Off |                    0 |
+| N/A   46C    P0   161W / 200W |   6487MiB / 32510MiB |     77%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    345763      C   python                           6499MiB |
+|    1   N/A  N/A     61690      C   python                          28353MiB |
+|    2   N/A  N/A    345764      C   python                           6513MiB |
+|    3   N/A  N/A    352376      C   python                          31749MiB |
+|    4   N/A  N/A    352376      C   python                          31749MiB |
+|    5   N/A  N/A    345956      C   python                           6513MiB |
+|    6   N/A  N/A    436987      C   python                          14661MiB |
+|    8   N/A  N/A      3882      C   python                           1999MiB |
+|    9   N/A  N/A    346159      C   python                           6483MiB |
++-----------------------------------------------------------------------------+
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528924: Running on r7n03
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528924: Started at Wed Sep 15 21:57:27 EDT 2021
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528924: Running the job on GPU(s) 7
+Traceback (most recent call last):
+  File "tdnn_lstm_ctc/train.py", line 31, in <module>
+    from asr_datamodule import LibriSpeechAsrDataModule
+  File "/exp/aarora/icefall_work_env/icefall/egs/ami/ASR/tdnn_lstm_ctc/asr_datamodule.py", line 37, in <module>
+    from icefall.dataset.datamodule import DataModule
+ModuleNotFoundError: No module named 'icefall'
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528924: ended at Wed Sep 15 21:57:48 EDT 2021
+Saved current collection of modules to: "default"
+
+SGE_HGR_gpu=8
+CUDA_VISIBLE_DEVICES=8
+Wed Sep 15 22:01:38 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA Tesla V1...  On   | 00000000:1A:00.0 Off |                    0 |
+| N/A   48C    P0   114W / 200W |   6503MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA Tesla V1...  On   | 00000000:1B:00.0 Off |                    0 |
+| N/A   51C    P0   204W / 200W |  28359MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA Tesla V1...  On   | 00000000:1C:00.0 Off |                    0 |
+| N/A   47C    P0   132W / 200W |   6517MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA Tesla V1...  On   | 00000000:3D:00.0 Off |                    0 |
+| N/A   50C    P0   110W / 200W |  31753MiB / 32510MiB |     99%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA Tesla V1...  On   | 00000000:3E:00.0 Off |                    0 |
+| N/A   36C    P0    81W / 200W |  31753MiB / 32510MiB |     99%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA Tesla V1...  On   | 00000000:8B:00.0 Off |                    0 |
+| N/A   47C    P0   200W / 200W |   6517MiB / 32510MiB |     95%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA Tesla V1...  On   | 00000000:8C:00.0 Off |                    0 |
+| N/A   49C    P0   167W / 200W |  14665MiB / 32510MiB |     91%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA Tesla V1...  On   | 00000000:B4:00.0 Off |                    0 |
+| N/A   24C    P0    25W / 200W |      4MiB / 32510MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   8  NVIDIA Tesla V1...  On   | 00000000:B5:00.0 Off |                    0 |
+| N/A   27C    P0    26W / 200W |      0MiB / 32510MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   9  NVIDIA Tesla V1...  On   | 00000000:B6:00.0 Off |                    0 |
+| N/A   46C    P0   172W / 200W |   6487MiB / 32510MiB |     72%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    345763      C   python                           6499MiB |
+|    1   N/A  N/A     61690      C   python                          28353MiB |
+|    2   N/A  N/A    345764      C   python                           6513MiB |
+|    3   N/A  N/A    352376      C   python                          31749MiB |
+|    4   N/A  N/A    352376      C   python                          31749MiB |
+|    5   N/A  N/A    345956      C   python                           6513MiB |
+|    6   N/A  N/A    436987      C   python                          14661MiB |
+|    9   N/A  N/A    346159      C   python                           6483MiB |
++-----------------------------------------------------------------------------+
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528926: Running on r7n03
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528926: Started at Wed Sep 15 22:01:39 EDT 2021
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528926: Running the job on GPU(s) 8
+2021-09-15 22:01:43,507 INFO [train.py:515] Training started
+2021-09-15 22:01:43,508 INFO [train.py:516] {'exp_dir': PosixPath('tdnn_lstm_ctc/exp'), 'lang_dir': PosixPath('data/lang_phone'), 'lr': 0.001, 'feature_dim': 80, 'weight_decay': 0.0005, 'subsampling_factor': 3, 'best_train_loss': inf, 'best_valid_loss': inf, 'best_train_epoch': -1, 'best_valid_epoch': -1, 'batch_idx_train': 0, 'log_interval': 10, 'reset_interval': 200, 'valid_interval': 1000, 'beam_size': 10, 'reduction': 'sum', 'use_double_scores': True, 'world_size': 1, 'master_port': 12354, 'tensorboard': True, 'num_epochs': 20, 'start_epoch': 0, 'full_libri': True, 'feature_dir': PosixPath('data/fbank'), 'max_duration': 500.0, 'bucketing_sampler': False, 'num_buckets': 30, 'concatenate_cuts': False, 'duration_factor': 1.0, 'gap': 1.0, 'on_the_fly_feats': False, 'shuffle': True, 'return_cuts': True, 'num_workers': 2}
+2021-09-15 22:01:43,824 INFO [lexicon.py:113] Loading pre-compiled data/lang_phone/Linv.pt
+2021-09-15 22:02:00,818 INFO [asr_datamodule.py:158] About to get train cuts
+2021-09-15 22:02:00,821 INFO [asr_datamodule.py:319] About to get train cuts
+2021-09-15 22:02:05,424 INFO [asr_datamodule.py:161] About to get Musan cuts
+2021-09-15 22:02:07,632 INFO [asr_datamodule.py:164] About to create train dataset
+2021-09-15 22:02:07,633 INFO [asr_datamodule.py:226] Using SingleCutSampler.
+2021-09-15 22:02:07,656 INFO [asr_datamodule.py:232] About to create train dataloader
+2021-09-15 22:02:07,656 INFO [asr_datamodule.py:245] About to get dev cuts
+2021-09-15 22:02:07,656 INFO [asr_datamodule.py:327] About to get dev cuts
+2021-09-15 22:02:07,949 INFO [asr_datamodule.py:256] About to create dev dataset
+2021-09-15 22:02:07,950 INFO [asr_datamodule.py:275] About to create dev dataloader
+2021-09-15 22:02:46,771 INFO [train.py:450] Epoch 0, batch 0, batch avg loss 3.3627, total avg loss: 3.3627, batch size: 212
+2021-09-15 22:04:03,609 INFO [train.py:450] Epoch 0, batch 10, batch avg loss 1.9178, total avg loss: inf, batch size: 201
+2021-09-15 22:04:56,088 INFO [train.py:450] Epoch 0, batch 20, batch avg loss 1.1856, total avg loss: inf, batch size: 206
+2021-09-15 22:05:36,961 INFO [train.py:450] Epoch 0, batch 30, batch avg loss 1.1026, total avg loss: inf, batch size: 193
+2021-09-15 22:06:18,069 INFO [train.py:450] Epoch 0, batch 40, batch avg loss 1.0456, total avg loss: inf, batch size: 212
+2021-09-15 22:06:39,811 INFO [train.py:450] Epoch 0, batch 50, batch avg loss 1.1697, total avg loss: inf, batch size: 191
+2021-09-15 22:06:57,403 INFO [train.py:450] Epoch 0, batch 60, batch avg loss 1.1170, total avg loss: inf, batch size: 195
+2021-09-15 22:07:12,164 INFO [train.py:450] Epoch 0, batch 70, batch avg loss 1.0447, total avg loss: inf, batch size: 179
+2021-09-15 22:07:28,064 INFO [train.py:450] Epoch 0, batch 80, batch avg loss 1.0394, total avg loss: inf, batch size: 197
+2021-09-15 22:07:45,937 INFO [train.py:450] Epoch 0, batch 90, batch avg loss 1.1319, total avg loss: inf, batch size: 195
+2021-09-15 22:08:01,867 INFO [train.py:450] Epoch 0, batch 100, batch avg loss 1.0252, total avg loss: inf, batch size: 195
+2021-09-15 22:08:19,371 INFO [train.py:450] Epoch 0, batch 110, batch avg loss 1.0556, total avg loss: inf, batch size: 171
+2021-09-15 22:08:36,498 INFO [train.py:450] Epoch 0, batch 120, batch avg loss 1.0053, total avg loss: inf, batch size: 177
+2021-09-15 22:08:53,376 INFO [train.py:450] Epoch 0, batch 130, batch avg loss 1.0559, total avg loss: inf, batch size: 194
+2021-09-15 22:09:11,482 INFO [train.py:450] Epoch 0, batch 140, batch avg loss 1.0343, total avg loss: inf, batch size: 172
+2021-09-15 22:09:27,745 INFO [train.py:450] Epoch 0, batch 150, batch avg loss 1.0499, total avg loss: inf, batch size: 178
+2021-09-15 22:09:43,072 INFO [train.py:450] Epoch 0, batch 160, batch avg loss 1.0676, total avg loss: inf, batch size: 189
+2021-09-15 22:09:59,999 INFO [train.py:450] Epoch 0, batch 170, batch avg loss 1.0310, total avg loss: inf, batch size: 187
+2021-09-15 22:10:17,874 INFO [train.py:450] Epoch 0, batch 180, batch avg loss 1.0718, total avg loss: inf, batch size: 198
+2021-09-15 22:10:36,565 INFO [train.py:450] Epoch 0, batch 190, batch avg loss 1.1138, total avg loss: inf, batch size: 196
+2021-09-15 22:10:51,483 INFO [train.py:450] Epoch 0, batch 200, batch avg loss inf, total avg loss: inf, batch size: 218
+2021-09-15 22:11:06,135 INFO [train.py:450] Epoch 0, batch 210, batch avg loss 1.0102, total avg loss: 1.0496, batch size: 188
+2021-09-15 22:11:23,749 INFO [train.py:450] Epoch 0, batch 220, batch avg loss 1.0332, total avg loss: 1.0569, batch size: 216
+2021-09-15 22:11:40,837 INFO [train.py:450] Epoch 0, batch 230, batch avg loss 1.0640, total avg loss: 1.0560, batch size: 185
+2021-09-15 22:11:56,678 INFO [train.py:450] Epoch 0, batch 240, batch avg loss 1.0435, total avg loss: inf, batch size: 174
+2021-09-15 22:12:13,775 INFO [train.py:450] Epoch 0, batch 250, batch avg loss 1.0743, total avg loss: inf, batch size: 181
+2021-09-15 22:12:29,554 INFO [train.py:450] Epoch 0, batch 260, batch avg loss 0.9914, total avg loss: inf, batch size: 184
+2021-09-15 22:12:43,777 INFO [train.py:450] Epoch 0, batch 270, batch avg loss 1.0581, total avg loss: inf, batch size: 199
+2021-09-15 22:12:59,921 INFO [train.py:450] Epoch 0, batch 280, batch avg loss 1.0374, total avg loss: inf, batch size: 204
+2021-09-15 22:13:04,281 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "677edb05-3944-78cb-2aee-0ece12eabcbb" will not be mixed in.
+2021-09-15 22:13:17,335 INFO [train.py:450] Epoch 0, batch 290, batch avg loss 1.0149, total avg loss: inf, batch size: 186
+2021-09-15 22:13:32,877 INFO [train.py:450] Epoch 0, batch 300, batch avg loss 1.0496, total avg loss: inf, batch size: 184
+2021-09-15 22:13:49,229 INFO [train.py:450] Epoch 0, batch 310, batch avg loss 1.0110, total avg loss: inf, batch size: 199
+2021-09-15 22:14:05,639 INFO [train.py:450] Epoch 0, batch 320, batch avg loss 1.0484, total avg loss: inf, batch size: 194
+2021-09-15 22:14:12,104 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-0.pt
+2021-09-15 22:14:12,519 INFO [train.py:563] epoch 1, lr: 0.001
+2021-09-15 22:14:35,136 INFO [train.py:450] Epoch 1, batch 0, batch avg loss 1.0835, total avg loss: 1.0835, batch size: 185
+2021-09-15 22:15:27,616 INFO [train.py:450] Epoch 1, batch 10, batch avg loss 1.0165, total avg loss: inf, batch size: 216
+2021-09-15 22:16:14,576 INFO [train.py:450] Epoch 1, batch 20, batch avg loss 1.0807, total avg loss: inf, batch size: 191
+2021-09-15 22:16:49,494 INFO [train.py:450] Epoch 1, batch 30, batch avg loss 1.0797, total avg loss: inf, batch size: 170
+2021-09-15 22:17:18,470 INFO [train.py:450] Epoch 1, batch 40, batch avg loss 1.0371, total avg loss: inf, batch size: 179
+2021-09-15 22:17:41,799 INFO [train.py:450] Epoch 1, batch 50, batch avg loss 1.0201, total avg loss: inf, batch size: 185
+2021-09-15 22:18:01,121 INFO [train.py:450] Epoch 1, batch 60, batch avg loss 1.0387, total avg loss: inf, batch size: 199
+2021-09-15 22:18:03,115 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "d6637075-208a-379f-5f51-63c8c71a69ce" will not be mixed in.
+2021-09-15 22:18:17,095 INFO [train.py:450] Epoch 1, batch 70, batch avg loss 1.0481, total avg loss: inf, batch size: 211
+2021-09-15 22:18:34,050 INFO [train.py:450] Epoch 1, batch 80, batch avg loss inf, total avg loss: inf, batch size: 192
+2021-09-15 22:18:56,035 INFO [train.py:450] Epoch 1, batch 90, batch avg loss 1.0060, total avg loss: inf, batch size: 171
+2021-09-15 22:19:14,680 INFO [train.py:450] Epoch 1, batch 100, batch avg loss 0.9916, total avg loss: inf, batch size: 193
+2021-09-15 22:19:30,379 INFO [train.py:450] Epoch 1, batch 110, batch avg loss 1.1178, total avg loss: inf, batch size: 189
+2021-09-15 22:19:44,924 INFO [train.py:450] Epoch 1, batch 120, batch avg loss 1.0820, total avg loss: inf, batch size: 203
+2021-09-15 22:19:59,508 INFO [train.py:450] Epoch 1, batch 130, batch avg loss 1.0639, total avg loss: inf, batch size: 197
+2021-09-15 22:20:16,345 INFO [train.py:450] Epoch 1, batch 140, batch avg loss 1.0797, total avg loss: inf, batch size: 188
+2021-09-15 22:20:31,073 INFO [train.py:450] Epoch 1, batch 150, batch avg loss 1.0422, total avg loss: inf, batch size: 223
+2021-09-15 22:20:47,244 INFO [train.py:450] Epoch 1, batch 160, batch avg loss 1.0224, total avg loss: inf, batch size: 175
+2021-09-15 22:21:01,857 INFO [train.py:450] Epoch 1, batch 170, batch avg loss 1.0091, total avg loss: inf, batch size: 166
+Saved current collection of modules to: "default"
+
+SGE_HGR_gpu=8
+CUDA_VISIBLE_DEVICES=8
+Wed Sep 15 22:21:38 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA Tesla V1...  On   | 00000000:1A:00.0 Off |                    0 |
+| N/A   48C    P0   230W / 200W |   6503MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA Tesla V1...  On   | 00000000:1B:00.0 Off |                    0 |
+| N/A   54C    P0   206W / 200W |  28359MiB / 32510MiB |     97%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA Tesla V1...  On   | 00000000:1C:00.0 Off |                    0 |
+| N/A   47C    P0   184W / 200W |   6517MiB / 32510MiB |     95%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA Tesla V1...  On   | 00000000:3D:00.0 Off |                    0 |
+| N/A   56C    P0   189W / 200W |  31753MiB / 32510MiB |    100%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA Tesla V1...  On   | 00000000:3E:00.0 Off |                    0 |
+| N/A   52C    P0   196W / 200W |  31753MiB / 32510MiB |     99%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA Tesla V1...  On   | 00000000:8B:00.0 Off |                    0 |
+| N/A   46C    P0   155W / 200W |   6517MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA Tesla V1...  On   | 00000000:8C:00.0 Off |                    0 |
+| N/A   49C    P0   174W / 200W |  14665MiB / 32510MiB |     91%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA Tesla V1...  On   | 00000000:B4:00.0 Off |                    0 |
+| N/A   44C    P0   154W / 200W |   2219MiB / 32510MiB |     63%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   8  NVIDIA Tesla V1...  On   | 00000000:B5:00.0 Off |                    0 |
+| N/A   29C    P0    26W / 200W |      0MiB / 32510MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   9  NVIDIA Tesla V1...  On   | 00000000:B6:00.0 Off |                    0 |
+| N/A   46C    P0   152W / 200W |   6487MiB / 32510MiB |     74%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    345763      C   python                           6499MiB |
+|    1   N/A  N/A     61690      C   python                          28353MiB |
+|    2   N/A  N/A    345764      C   python                           6513MiB |
+|    3   N/A  N/A    352376      C   python                          31749MiB |
+|    4   N/A  N/A    352376      C   python                          31749MiB |
+|    5   N/A  N/A    345956      C   python                           6513MiB |
+|    6   N/A  N/A    436987      C   python                          14661MiB |
+|    7   N/A  N/A     13064      C   python                           2215MiB |
+|    9   N/A  N/A    346159      C   python                           6483MiB |
++-----------------------------------------------------------------------------+
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528942: Running on r7n03
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528942: Started at Wed Sep 15 22:21:39 EDT 2021
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528942: Running the job on GPU(s) 8
+2021-09-15 22:21:41,488 INFO [train.py:515] Training started
+2021-09-15 22:21:41,488 INFO [train.py:516] {'exp_dir': PosixPath('tdnn_lstm_ctc/exp'), 'lang_dir': PosixPath('data/lang_phone'), 'lr': 0.001, 'feature_dim': 80, 'weight_decay': 0.0005, 'subsampling_factor': 3, 'best_train_loss': inf, 'best_valid_loss': inf, 'best_train_epoch': -1, 'best_valid_epoch': -1, 'batch_idx_train': 0, 'log_interval': 10, 'reset_interval': 200, 'valid_interval': 1000, 'beam_size': 10, 'reduction': 'sum', 'use_double_scores': True, 'world_size': 1, 'master_port': 12354, 'tensorboard': True, 'num_epochs': 20, 'start_epoch': 0, 'full_libri': True, 'feature_dir': PosixPath('data/fbank'), 'max_duration': 500.0, 'bucketing_sampler': False, 'num_buckets': 30, 'concatenate_cuts': False, 'duration_factor': 1.0, 'gap': 1.0, 'on_the_fly_feats': False, 'shuffle': True, 'return_cuts': True, 'num_workers': 2}
+2021-09-15 22:21:41,775 INFO [lexicon.py:113] Loading pre-compiled data/lang_phone/Linv.pt
+2021-09-15 22:21:46,293 INFO [asr_datamodule.py:158] About to get train cuts
+2021-09-15 22:21:46,293 INFO [asr_datamodule.py:319] About to get train cuts
+2021-09-15 22:21:50,216 INFO [asr_datamodule.py:161] About to get Musan cuts
+2021-09-15 22:21:52,344 INFO [asr_datamodule.py:164] About to create train dataset
+2021-09-15 22:21:52,345 INFO [asr_datamodule.py:226] Using SingleCutSampler.
+2021-09-15 22:21:52,369 INFO [asr_datamodule.py:232] About to create train dataloader
+2021-09-15 22:21:52,369 INFO [asr_datamodule.py:245] About to get dev cuts
+2021-09-15 22:21:52,369 INFO [asr_datamodule.py:327] About to get dev cuts
+2021-09-15 22:21:52,425 INFO [asr_datamodule.py:256] About to create dev dataset
+2021-09-15 22:21:52,425 INFO [asr_datamodule.py:275] About to create dev dataloader
+2021-09-15 22:22:07,813 INFO [train.py:450] Epoch 0, batch 0, batch avg loss 3.3627, total avg loss: 3.3627, batch size: 212
+2021-09-15 22:22:52,065 INFO [train.py:450] Epoch 0, batch 10, batch avg loss 1.8468, total avg loss: inf, batch size: 201
+2021-09-15 22:23:27,599 INFO [train.py:450] Epoch 0, batch 20, batch avg loss 1.1293, total avg loss: inf, batch size: 206
+2021-09-15 22:23:57,208 INFO [train.py:450] Epoch 0, batch 30, batch avg loss 1.1005, total avg loss: inf, batch size: 193
+2021-09-15 22:24:21,480 INFO [train.py:450] Epoch 0, batch 40, batch avg loss 1.0587, total avg loss: inf, batch size: 212
+2021-09-15 22:24:48,576 INFO [train.py:450] Epoch 0, batch 50, batch avg loss 1.1604, total avg loss: inf, batch size: 191
+2021-09-15 22:25:03,826 INFO [train.py:450] Epoch 0, batch 60, batch avg loss 1.0755, total avg loss: inf, batch size: 195
+2021-09-15 22:25:18,016 INFO [train.py:450] Epoch 0, batch 70, batch avg loss 1.0910, total avg loss: inf, batch size: 179
+2021-09-15 22:25:32,730 INFO [train.py:450] Epoch 0, batch 80, batch avg loss 1.0338, total avg loss: inf, batch size: 197
+2021-09-15 22:25:52,853 INFO [train.py:450] Epoch 0, batch 90, batch avg loss 1.1249, total avg loss: inf, batch size: 195
+2021-09-15 22:26:08,236 INFO [train.py:450] Epoch 0, batch 100, batch avg loss 1.0131, total avg loss: inf, batch size: 195
+2021-09-15 22:26:25,674 INFO [train.py:450] Epoch 0, batch 110, batch avg loss 1.0990, total avg loss: inf, batch size: 171
+2021-09-15 22:26:42,731 INFO [train.py:450] Epoch 0, batch 120, batch avg loss 1.0172, total avg loss: inf, batch size: 177
+2021-09-15 22:26:59,722 INFO [train.py:450] Epoch 0, batch 130, batch avg loss 1.0565, total avg loss: inf, batch size: 194
+2021-09-15 22:27:17,726 INFO [train.py:450] Epoch 0, batch 140, batch avg loss 1.0486, total avg loss: inf, batch size: 172
+2021-09-15 22:27:33,806 INFO [train.py:450] Epoch 0, batch 150, batch avg loss 1.0742, total avg loss: inf, batch size: 178
+2021-09-15 22:27:48,971 INFO [train.py:450] Epoch 0, batch 160, batch avg loss 1.0593, total avg loss: inf, batch size: 189
+2021-09-15 22:28:05,395 INFO [train.py:450] Epoch 0, batch 170, batch avg loss 1.0328, total avg loss: inf, batch size: 187
+2021-09-15 22:28:22,836 INFO [train.py:450] Epoch 0, batch 180, batch avg loss 1.0963, total avg loss: inf, batch size: 198
+2021-09-15 22:28:41,132 INFO [train.py:450] Epoch 0, batch 190, batch avg loss 1.0895, total avg loss: inf, batch size: 196
+2021-09-15 22:28:55,597 INFO [train.py:450] Epoch 0, batch 200, batch avg loss inf, total avg loss: inf, batch size: 218
+2021-09-15 22:29:10,103 INFO [train.py:450] Epoch 0, batch 210, batch avg loss 1.0278, total avg loss: 1.0565, batch size: 188
+2021-09-15 22:29:27,662 INFO [train.py:450] Epoch 0, batch 220, batch avg loss 1.0385, total avg loss: 1.0601, batch size: 216
+2021-09-15 22:29:44,539 INFO [train.py:450] Epoch 0, batch 230, batch avg loss 1.0658, total avg loss: 1.0587, batch size: 185
+2021-09-15 22:30:00,735 INFO [train.py:450] Epoch 0, batch 240, batch avg loss 1.0315, total avg loss: inf, batch size: 174
+2021-09-15 22:30:16,906 INFO [train.py:450] Epoch 0, batch 250, batch avg loss 1.0699, total avg loss: inf, batch size: 181
+2021-09-15 22:30:32,547 INFO [train.py:450] Epoch 0, batch 260, batch avg loss 1.0089, total avg loss: inf, batch size: 184
+2021-09-15 22:30:46,525 INFO [train.py:450] Epoch 0, batch 270, batch avg loss 1.0530, total avg loss: inf, batch size: 199
+2021-09-15 22:31:02,462 INFO [train.py:450] Epoch 0, batch 280, batch avg loss 1.0373, total avg loss: inf, batch size: 204
+2021-09-15 22:31:06,606 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "677edb05-3944-78cb-2aee-0ece12eabcbb" will not be mixed in.
+2021-09-15 22:31:19,669 INFO [train.py:450] Epoch 0, batch 290, batch avg loss 1.0156, total avg loss: inf, batch size: 186
+2021-09-15 22:31:34,939 INFO [train.py:450] Epoch 0, batch 300, batch avg loss 1.0237, total avg loss: inf, batch size: 184
+2021-09-15 22:31:51,023 INFO [train.py:450] Epoch 0, batch 310, batch avg loss 1.0146, total avg loss: inf, batch size: 199
+2021-09-15 22:32:06,956 INFO [train.py:450] Epoch 0, batch 320, batch avg loss 1.0820, total avg loss: inf, batch size: 194
+2021-09-15 22:32:13,279 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-0.pt
+2021-09-15 22:32:13,604 INFO [train.py:563] epoch 1, lr: 0.001
+2021-09-15 22:32:37,707 INFO [train.py:450] Epoch 1, batch 0, batch avg loss 1.0622, total avg loss: 1.0622, batch size: 185
+2021-09-15 22:33:42,970 INFO [train.py:450] Epoch 1, batch 10, batch avg loss 0.9980, total avg loss: inf, batch size: 216
+2021-09-15 22:34:43,958 INFO [train.py:450] Epoch 1, batch 20, batch avg loss 1.0827, total avg loss: inf, batch size: 191
+2021-09-15 22:35:17,025 INFO [train.py:450] Epoch 1, batch 30, batch avg loss 1.0752, total avg loss: inf, batch size: 170
+2021-09-15 22:35:48,345 INFO [train.py:450] Epoch 1, batch 40, batch avg loss 1.0360, total avg loss: inf, batch size: 179
+2021-09-15 22:36:10,808 INFO [train.py:450] Epoch 1, batch 50, batch avg loss 1.0224, total avg loss: inf, batch size: 185
+2021-09-15 22:36:30,112 INFO [train.py:450] Epoch 1, batch 60, batch avg loss 1.0405, total avg loss: inf, batch size: 199
+2021-09-15 22:36:32,871 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "d6637075-208a-379f-5f51-63c8c71a69ce" will not be mixed in.
+2021-09-15 22:36:45,776 INFO [train.py:450] Epoch 1, batch 70, batch avg loss 1.0495, total avg loss: inf, batch size: 211
+2021-09-15 22:37:02,139 INFO [train.py:450] Epoch 1, batch 80, batch avg loss inf, total avg loss: inf, batch size: 192
+2021-09-15 22:37:18,473 INFO [train.py:450] Epoch 1, batch 90, batch avg loss 1.0064, total avg loss: inf, batch size: 171
+2021-09-15 22:37:35,419 INFO [train.py:450] Epoch 1, batch 100, batch avg loss 0.9925, total avg loss: inf, batch size: 193
+2021-09-15 22:37:50,980 INFO [train.py:450] Epoch 1, batch 110, batch avg loss 1.1186, total avg loss: inf, batch size: 189
+2021-09-15 22:38:05,524 INFO [train.py:450] Epoch 1, batch 120, batch avg loss 1.0736, total avg loss: inf, batch size: 203
+2021-09-15 22:38:20,118 INFO [train.py:450] Epoch 1, batch 130, batch avg loss 1.0571, total avg loss: inf, batch size: 197
+2021-09-15 22:38:36,182 INFO [train.py:450] Epoch 1, batch 140, batch avg loss 1.0855, total avg loss: inf, batch size: 188
+2021-09-15 22:38:51,420 INFO [train.py:450] Epoch 1, batch 150, batch avg loss 1.0392, total avg loss: inf, batch size: 223
+2021-09-15 22:39:07,244 INFO [train.py:450] Epoch 1, batch 160, batch avg loss 1.0242, total avg loss: inf, batch size: 175
+2021-09-15 22:39:21,774 INFO [train.py:450] Epoch 1, batch 170, batch avg loss 1.0252, total avg loss: inf, batch size: 166
+2021-09-15 22:39:37,230 INFO [train.py:450] Epoch 1, batch 180, batch avg loss 1.0591, total avg loss: inf, batch size: 181
+2021-09-15 22:39:54,047 INFO [train.py:450] Epoch 1, batch 190, batch avg loss inf, total avg loss: inf, batch size: 201
+2021-09-15 22:40:11,031 INFO [train.py:450] Epoch 1, batch 200, batch avg loss 1.0273, total avg loss: inf, batch size: 202
+2021-09-15 22:40:25,192 INFO [train.py:450] Epoch 1, batch 210, batch avg loss 1.0423, total avg loss: 1.0494, batch size: 200
+2021-09-15 22:40:41,674 INFO [train.py:450] Epoch 1, batch 220, batch avg loss 1.0002, total avg loss: inf, batch size: 184
+2021-09-15 22:40:58,002 INFO [train.py:450] Epoch 1, batch 230, batch avg loss 1.0460, total avg loss: inf, batch size: 217
+2021-09-15 22:41:12,941 INFO [train.py:450] Epoch 1, batch 240, batch avg loss 0.9684, total avg loss: inf, batch size: 196
+2021-09-15 22:41:29,761 INFO [train.py:450] Epoch 1, batch 250, batch avg loss 1.0850, total avg loss: inf, batch size: 203
+2021-09-15 22:41:43,873 INFO [train.py:450] Epoch 1, batch 260, batch avg loss 1.0230, total avg loss: inf, batch size: 196
+2021-09-15 22:41:59,360 INFO [train.py:450] Epoch 1, batch 270, batch avg loss 0.9812, total avg loss: inf, batch size: 206
+2021-09-15 22:42:15,604 INFO [train.py:450] Epoch 1, batch 280, batch avg loss 0.9980, total avg loss: inf, batch size: 159
+2021-09-15 22:42:31,038 INFO [train.py:450] Epoch 1, batch 290, batch avg loss 1.0196, total avg loss: inf, batch size: 210
+2021-09-15 22:42:47,664 INFO [train.py:450] Epoch 1, batch 300, batch avg loss inf, total avg loss: inf, batch size: 186
+2021-09-15 22:43:04,527 INFO [train.py:450] Epoch 1, batch 310, batch avg loss 1.0580, total avg loss: inf, batch size: 204
+2021-09-15 22:43:21,069 INFO [train.py:450] Epoch 1, batch 320, batch avg loss 1.0492, total avg loss: inf, batch size: 195
+2021-09-15 22:43:28,310 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-1.pt
+2021-09-15 22:43:28,726 INFO [train.py:563] epoch 2, lr: 0.001
+2021-09-15 22:43:50,938 INFO [train.py:450] Epoch 2, batch 0, batch avg loss 0.9916, total avg loss: 0.9916, batch size: 199
+2021-09-15 22:44:50,978 INFO [train.py:450] Epoch 2, batch 10, batch avg loss 1.0083, total avg loss: inf, batch size: 191
+2021-09-15 22:45:41,757 INFO [train.py:450] Epoch 2, batch 20, batch avg loss 1.0247, total avg loss: inf, batch size: 199
+2021-09-15 22:46:15,406 INFO [train.py:450] Epoch 2, batch 30, batch avg loss 1.0247, total avg loss: inf, batch size: 194
+2021-09-15 22:46:49,258 INFO [train.py:450] Epoch 2, batch 40, batch avg loss 1.0048, total avg loss: inf, batch size: 168
+2021-09-15 22:47:14,939 INFO [train.py:450] Epoch 2, batch 50, batch avg loss 1.0532, total avg loss: inf, batch size: 199
+2021-09-15 22:47:37,641 INFO [train.py:450] Epoch 2, batch 60, batch avg loss 1.0450, total avg loss: inf, batch size: 222
+2021-09-15 22:47:55,639 INFO [train.py:450] Epoch 2, batch 70, batch avg loss 1.0352, total avg loss: inf, batch size: 178
+2021-09-15 22:48:12,042 INFO [train.py:450] Epoch 2, batch 80, batch avg loss 1.0164, total avg loss: inf, batch size: 195
+2021-09-15 22:48:28,414 INFO [train.py:450] Epoch 2, batch 90, batch avg loss inf, total avg loss: inf, batch size: 196
+2021-09-15 22:48:44,376 INFO [train.py:450] Epoch 2, batch 100, batch avg loss 1.0170, total avg loss: inf, batch size: 202
+2021-09-15 22:49:00,057 INFO [train.py:450] Epoch 2, batch 110, batch avg loss 1.0570, total avg loss: inf, batch size: 212
+2021-09-15 22:49:15,253 INFO [train.py:450] Epoch 2, batch 120, batch avg loss 1.0259, total avg loss: inf, batch size: 223
+2021-09-15 22:49:32,520 INFO [train.py:450] Epoch 2, batch 130, batch avg loss 0.9752, total avg loss: inf, batch size: 206
+2021-09-15 22:49:47,455 INFO [train.py:450] Epoch 2, batch 140, batch avg loss inf, total avg loss: inf, batch size: 205
+2021-09-15 22:50:04,662 INFO [train.py:450] Epoch 2, batch 150, batch avg loss 1.0132, total avg loss: inf, batch size: 190
+2021-09-15 22:50:19,889 INFO [train.py:450] Epoch 2, batch 160, batch avg loss 0.9956, total avg loss: inf, batch size: 181
+2021-09-15 22:50:34,659 INFO [train.py:450] Epoch 2, batch 170, batch avg loss 1.0087, total avg loss: inf, batch size: 214
+2021-09-15 22:50:48,272 INFO [train.py:450] Epoch 2, batch 180, batch avg loss 1.0446, total avg loss: inf, batch size: 191
+2021-09-15 22:51:05,179 INFO [train.py:450] Epoch 2, batch 190, batch avg loss 1.0086, total avg loss: inf, batch size: 164
+2021-09-15 22:51:22,941 INFO [train.py:450] Epoch 2, batch 200, batch avg loss 1.0369, total avg loss: inf, batch size: 202
+2021-09-15 22:51:39,743 INFO [train.py:450] Epoch 2, batch 210, batch avg loss inf, total avg loss: inf, batch size: 188
+2021-09-15 22:51:55,670 INFO [train.py:450] Epoch 2, batch 220, batch avg loss 1.0212, total avg loss: inf, batch size: 160
+2021-09-15 22:52:10,083 INFO [train.py:450] Epoch 2, batch 230, batch avg loss 1.0059, total avg loss: inf, batch size: 200
+2021-09-15 22:52:26,351 INFO [train.py:450] Epoch 2, batch 240, batch avg loss 1.0570, total avg loss: inf, batch size: 195
+2021-09-15 22:52:42,773 INFO [train.py:450] Epoch 2, batch 250, batch avg loss 1.0478, total avg loss: inf, batch size: 195
+2021-09-15 22:52:59,296 INFO [train.py:450] Epoch 2, batch 260, batch avg loss 1.0476, total avg loss: inf, batch size: 185
+2021-09-15 22:53:16,189 INFO [train.py:450] Epoch 2, batch 270, batch avg loss 1.0660, total avg loss: inf, batch size: 206
+2021-09-15 22:53:33,013 INFO [train.py:450] Epoch 2, batch 280, batch avg loss 1.0419, total avg loss: inf, batch size: 188
+2021-09-15 22:53:47,814 INFO [train.py:450] Epoch 2, batch 290, batch avg loss 1.0258, total avg loss: inf, batch size: 199
+2021-09-15 22:54:04,295 INFO [train.py:450] Epoch 2, batch 300, batch avg loss 1.0093, total avg loss: inf, batch size: 171
+2021-09-15 22:54:20,972 INFO [train.py:450] Epoch 2, batch 310, batch avg loss 1.0232, total avg loss: inf, batch size: 185
+2021-09-15 22:54:36,919 INFO [train.py:450] Epoch 2, batch 320, batch avg loss 0.9912, total avg loss: inf, batch size: 185
+2021-09-15 22:54:43,945 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-2.pt
+2021-09-15 22:54:44,254 INFO [train.py:563] epoch 3, lr: 0.001
+2021-09-15 22:55:06,957 INFO [train.py:450] Epoch 3, batch 0, batch avg loss 1.0134, total avg loss: 1.0134, batch size: 184
+2021-09-15 22:56:23,586 INFO [train.py:450] Epoch 3, batch 10, batch avg loss 1.0956, total avg loss: inf, batch size: 206
+2021-09-15 22:57:18,079 INFO [train.py:450] Epoch 3, batch 20, batch avg loss 0.9669, total avg loss: inf, batch size: 205
+2021-09-15 22:57:57,658 INFO [train.py:450] Epoch 3, batch 30, batch avg loss inf, total avg loss: inf, batch size: 213
+2021-09-15 22:58:28,055 INFO [train.py:450] Epoch 3, batch 40, batch avg loss 1.0017, total avg loss: inf, batch size: 192
+2021-09-15 22:59:00,821 INFO [train.py:450] Epoch 3, batch 50, batch avg loss 0.9997, total avg loss: inf, batch size: 164
+2021-09-15 22:59:27,743 INFO [train.py:450] Epoch 3, batch 60, batch avg loss 1.0448, total avg loss: inf, batch size: 200
+2021-09-15 22:59:44,894 INFO [train.py:450] Epoch 3, batch 70, batch avg loss 0.9950, total avg loss: inf, batch size: 202
+2021-09-15 23:00:02,335 INFO [train.py:450] Epoch 3, batch 80, batch avg loss 1.0569, total avg loss: inf, batch size: 222
+2021-09-15 23:00:17,897 INFO [train.py:450] Epoch 3, batch 90, batch avg loss 1.0355, total avg loss: inf, batch size: 185
+2021-09-15 23:00:34,152 INFO [train.py:450] Epoch 3, batch 100, batch avg loss 1.0487, total avg loss: inf, batch size: 187
+2021-09-15 23:00:50,018 INFO [train.py:450] Epoch 3, batch 110, batch avg loss 1.0482, total avg loss: inf, batch size: 197
+2021-09-15 23:01:05,629 INFO [train.py:450] Epoch 3, batch 120, batch avg loss 1.0122, total avg loss: inf, batch size: 213
+2021-09-15 23:01:20,353 INFO [train.py:450] Epoch 3, batch 130, batch avg loss 0.9479, total avg loss: inf, batch size: 179
+2021-09-15 23:01:35,863 INFO [train.py:450] Epoch 3, batch 140, batch avg loss 1.0055, total avg loss: inf, batch size: 210
+2021-09-15 23:01:55,026 INFO [train.py:450] Epoch 3, batch 150, batch avg loss 1.0293, total avg loss: inf, batch size: 208
+2021-09-15 23:02:12,569 INFO [train.py:450] Epoch 3, batch 160, batch avg loss 1.0441, total avg loss: inf, batch size: 190
+2021-09-15 23:02:26,922 INFO [train.py:450] Epoch 3, batch 170, batch avg loss inf, total avg loss: inf, batch size: 193
+2021-09-15 23:02:42,224 INFO [train.py:450] Epoch 3, batch 180, batch avg loss 1.1015, total avg loss: inf, batch size: 210
+2021-09-15 23:02:56,411 INFO [train.py:450] Epoch 3, batch 190, batch avg loss 1.0605, total avg loss: inf, batch size: 191
+2021-09-15 23:03:12,735 INFO [train.py:450] Epoch 3, batch 200, batch avg loss inf, total avg loss: inf, batch size: 210
+2021-09-15 23:03:28,026 INFO [train.py:450] Epoch 3, batch 210, batch avg loss 1.0650, total avg loss: 1.0092, batch size: 210
+2021-09-15 23:03:42,570 INFO [train.py:450] Epoch 3, batch 220, batch avg loss 1.0048, total avg loss: 1.0133, batch size: 177
+2021-09-15 23:03:57,126 INFO [train.py:450] Epoch 3, batch 230, batch avg loss 1.0259, total avg loss: inf, batch size: 181
+2021-09-15 23:04:13,552 INFO [train.py:450] Epoch 3, batch 240, batch avg loss 1.0110, total avg loss: inf, batch size: 185
+2021-09-15 23:04:28,822 INFO [train.py:450] Epoch 3, batch 250, batch avg loss 0.9992, total avg loss: inf, batch size: 194
+2021-09-15 23:04:43,784 INFO [train.py:450] Epoch 3, batch 260, batch avg loss 1.0117, total avg loss: inf, batch size: 202
+2021-09-15 23:05:00,695 INFO [train.py:450] Epoch 3, batch 270, batch avg loss inf, total avg loss: inf, batch size: 224
+2021-09-15 23:05:14,561 INFO [train.py:450] Epoch 3, batch 280, batch avg loss 1.0689, total avg loss: inf, batch size: 215
+2021-09-15 23:05:31,314 INFO [train.py:450] Epoch 3, batch 290, batch avg loss 0.9690, total avg loss: inf, batch size: 211
+2021-09-15 23:05:47,695 INFO [train.py:450] Epoch 3, batch 300, batch avg loss 0.9706, total avg loss: inf, batch size: 200
+2021-09-15 23:06:04,973 INFO [train.py:450] Epoch 3, batch 310, batch avg loss 1.0104, total avg loss: inf, batch size: 184
+2021-09-15 23:06:19,373 INFO [train.py:450] Epoch 3, batch 320, batch avg loss 0.9854, total avg loss: inf, batch size: 179
+2021-09-15 23:06:27,761 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-3.pt
+2021-09-15 23:06:28,124 INFO [train.py:563] epoch 4, lr: 0.001
+2021-09-15 23:06:48,530 INFO [train.py:450] Epoch 4, batch 0, batch avg loss 1.0577, total avg loss: 1.0577, batch size: 224
+2021-09-15 23:07:47,967 INFO [train.py:450] Epoch 4, batch 10, batch avg loss 1.0268, total avg loss: inf, batch size: 193
+2021-09-15 23:08:37,535 INFO [train.py:450] Epoch 4, batch 20, batch avg loss 1.0171, total avg loss: inf, batch size: 196
+2021-09-15 23:09:15,415 INFO [train.py:450] Epoch 4, batch 30, batch avg loss 1.0120, total avg loss: inf, batch size: 171
+2021-09-15 23:09:44,248 INFO [train.py:450] Epoch 4, batch 40, batch avg loss 0.9848, total avg loss: inf, batch size: 235
+2021-09-15 23:10:16,216 INFO [train.py:450] Epoch 4, batch 50, batch avg loss inf, total avg loss: inf, batch size: 191
+2021-09-15 23:10:40,665 INFO [train.py:450] Epoch 4, batch 60, batch avg loss 0.9884, total avg loss: inf, batch size: 195
+2021-09-15 23:10:59,423 INFO [train.py:450] Epoch 4, batch 70, batch avg loss 1.0394, total avg loss: inf, batch size: 196
+2021-09-15 23:11:16,480 INFO [train.py:450] Epoch 4, batch 80, batch avg loss 0.9734, total avg loss: inf, batch size: 184
+2021-09-15 23:11:33,749 INFO [train.py:450] Epoch 4, batch 90, batch avg loss 0.9628, total avg loss: inf, batch size: 200
+2021-09-15 23:11:47,933 INFO [train.py:450] Epoch 4, batch 100, batch avg loss 0.9544, total avg loss: inf, batch size: 185
+2021-09-15 23:12:03,370 INFO [train.py:450] Epoch 4, batch 110, batch avg loss 0.9794, total avg loss: inf, batch size: 187
+2021-09-15 23:12:20,834 INFO [train.py:450] Epoch 4, batch 120, batch avg loss 0.9833, total avg loss: inf, batch size: 223
+2021-09-15 23:12:36,043 INFO [train.py:450] Epoch 4, batch 130, batch avg loss 1.0082, total avg loss: inf, batch size: 188
+2021-09-15 23:12:52,587 INFO [train.py:450] Epoch 4, batch 140, batch avg loss inf, total avg loss: inf, batch size: 206
+2021-09-15 23:13:06,743 INFO [train.py:450] Epoch 4, batch 150, batch avg loss 0.9692, total avg loss: inf, batch size: 196
+2021-09-15 23:13:23,479 INFO [train.py:450] Epoch 4, batch 160, batch avg loss 0.9549, total avg loss: inf, batch size: 169
+2021-09-15 23:13:37,360 INFO [train.py:450] Epoch 4, batch 170, batch avg loss 0.9484, total avg loss: inf, batch size: 214
+2021-09-15 23:13:53,385 INFO [train.py:450] Epoch 4, batch 180, batch avg loss 0.9531, total avg loss: inf, batch size: 184
+2021-09-15 23:14:11,461 INFO [train.py:450] Epoch 4, batch 190, batch avg loss 0.9787, total avg loss: inf, batch size: 200
+2021-09-15 23:14:26,518 INFO [train.py:450] Epoch 4, batch 200, batch avg loss 0.9779, total avg loss: inf, batch size: 190
+2021-09-15 23:14:42,562 INFO [train.py:450] Epoch 4, batch 210, batch avg loss 0.9811, total avg loss: inf, batch size: 219
+2021-09-15 23:14:59,094 INFO [train.py:450] Epoch 4, batch 220, batch avg loss inf, total avg loss: inf, batch size: 203
+2021-09-15 23:15:16,343 INFO [train.py:450] Epoch 4, batch 230, batch avg loss 0.9430, total avg loss: inf, batch size: 183
+2021-09-15 23:15:31,789 INFO [train.py:450] Epoch 4, batch 240, batch avg loss 0.9581, total avg loss: inf, batch size: 187
+2021-09-15 23:15:48,544 INFO [train.py:450] Epoch 4, batch 250, batch avg loss 0.9806, total avg loss: inf, batch size: 198
+2021-09-15 23:16:03,689 INFO [train.py:450] Epoch 4, batch 260, batch avg loss 0.9644, total avg loss: inf, batch size: 179
+2021-09-15 23:16:19,930 INFO [train.py:450] Epoch 4, batch 270, batch avg loss 0.9322, total avg loss: inf, batch size: 174
+2021-09-15 23:16:36,204 INFO [train.py:450] Epoch 4, batch 280, batch avg loss 0.9540, total avg loss: inf, batch size: 209
+2021-09-15 23:16:51,491 INFO [train.py:450] Epoch 4, batch 290, batch avg loss 0.9529, total avg loss: inf, batch size: 211
+2021-09-15 23:17:07,454 INFO [train.py:450] Epoch 4, batch 300, batch avg loss 0.9436, total avg loss: inf, batch size: 185
+2021-09-15 23:17:22,376 INFO [train.py:450] Epoch 4, batch 310, batch avg loss 0.9681, total avg loss: inf, batch size: 191
+2021-09-15 23:17:39,640 INFO [train.py:450] Epoch 4, batch 320, batch avg loss 0.9601, total avg loss: inf, batch size: 221
+2021-09-15 23:17:46,343 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-4.pt
+2021-09-15 23:17:46,658 INFO [train.py:563] epoch 5, lr: 0.001
+2021-09-15 23:18:15,011 INFO [train.py:450] Epoch 5, batch 0, batch avg loss 0.9834, total avg loss: 0.9834, batch size: 196
+2021-09-15 23:19:35,496 INFO [train.py:450] Epoch 5, batch 10, batch avg loss 0.9542, total avg loss: inf, batch size: 185
+2021-09-15 23:20:32,139 INFO [train.py:450] Epoch 5, batch 20, batch avg loss 0.9056, total avg loss: inf, batch size: 169
+2021-09-15 23:21:10,051 INFO [train.py:450] Epoch 5, batch 30, batch avg loss 0.9197, total avg loss: inf, batch size: 192
+2021-09-15 23:21:38,574 INFO [train.py:450] Epoch 5, batch 40, batch avg loss 0.9411, total avg loss: inf, batch size: 177
+2021-09-15 23:22:00,459 INFO [train.py:450] Epoch 5, batch 50, batch avg loss 0.9286, total avg loss: inf, batch size: 195
+2021-09-15 23:22:18,919 INFO [train.py:450] Epoch 5, batch 60, batch avg loss 0.9370, total avg loss: inf, batch size: 220
+2021-09-15 23:22:35,163 INFO [train.py:450] Epoch 5, batch 70, batch avg loss 0.9469, total avg loss: inf, batch size: 195
+2021-09-15 23:22:50,649 INFO [train.py:450] Epoch 5, batch 80, batch avg loss 0.9620, total avg loss: inf, batch size: 178
+2021-09-15 23:23:05,200 INFO [train.py:450] Epoch 5, batch 90, batch avg loss 0.9109, total avg loss: inf, batch size: 205
+2021-09-15 23:23:21,420 INFO [train.py:450] Epoch 5, batch 100, batch avg loss 0.9342, total avg loss: inf, batch size: 169
+2021-09-15 23:23:37,674 INFO [train.py:450] Epoch 5, batch 110, batch avg loss 0.8926, total avg loss: inf, batch size: 189
+2021-09-15 23:23:54,161 INFO [train.py:450] Epoch 5, batch 120, batch avg loss 0.9316, total avg loss: inf, batch size: 187
+2021-09-15 23:24:10,456 INFO [train.py:450] Epoch 5, batch 130, batch avg loss 0.9842, total avg loss: inf, batch size: 197
+2021-09-15 23:24:24,750 INFO [train.py:450] Epoch 5, batch 140, batch avg loss 0.8956, total avg loss: inf, batch size: 214
+2021-09-15 23:24:41,433 INFO [train.py:450] Epoch 5, batch 150, batch avg loss 0.9376, total avg loss: inf, batch size: 183
+2021-09-15 23:24:57,549 INFO [train.py:450] Epoch 5, batch 160, batch avg loss 0.9363, total avg loss: inf, batch size: 191
+2021-09-15 23:25:13,437 INFO [train.py:450] Epoch 5, batch 170, batch avg loss 0.9292, total avg loss: inf, batch size: 198
+2021-09-15 23:25:30,486 INFO [train.py:450] Epoch 5, batch 180, batch avg loss 0.9305, total avg loss: inf, batch size: 202
+2021-09-15 23:25:47,362 INFO [train.py:450] Epoch 5, batch 190, batch avg loss 0.9963, total avg loss: inf, batch size: 196
+2021-09-15 23:26:05,267 INFO [train.py:450] Epoch 5, batch 200, batch avg loss 0.9380, total avg loss: inf, batch size: 178
+2021-09-15 23:26:20,775 INFO [train.py:450] Epoch 5, batch 210, batch avg loss 0.8916, total avg loss: inf, batch size: 198
+2021-09-15 23:26:35,943 INFO [train.py:450] Epoch 5, batch 220, batch avg loss 0.9238, total avg loss: inf, batch size: 194
+2021-09-15 23:26:53,024 INFO [train.py:450] Epoch 5, batch 230, batch avg loss 0.8888, total avg loss: inf, batch size: 206
+2021-09-15 23:27:11,456 INFO [train.py:450] Epoch 5, batch 240, batch avg loss 0.8941, total avg loss: inf, batch size: 198
+2021-09-15 23:27:27,252 INFO [train.py:450] Epoch 5, batch 250, batch avg loss inf, total avg loss: inf, batch size: 195
+2021-09-15 23:27:42,590 INFO [train.py:450] Epoch 5, batch 260, batch avg loss 0.9540, total avg loss: inf, batch size: 161
+2021-09-15 23:27:56,883 INFO [train.py:450] Epoch 5, batch 270, batch avg loss 0.9553, total avg loss: inf, batch size: 202
+2021-09-15 23:28:12,682 INFO [train.py:450] Epoch 5, batch 280, batch avg loss 0.8789, total avg loss: inf, batch size: 198
+2021-09-15 23:28:26,665 INFO [train.py:450] Epoch 5, batch 290, batch avg loss 0.9357, total avg loss: inf, batch size: 187
+2021-09-15 23:28:41,615 INFO [train.py:450] Epoch 5, batch 300, batch avg loss 0.9306, total avg loss: inf, batch size: 201
+2021-09-15 23:28:57,553 INFO [train.py:450] Epoch 5, batch 310, batch avg loss 0.9429, total avg loss: inf, batch size: 197
+2021-09-15 23:29:13,378 INFO [train.py:450] Epoch 5, batch 320, batch avg loss 0.9702, total avg loss: inf, batch size: 202
+2021-09-15 23:29:20,394 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-5.pt
+2021-09-15 23:29:20,703 INFO [train.py:563] epoch 6, lr: 0.001
+2021-09-15 23:29:40,522 INFO [train.py:450] Epoch 6, batch 0, batch avg loss 0.9264, total avg loss: 0.9264, batch size: 201
+2021-09-15 23:30:35,507 INFO [train.py:450] Epoch 6, batch 10, batch avg loss 0.8910, total avg loss: 0.9258, batch size: 173
+2021-09-15 23:31:17,628 INFO [train.py:450] Epoch 6, batch 20, batch avg loss 0.9197, total avg loss: 0.9199, batch size: 214
+2021-09-15 23:31:52,018 INFO [train.py:450] Epoch 6, batch 30, batch avg loss 0.9213, total avg loss: 0.9218, batch size: 215
+2021-09-15 23:32:24,248 INFO [train.py:450] Epoch 6, batch 40, batch avg loss 0.8675, total avg loss: inf, batch size: 219
+2021-09-15 23:32:46,753 INFO [train.py:450] Epoch 6, batch 50, batch avg loss 0.9307, total avg loss: inf, batch size: 200
+2021-09-15 23:33:05,212 INFO [train.py:450] Epoch 6, batch 60, batch avg loss 0.8914, total avg loss: inf, batch size: 195
+2021-09-15 23:33:22,415 INFO [train.py:450] Epoch 6, batch 70, batch avg loss 0.9279, total avg loss: inf, batch size: 216
+2021-09-15 23:33:38,751 INFO [train.py:450] Epoch 6, batch 80, batch avg loss 0.9195, total avg loss: inf, batch size: 178
+2021-09-15 23:33:55,893 INFO [train.py:450] Epoch 6, batch 90, batch avg loss 0.9654, total avg loss: inf, batch size: 196
+2021-09-15 23:34:12,673 INFO [train.py:450] Epoch 6, batch 100, batch avg loss 0.9101, total avg loss: inf, batch size: 192
+2021-09-15 23:34:28,062 INFO [train.py:450] Epoch 6, batch 110, batch avg loss 0.9245, total avg loss: inf, batch size: 186
+2021-09-15 23:34:45,721 INFO [train.py:450] Epoch 6, batch 120, batch avg loss 0.9596, total avg loss: inf, batch size: 212
+2021-09-15 23:34:59,991 INFO [train.py:450] Epoch 6, batch 130, batch avg loss 0.8790, total avg loss: inf, batch size: 169
+2021-09-15 23:35:15,402 INFO [train.py:450] Epoch 6, batch 140, batch avg loss 0.9209, total avg loss: inf, batch size: 205
+2021-09-15 23:35:31,912 INFO [train.py:450] Epoch 6, batch 150, batch avg loss 0.9218, total avg loss: inf, batch size: 185
+2021-09-15 23:35:46,855 INFO [train.py:450] Epoch 6, batch 160, batch avg loss 0.9448, total avg loss: inf, batch size: 216
+2021-09-15 23:36:04,178 INFO [train.py:450] Epoch 6, batch 170, batch avg loss 0.8735, total avg loss: inf, batch size: 219
+2021-09-15 23:36:19,088 INFO [train.py:450] Epoch 6, batch 180, batch avg loss 0.9549, total avg loss: inf, batch size: 188
+2021-09-15 23:36:35,011 INFO [train.py:450] Epoch 6, batch 190, batch avg loss 0.8752, total avg loss: inf, batch size: 198
+2021-09-15 23:36:48,894 INFO [train.py:450] Epoch 6, batch 200, batch avg loss 0.9136, total avg loss: inf, batch size: 193
+2021-09-15 23:37:05,735 INFO [train.py:450] Epoch 6, batch 210, batch avg loss 0.8870, total avg loss: inf, batch size: 190
+2021-09-15 23:37:21,143 INFO [train.py:450] Epoch 6, batch 220, batch avg loss 0.9467, total avg loss: inf, batch size: 182
+2021-09-15 23:37:37,243 INFO [train.py:450] Epoch 6, batch 230, batch avg loss 0.8829, total avg loss: inf, batch size: 189
+2021-09-15 23:37:54,116 INFO [train.py:450] Epoch 6, batch 240, batch avg loss 0.9113, total avg loss: inf, batch size: 209
+2021-09-15 23:38:10,617 INFO [train.py:450] Epoch 6, batch 250, batch avg loss 0.9335, total avg loss: inf, batch size: 196
+2021-09-15 23:38:25,321 INFO [train.py:450] Epoch 6, batch 260, batch avg loss 0.9204, total avg loss: inf, batch size: 200
+2021-09-15 23:38:39,923 INFO [train.py:450] Epoch 6, batch 270, batch avg loss 0.9205, total avg loss: inf, batch size: 185
+2021-09-15 23:38:56,982 INFO [train.py:450] Epoch 6, batch 280, batch avg loss 0.8607, total avg loss: inf, batch size: 195
+2021-09-15 23:39:14,412 INFO [train.py:450] Epoch 6, batch 290, batch avg loss 0.9193, total avg loss: inf, batch size: 209
+2021-09-15 23:39:29,517 INFO [train.py:450] Epoch 6, batch 300, batch avg loss 0.9344, total avg loss: inf, batch size: 197
+2021-09-15 23:39:42,426 INFO [train.py:450] Epoch 6, batch 310, batch avg loss inf, total avg loss: inf, batch size: 189
+2021-09-15 23:39:59,085 INFO [train.py:450] Epoch 6, batch 320, batch avg loss 0.8944, total avg loss: inf, batch size: 180
+2021-09-15 23:40:05,282 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-6.pt
+2021-09-15 23:40:05,861 INFO [train.py:563] epoch 7, lr: 0.001
+2021-09-15 23:40:25,805 INFO [train.py:450] Epoch 7, batch 0, batch avg loss inf, total avg loss: inf, batch size: 189
+2021-09-15 23:41:13,644 INFO [train.py:450] Epoch 7, batch 10, batch avg loss 0.8626, total avg loss: inf, batch size: 177
+2021-09-15 23:41:53,332 INFO [train.py:450] Epoch 7, batch 20, batch avg loss 0.9148, total avg loss: inf, batch size: 205
+2021-09-15 23:42:23,886 INFO [train.py:450] Epoch 7, batch 30, batch avg loss 0.8716, total avg loss: inf, batch size: 167
+2021-09-15 23:42:50,692 INFO [train.py:450] Epoch 7, batch 40, batch avg loss 0.9097, total avg loss: inf, batch size: 185
+2021-09-15 23:43:11,743 INFO [train.py:450] Epoch 7, batch 50, batch avg loss 0.8339, total avg loss: inf, batch size: 184
+2021-09-15 23:43:31,926 INFO [train.py:450] Epoch 7, batch 60, batch avg loss 0.8602, total avg loss: inf, batch size: 193
+2021-09-15 23:43:45,828 INFO [train.py:450] Epoch 7, batch 70, batch avg loss 0.9211, total avg loss: inf, batch size: 187
+2021-09-15 23:44:02,232 INFO [train.py:450] Epoch 7, batch 80, batch avg loss 0.9446, total avg loss: inf, batch size: 190
+2021-09-15 23:44:18,946 INFO [train.py:450] Epoch 7, batch 90, batch avg loss 0.8983, total avg loss: inf, batch size: 206
+2021-09-15 23:44:33,338 INFO [train.py:450] Epoch 7, batch 100, batch avg loss 0.9190, total avg loss: inf, batch size: 221
+2021-09-15 23:44:49,711 INFO [train.py:450] Epoch 7, batch 110, batch avg loss 0.9178, total avg loss: inf, batch size: 195
+2021-09-15 23:45:07,543 INFO [train.py:450] Epoch 7, batch 120, batch avg loss 0.9213, total avg loss: inf, batch size: 194
+2021-09-15 23:45:24,014 INFO [train.py:450] Epoch 7, batch 130, batch avg loss inf, total avg loss: inf, batch size: 197
+2021-09-15 23:45:39,321 INFO [train.py:450] Epoch 7, batch 140, batch avg loss 0.9370, total avg loss: inf, batch size: 224
+2021-09-15 23:45:55,978 INFO [train.py:450] Epoch 7, batch 150, batch avg loss 0.9128, total avg loss: inf, batch size: 209
+2021-09-15 23:46:12,652 INFO [train.py:450] Epoch 7, batch 160, batch avg loss 0.8775, total avg loss: inf, batch size: 195
+2021-09-15 23:46:26,729 INFO [train.py:450] Epoch 7, batch 170, batch avg loss 0.8774, total avg loss: inf, batch size: 208
+2021-09-15 23:46:43,515 INFO [train.py:450] Epoch 7, batch 180, batch avg loss 0.9067, total avg loss: inf, batch size: 189
+2021-09-15 23:46:59,209 INFO [train.py:450] Epoch 7, batch 190, batch avg loss 0.8886, total avg loss: inf, batch size: 187
+2021-09-15 23:47:13,157 INFO [train.py:450] Epoch 7, batch 200, batch avg loss 0.8844, total avg loss: inf, batch size: 207
+2021-09-15 23:47:25,498 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "9ec55078-820c-d626-1c5e-bc87429bd3da" will not be mixed in.
+2021-09-15 23:47:27,290 INFO [train.py:450] Epoch 7, batch 210, batch avg loss inf, total avg loss: inf, batch size: 215
+2021-09-15 23:47:44,193 INFO [train.py:450] Epoch 7, batch 220, batch avg loss inf, total avg loss: inf, batch size: 195
+2021-09-15 23:47:59,926 INFO [train.py:450] Epoch 7, batch 230, batch avg loss 0.9265, total avg loss: inf, batch size: 211
+2021-09-15 23:48:16,746 INFO [train.py:450] Epoch 7, batch 240, batch avg loss 0.8885, total avg loss: inf, batch size: 190
+2021-09-15 23:48:32,615 INFO [train.py:450] Epoch 7, batch 250, batch avg loss 0.8762, total avg loss: inf, batch size: 194
+2021-09-15 23:48:48,229 INFO [train.py:450] Epoch 7, batch 260, batch avg loss 0.9673, total avg loss: inf, batch size: 217
+2021-09-15 23:49:05,989 INFO [train.py:450] Epoch 7, batch 270, batch avg loss 0.8024, total avg loss: inf, batch size: 176
+2021-09-15 23:49:21,873 INFO [train.py:450] Epoch 7, batch 280, batch avg loss inf, total avg loss: inf, batch size: 203
+2021-09-15 23:49:36,261 INFO [train.py:450] Epoch 7, batch 290, batch avg loss 0.8851, total avg loss: inf, batch size: 185
+2021-09-15 23:49:52,297 INFO [train.py:450] Epoch 7, batch 300, batch avg loss 0.9152, total avg loss: inf, batch size: 190
+2021-09-15 23:50:06,891 INFO [train.py:450] Epoch 7, batch 310, batch avg loss 0.9128, total avg loss: inf, batch size: 205
+2021-09-15 23:50:21,328 INFO [train.py:450] Epoch 7, batch 320, batch avg loss 0.8687, total avg loss: inf, batch size: 193
+2021-09-15 23:50:28,746 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-7.pt
+2021-09-15 23:50:29,070 INFO [train.py:563] epoch 8, lr: 0.0001
+2021-09-15 23:50:42,381 INFO [train.py:450] Epoch 8, batch 0, batch avg loss 0.9049, total avg loss: 0.9049, batch size: 194
+2021-09-15 23:51:22,752 INFO [train.py:450] Epoch 8, batch 10, batch avg loss 0.8947, total avg loss: inf, batch size: 195
+2021-09-15 23:52:01,104 INFO [train.py:450] Epoch 8, batch 20, batch avg loss 0.8119, total avg loss: inf, batch size: 201
+2021-09-15 23:52:25,687 INFO [train.py:450] Epoch 8, batch 30, batch avg loss 0.8617, total avg loss: inf, batch size: 166
+2021-09-15 23:52:47,600 INFO [train.py:450] Epoch 8, batch 40, batch avg loss 0.8452, total avg loss: inf, batch size: 201
+2021-09-15 23:53:15,177 INFO [train.py:450] Epoch 8, batch 50, batch avg loss 0.9036, total avg loss: inf, batch size: 202
+2021-09-15 23:53:35,375 INFO [train.py:450] Epoch 8, batch 60, batch avg loss 0.8681, total avg loss: inf, batch size: 190
+2021-09-15 23:53:51,250 INFO [train.py:450] Epoch 8, batch 70, batch avg loss 0.8636, total avg loss: inf, batch size: 189
+2021-09-15 23:54:05,304 INFO [train.py:450] Epoch 8, batch 80, batch avg loss 0.8258, total avg loss: inf, batch size: 173
+2021-09-15 23:54:20,227 INFO [train.py:450] Epoch 8, batch 90, batch avg loss 0.8730, total avg loss: inf, batch size: 193
+2021-09-15 23:54:37,192 INFO [train.py:450] Epoch 8, batch 100, batch avg loss 0.9240, total avg loss: inf, batch size: 219
+2021-09-15 23:54:52,895 INFO [train.py:450] Epoch 8, batch 110, batch avg loss 0.9108, total avg loss: inf, batch size: 204
+2021-09-15 23:55:07,580 INFO [train.py:450] Epoch 8, batch 120, batch avg loss 0.8717, total avg loss: inf, batch size: 187
+2021-09-15 23:55:24,155 INFO [train.py:450] Epoch 8, batch 130, batch avg loss inf, total avg loss: inf, batch size: 176
+2021-09-15 23:55:39,161 INFO [train.py:450] Epoch 8, batch 140, batch avg loss 0.8731, total avg loss: inf, batch size: 207
+2021-09-15 23:55:54,969 INFO [train.py:450] Epoch 8, batch 150, batch avg loss 0.8531, total avg loss: inf, batch size: 206
+2021-09-15 23:56:11,402 INFO [train.py:450] Epoch 8, batch 160, batch avg loss 0.9136, total avg loss: inf, batch size: 188
+2021-09-15 23:56:28,359 INFO [train.py:450] Epoch 8, batch 170, batch avg loss 0.9100, total avg loss: inf, batch size: 210
+2021-09-15 23:56:45,024 INFO [train.py:450] Epoch 8, batch 180, batch avg loss 0.8654, total avg loss: inf, batch size: 229
+2021-09-15 23:56:59,069 INFO [train.py:450] Epoch 8, batch 190, batch avg loss 0.8864, total avg loss: inf, batch size: 214
+2021-09-15 23:57:13,566 INFO [train.py:450] Epoch 8, batch 200, batch avg loss 0.8777, total avg loss: inf, batch size: 192
+2021-09-15 23:57:28,235 INFO [train.py:450] Epoch 8, batch 210, batch avg loss 0.8929, total avg loss: inf, batch size: 221
+2021-09-15 23:57:43,303 INFO [train.py:450] Epoch 8, batch 220, batch avg loss 0.9068, total avg loss: inf, batch size: 204
+2021-09-15 23:57:59,710 INFO [train.py:450] Epoch 8, batch 230, batch avg loss 0.8973, total avg loss: inf, batch size: 223
+2021-09-15 23:58:15,669 INFO [train.py:450] Epoch 8, batch 240, batch avg loss 0.8801, total avg loss: inf, batch size: 192
+2021-09-15 23:58:31,650 INFO [train.py:450] Epoch 8, batch 250, batch avg loss 0.8375, total avg loss: inf, batch size: 179
+2021-09-15 23:58:48,044 INFO [train.py:450] Epoch 8, batch 260, batch avg loss 0.8674, total avg loss: inf, batch size: 193
+2021-09-15 23:59:03,685 INFO [train.py:450] Epoch 8, batch 270, batch avg loss 0.9039, total avg loss: inf, batch size: 181
+2021-09-15 23:59:21,028 INFO [train.py:450] Epoch 8, batch 280, batch avg loss 0.8694, total avg loss: inf, batch size: 207
+2021-09-15 23:59:35,466 INFO [train.py:450] Epoch 8, batch 290, batch avg loss 0.8597, total avg loss: inf, batch size: 176
+2021-09-15 23:59:51,469 INFO [train.py:450] Epoch 8, batch 300, batch avg loss 0.9136, total avg loss: inf, batch size: 207
+2021-09-16 00:00:05,470 INFO [train.py:450] Epoch 8, batch 310, batch avg loss 0.8955, total avg loss: inf, batch size: 179
+2021-09-16 00:00:21,662 INFO [train.py:450] Epoch 8, batch 320, batch avg loss 0.9020, total avg loss: inf, batch size: 198
+2021-09-16 00:00:28,721 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-8.pt
+2021-09-16 00:00:29,046 INFO [train.py:563] epoch 9, lr: 0.0001
+2021-09-16 00:00:45,295 INFO [train.py:450] Epoch 9, batch 0, batch avg loss 0.9010, total avg loss: 0.9010, batch size: 190
+2021-09-16 00:01:23,017 INFO [train.py:450] Epoch 9, batch 10, batch avg loss 0.9033, total avg loss: inf, batch size: 203
+2021-09-16 00:01:53,827 INFO [train.py:450] Epoch 9, batch 20, batch avg loss 0.8589, total avg loss: inf, batch size: 221
+2021-09-16 00:02:23,094 INFO [train.py:450] Epoch 9, batch 30, batch avg loss 0.7838, total avg loss: inf, batch size: 179
+2021-09-16 00:02:43,954 INFO [train.py:450] Epoch 9, batch 40, batch avg loss 0.8322, total avg loss: inf, batch size: 167
+2021-09-16 00:03:03,119 INFO [train.py:450] Epoch 9, batch 50, batch avg loss 0.9024, total avg loss: inf, batch size: 195
+2021-09-16 00:03:21,266 INFO [train.py:450] Epoch 9, batch 60, batch avg loss 0.8947, total avg loss: inf, batch size: 198
+2021-09-16 00:03:36,594 INFO [train.py:450] Epoch 9, batch 70, batch avg loss 0.8682, total avg loss: inf, batch size: 207
+2021-09-16 00:03:53,623 INFO [train.py:450] Epoch 9, batch 80, batch avg loss 0.8910, total avg loss: inf, batch size: 214
+2021-09-16 00:04:08,064 INFO [train.py:450] Epoch 9, batch 90, batch avg loss inf, total avg loss: inf, batch size: 215
+2021-09-16 00:04:23,308 INFO [train.py:450] Epoch 9, batch 100, batch avg loss 0.8770, total avg loss: inf, batch size: 188
+2021-09-16 00:04:39,783 INFO [train.py:450] Epoch 9, batch 110, batch avg loss 0.8898, total avg loss: inf, batch size: 201
+2021-09-16 00:04:57,330 INFO [train.py:450] Epoch 9, batch 120, batch avg loss 0.8649, total avg loss: inf, batch size: 202
+2021-09-16 00:05:11,319 INFO [train.py:450] Epoch 9, batch 130, batch avg loss inf, total avg loss: inf, batch size: 190
+2021-09-16 00:05:28,633 INFO [train.py:450] Epoch 9, batch 140, batch avg loss 0.8481, total avg loss: inf, batch size: 207
+2021-09-16 00:05:42,678 INFO [train.py:450] Epoch 9, batch 150, batch avg loss 0.8870, total avg loss: inf, batch size: 187
+2021-09-16 00:06:00,022 INFO [train.py:450] Epoch 9, batch 160, batch avg loss 0.8607, total avg loss: inf, batch size: 193
+2021-09-16 00:06:16,598 INFO [train.py:450] Epoch 9, batch 170, batch avg loss inf, total avg loss: inf, batch size: 201
+2021-09-16 00:06:31,784 INFO [train.py:450] Epoch 9, batch 180, batch avg loss 0.8811, total avg loss: inf, batch size: 225
+2021-09-16 00:06:47,524 INFO [train.py:450] Epoch 9, batch 190, batch avg loss 0.8652, total avg loss: inf, batch size: 178
+2021-09-16 00:07:04,923 INFO [train.py:450] Epoch 9, batch 200, batch avg loss 0.8484, total avg loss: inf, batch size: 203
+2021-09-16 00:07:21,280 INFO [train.py:450] Epoch 9, batch 210, batch avg loss 0.8444, total avg loss: 0.8562, batch size: 183
+2021-09-16 00:07:35,634 INFO [train.py:450] Epoch 9, batch 220, batch avg loss 0.8990, total avg loss: inf, batch size: 233
+2021-09-16 00:07:49,628 INFO [train.py:450] Epoch 9, batch 230, batch avg loss 0.8803, total avg loss: inf, batch size: 197
+2021-09-16 00:08:03,531 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "22b47b23-8a67-6d7c-2120-ec5c5fd25e06" will not be mixed in.
+2021-09-16 00:08:05,309 INFO [train.py:450] Epoch 9, batch 240, batch avg loss 0.8483, total avg loss: inf, batch size: 194
+2021-09-16 00:08:20,505 INFO [train.py:450] Epoch 9, batch 250, batch avg loss 0.8601, total avg loss: inf, batch size: 175
+2021-09-16 00:08:37,159 INFO [train.py:450] Epoch 9, batch 260, batch avg loss 0.8867, total avg loss: inf, batch size: 200
+2021-09-16 00:08:53,019 INFO [train.py:450] Epoch 9, batch 270, batch avg loss 0.8644, total avg loss: inf, batch size: 201
+2021-09-16 00:09:07,610 INFO [train.py:450] Epoch 9, batch 280, batch avg loss 0.8646, total avg loss: inf, batch size: 202
+2021-09-16 00:09:21,736 INFO [train.py:450] Epoch 9, batch 290, batch avg loss 0.8616, total avg loss: inf, batch size: 189
+2021-09-16 00:09:36,072 INFO [train.py:450] Epoch 9, batch 300, batch avg loss 0.8739, total avg loss: inf, batch size: 188
+2021-09-16 00:09:53,515 INFO [train.py:450] Epoch 9, batch 310, batch avg loss 0.9096, total avg loss: inf, batch size: 219
+2021-09-16 00:10:08,696 INFO [train.py:450] Epoch 9, batch 320, batch avg loss 0.8939, total avg loss: inf, batch size: 187
+2021-09-16 00:10:15,295 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-9.pt
+2021-09-16 00:10:15,616 INFO [train.py:563] epoch 10, lr: 0.0001
+2021-09-16 00:10:27,190 INFO [train.py:450] Epoch 10, batch 0, batch avg loss 0.8357, total avg loss: 0.8357, batch size: 184
+2021-09-16 00:11:01,155 INFO [train.py:450] Epoch 10, batch 10, batch avg loss 0.8157, total avg loss: 0.8674, batch size: 176
+2021-09-16 00:11:29,425 INFO [train.py:450] Epoch 10, batch 20, batch avg loss 0.9038, total avg loss: 0.8642, batch size: 210
+2021-09-16 00:11:56,117 INFO [train.py:450] Epoch 10, batch 30, batch avg loss 0.8331, total avg loss: 0.8634, batch size: 191
+2021-09-16 00:12:17,738 INFO [train.py:450] Epoch 10, batch 40, batch avg loss 0.8669, total avg loss: 0.8593, batch size: 198
+2021-09-16 00:12:41,043 INFO [train.py:450] Epoch 10, batch 50, batch avg loss 0.8385, total avg loss: inf, batch size: 197
+2021-09-16 00:12:57,768 INFO [train.py:450] Epoch 10, batch 60, batch avg loss 0.8893, total avg loss: inf, batch size: 222
+2021-09-16 00:13:14,970 INFO [train.py:450] Epoch 10, batch 70, batch avg loss inf, total avg loss: inf, batch size: 215
+2021-09-16 00:13:29,508 INFO [train.py:450] Epoch 10, batch 80, batch avg loss 0.8844, total avg loss: inf, batch size: 178
+2021-09-16 00:13:47,343 INFO [train.py:450] Epoch 10, batch 90, batch avg loss 0.8870, total avg loss: inf, batch size: 214
+2021-09-16 00:14:02,857 INFO [train.py:450] Epoch 10, batch 100, batch avg loss 0.8723, total avg loss: inf, batch size: 180
+2021-09-16 00:14:17,821 INFO [train.py:450] Epoch 10, batch 110, batch avg loss 0.8578, total avg loss: inf, batch size: 217
+2021-09-16 00:14:34,114 INFO [train.py:450] Epoch 10, batch 120, batch avg loss 0.8575, total avg loss: inf, batch size: 187
+2021-09-16 00:14:49,936 INFO [train.py:450] Epoch 10, batch 130, batch avg loss 0.8851, total avg loss: inf, batch size: 201
+2021-09-16 00:15:05,382 INFO [train.py:450] Epoch 10, batch 140, batch avg loss inf, total avg loss: inf, batch size: 197
+2021-09-16 00:15:19,071 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "91c84011-5ba2-6db0-5825-41368cb03dea" will not be mixed in.
+2021-09-16 00:15:21,303 INFO [train.py:450] Epoch 10, batch 150, batch avg loss 0.8388, total avg loss: inf, batch size: 164
+2021-09-16 00:15:37,001 INFO [train.py:450] Epoch 10, batch 160, batch avg loss inf, total avg loss: inf, batch size: 200
+2021-09-16 00:15:51,875 INFO [train.py:450] Epoch 10, batch 170, batch avg loss inf, total avg loss: inf, batch size: 215
+2021-09-16 00:16:05,613 INFO [train.py:450] Epoch 10, batch 180, batch avg loss 0.8466, total avg loss: inf, batch size: 181
+2021-09-16 00:16:21,349 INFO [train.py:450] Epoch 10, batch 190, batch avg loss 0.9217, total avg loss: inf, batch size: 206
+2021-09-16 00:16:40,043 INFO [train.py:450] Epoch 10, batch 200, batch avg loss 0.8442, total avg loss: inf, batch size: 180
+2021-09-16 00:16:58,218 INFO [train.py:450] Epoch 10, batch 210, batch avg loss inf, total avg loss: inf, batch size: 235
+2021-09-16 00:17:13,963 INFO [train.py:450] Epoch 10, batch 220, batch avg loss 0.8297, total avg loss: inf, batch size: 171
+2021-09-16 00:17:30,011 INFO [train.py:450] Epoch 10, batch 230, batch avg loss inf, total avg loss: inf, batch size: 193
+2021-09-16 00:17:43,897 INFO [train.py:450] Epoch 10, batch 240, batch avg loss 0.8739, total avg loss: inf, batch size: 197
+2021-09-16 00:17:59,984 INFO [train.py:450] Epoch 10, batch 250, batch avg loss 0.8947, total avg loss: inf, batch size: 201
+2021-09-16 00:18:14,789 INFO [train.py:450] Epoch 10, batch 260, batch avg loss 0.8889, total avg loss: inf, batch size: 215
+2021-09-16 00:18:29,755 INFO [train.py:450] Epoch 10, batch 270, batch avg loss 0.8848, total avg loss: inf, batch size: 211
+2021-09-16 00:18:44,514 INFO [train.py:450] Epoch 10, batch 280, batch avg loss 0.9014, total avg loss: inf, batch size: 189
+2021-09-16 00:18:58,595 INFO [train.py:450] Epoch 10, batch 290, batch avg loss 0.8571, total avg loss: inf, batch size: 202
+2021-09-16 00:19:14,779 INFO [train.py:450] Epoch 10, batch 300, batch avg loss 0.8583, total avg loss: inf, batch size: 217
+2021-09-16 00:19:31,722 INFO [train.py:450] Epoch 10, batch 310, batch avg loss 0.9277, total avg loss: inf, batch size: 203
+2021-09-16 00:19:47,605 INFO [train.py:450] Epoch 10, batch 320, batch avg loss 0.8401, total avg loss: inf, batch size: 217
+2021-09-16 00:19:55,056 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-10.pt
+2021-09-16 00:19:57,315 INFO [train.py:563] epoch 11, lr: 0.0001
+2021-09-16 00:20:10,841 INFO [train.py:450] Epoch 11, batch 0, batch avg loss inf, total avg loss: inf, batch size: 177
+2021-09-16 00:20:57,067 INFO [train.py:450] Epoch 11, batch 10, batch avg loss 0.8443, total avg loss: inf, batch size: 191
+2021-09-16 00:21:26,984 INFO [train.py:450] Epoch 11, batch 20, batch avg loss 0.8745, total avg loss: inf, batch size: 220
+2021-09-16 00:21:53,777 INFO [train.py:450] Epoch 11, batch 30, batch avg loss 0.8947, total avg loss: inf, batch size: 202
+2021-09-16 00:22:19,808 INFO [train.py:450] Epoch 11, batch 40, batch avg loss 0.9078, total avg loss: inf, batch size: 202
+2021-09-16 00:22:37,196 INFO [train.py:450] Epoch 11, batch 50, batch avg loss 0.8240, total avg loss: inf, batch size: 165
+2021-09-16 00:22:52,490 INFO [train.py:450] Epoch 11, batch 60, batch avg loss 0.8910, total avg loss: inf, batch size: 179
+2021-09-16 00:23:09,643 INFO [train.py:450] Epoch 11, batch 70, batch avg loss 0.8373, total avg loss: inf, batch size: 225
+2021-09-16 00:23:26,317 INFO [train.py:450] Epoch 11, batch 80, batch avg loss 0.8471, total avg loss: inf, batch size: 183
+2021-09-16 00:23:41,746 INFO [train.py:450] Epoch 11, batch 90, batch avg loss 0.8456, total avg loss: inf, batch size: 178
+2021-09-16 00:23:58,888 INFO [train.py:450] Epoch 11, batch 100, batch avg loss 0.8758, total avg loss: inf, batch size: 213
+2021-09-16 00:24:13,344 INFO [train.py:450] Epoch 11, batch 110, batch avg loss inf, total avg loss: inf, batch size: 175
+2021-09-16 00:24:28,910 INFO [train.py:450] Epoch 11, batch 120, batch avg loss 0.8652, total avg loss: inf, batch size: 209
+2021-09-16 00:24:43,399 INFO [train.py:450] Epoch 11, batch 130, batch avg loss 0.9241, total avg loss: inf, batch size: 199
+2021-09-16 00:24:58,906 INFO [train.py:450] Epoch 11, batch 140, batch avg loss 0.8336, total avg loss: inf, batch size: 191
+2021-09-16 00:25:15,728 INFO [train.py:450] Epoch 11, batch 150, batch avg loss inf, total avg loss: inf, batch size: 190
+2021-09-16 00:25:32,744 INFO [train.py:450] Epoch 11, batch 160, batch avg loss 0.8653, total avg loss: inf, batch size: 193
+2021-09-16 00:25:49,976 INFO [train.py:450] Epoch 11, batch 170, batch avg loss 0.8582, total avg loss: inf, batch size: 206
+2021-09-16 00:25:50,419 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "f594994d-05d9-8b0c-8080-66ac23217de7" will not be mixed in.
+2021-09-16 00:26:06,852 INFO [train.py:450] Epoch 11, batch 180, batch avg loss 0.8638, total avg loss: inf, batch size: 212
+2021-09-16 00:26:23,196 INFO [train.py:450] Epoch 11, batch 190, batch avg loss 0.8126, total avg loss: inf, batch size: 205
+2021-09-16 00:26:39,162 INFO [train.py:450] Epoch 11, batch 200, batch avg loss 0.8007, total avg loss: inf, batch size: 168
+2021-09-16 00:26:54,370 INFO [train.py:450] Epoch 11, batch 210, batch avg loss 0.8721, total avg loss: 0.8670, batch size: 216
+2021-09-16 00:27:10,641 INFO [train.py:450] Epoch 11, batch 220, batch avg loss 0.8501, total avg loss: 0.8631, batch size: 191
+2021-09-16 00:27:25,742 INFO [train.py:450] Epoch 11, batch 230, batch avg loss 0.8362, total avg loss: 0.8607, batch size: 206
+2021-09-16 00:27:41,512 INFO [train.py:450] Epoch 11, batch 240, batch avg loss 0.8634, total avg loss: 0.8648, batch size: 217
+2021-09-16 00:27:58,911 INFO [train.py:450] Epoch 11, batch 250, batch avg loss 0.8066, total avg loss: inf, batch size: 203
+2021-09-16 00:28:14,401 INFO [train.py:450] Epoch 11, batch 260, batch avg loss inf, total avg loss: inf, batch size: 207
+2021-09-16 00:28:28,331 INFO [train.py:450] Epoch 11, batch 270, batch avg loss 0.8722, total avg loss: inf, batch size: 216
+2021-09-16 00:28:42,876 INFO [train.py:450] Epoch 11, batch 280, batch avg loss inf, total avg loss: inf, batch size: 205
+2021-09-16 00:28:58,335 INFO [train.py:450] Epoch 11, batch 290, batch avg loss 0.8933, total avg loss: inf, batch size: 233
+2021-09-16 00:29:12,738 INFO [train.py:450] Epoch 11, batch 300, batch avg loss 0.8314, total avg loss: inf, batch size: 177
+2021-09-16 00:29:28,603 INFO [train.py:450] Epoch 11, batch 310, batch avg loss inf, total avg loss: inf, batch size: 191
+2021-09-16 00:29:45,281 INFO [train.py:450] Epoch 11, batch 320, batch avg loss 0.9066, total avg loss: inf, batch size: 220
+2021-09-16 00:29:51,178 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-11.pt
+2021-09-16 00:29:51,539 INFO [train.py:563] epoch 12, lr: 0.0001
+2021-09-16 00:30:03,519 INFO [train.py:450] Epoch 12, batch 0, batch avg loss 0.8726, total avg loss: 0.8726, batch size: 181
+2021-09-16 00:30:34,985 INFO [train.py:450] Epoch 12, batch 10, batch avg loss 0.8331, total avg loss: 0.8579, batch size: 185
+2021-09-16 00:30:54,766 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "0ac33b9c-37e6-daaf-6917-5c82c4c34aeb" will not be mixed in.
+2021-09-16 00:30:58,855 INFO [train.py:450] Epoch 12, batch 20, batch avg loss 0.8367, total avg loss: inf, batch size: 207
+2021-09-16 00:31:17,730 INFO [train.py:450] Epoch 12, batch 30, batch avg loss 0.7919, total avg loss: inf, batch size: 204
+2021-09-16 00:31:36,905 INFO [train.py:450] Epoch 12, batch 40, batch avg loss 0.8257, total avg loss: inf, batch size: 181
+2021-09-16 00:31:53,863 INFO [train.py:450] Epoch 12, batch 50, batch avg loss 0.8969, total avg loss: inf, batch size: 199
+2021-09-16 00:32:08,778 INFO [train.py:450] Epoch 12, batch 60, batch avg loss 0.8461, total avg loss: inf, batch size: 183
+2021-09-16 00:32:24,013 INFO [train.py:450] Epoch 12, batch 70, batch avg loss 0.8932, total avg loss: inf, batch size: 213
+2021-09-16 00:32:39,680 INFO [train.py:450] Epoch 12, batch 80, batch avg loss 0.8282, total avg loss: inf, batch size: 190
+2021-09-16 00:32:55,197 INFO [train.py:450] Epoch 12, batch 90, batch avg loss 0.7878, total avg loss: inf, batch size: 184
+2021-09-16 00:33:10,158 INFO [train.py:450] Epoch 12, batch 100, batch avg loss 0.8954, total avg loss: inf, batch size: 206
+2021-09-16 00:33:23,686 INFO [train.py:450] Epoch 12, batch 110, batch avg loss 0.8926, total avg loss: inf, batch size: 186
+2021-09-16 00:33:42,006 INFO [train.py:450] Epoch 12, batch 120, batch avg loss 0.8725, total avg loss: inf, batch size: 184
+2021-09-16 00:33:57,043 INFO [train.py:450] Epoch 12, batch 130, batch avg loss 0.8433, total avg loss: inf, batch size: 188
+2021-09-16 00:34:15,431 INFO [train.py:450] Epoch 12, batch 140, batch avg loss 0.8898, total avg loss: inf, batch size: 184
+2021-09-16 00:34:30,863 INFO [train.py:450] Epoch 12, batch 150, batch avg loss 0.8496, total avg loss: inf, batch size: 209
+2021-09-16 00:34:46,641 INFO [train.py:450] Epoch 12, batch 160, batch avg loss 0.8463, total avg loss: inf, batch size: 158
+2021-09-16 00:35:03,277 INFO [train.py:450] Epoch 12, batch 170, batch avg loss 0.8142, total avg loss: inf, batch size: 181
+2021-09-16 00:35:19,839 INFO [train.py:450] Epoch 12, batch 180, batch avg loss 0.8392, total avg loss: inf, batch size: 186
+2021-09-16 00:35:35,256 INFO [train.py:450] Epoch 12, batch 190, batch avg loss 0.8506, total avg loss: inf, batch size: 177
+2021-09-16 00:35:53,261 INFO [train.py:450] Epoch 12, batch 200, batch avg loss 0.8536, total avg loss: inf, batch size: 204
+2021-09-16 00:36:09,308 INFO [train.py:450] Epoch 12, batch 210, batch avg loss 0.8668, total avg loss: inf, batch size: 198
+2021-09-16 00:36:25,914 INFO [train.py:450] Epoch 12, batch 220, batch avg loss 0.8050, total avg loss: inf, batch size: 169
+2021-09-16 00:36:40,145 INFO [train.py:450] Epoch 12, batch 230, batch avg loss 0.8589, total avg loss: inf, batch size: 173
+2021-09-16 00:36:57,041 INFO [train.py:450] Epoch 12, batch 240, batch avg loss 0.8647, total avg loss: inf, batch size: 199
+2021-09-16 00:37:11,863 INFO [train.py:450] Epoch 12, batch 250, batch avg loss 0.8445, total avg loss: inf, batch size: 180
+2021-09-16 00:37:27,452 INFO [train.py:450] Epoch 12, batch 260, batch avg loss inf, total avg loss: inf, batch size: 226
+2021-09-16 00:37:28,357 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "79b96d99-7351-4b61-8dc8-8cc5fabfa6ae" will not be mixed in.
+2021-09-16 00:37:45,227 INFO [train.py:450] Epoch 12, batch 270, batch avg loss 0.8500, total avg loss: inf, batch size: 217
+2021-09-16 00:38:01,871 INFO [train.py:450] Epoch 12, batch 280, batch avg loss 0.8660, total avg loss: inf, batch size: 212
+2021-09-16 00:38:17,753 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "34839349-3331-0b4c-0c4a-b251b1947131" will not be mixed in.
+2021-09-16 00:38:19,676 INFO [train.py:450] Epoch 12, batch 290, batch avg loss 0.8452, total avg loss: inf, batch size: 209
+2021-09-16 00:38:37,966 INFO [train.py:450] Epoch 12, batch 300, batch avg loss 0.8579, total avg loss: inf, batch size: 192
+2021-09-16 00:38:52,276 INFO [train.py:450] Epoch 12, batch 310, batch avg loss 0.8902, total avg loss: inf, batch size: 226
+2021-09-16 00:39:06,564 INFO [train.py:450] Epoch 12, batch 320, batch avg loss 0.8019, total avg loss: inf, batch size: 183
+2021-09-16 00:39:13,649 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-12.pt
+2021-09-16 00:39:13,988 INFO [train.py:563] epoch 13, lr: 0.0001
+2021-09-16 00:39:36,319 INFO [train.py:450] Epoch 13, batch 0, batch avg loss 0.8573, total avg loss: 0.8573, batch size: 191
+2021-09-16 00:40:32,336 INFO [train.py:450] Epoch 13, batch 10, batch avg loss 0.8508, total avg loss: inf, batch size: 197
+2021-09-16 00:41:26,625 INFO [train.py:450] Epoch 13, batch 20, batch avg loss 0.8343, total avg loss: inf, batch size: 191
+2021-09-16 00:42:06,857 INFO [train.py:450] Epoch 13, batch 30, batch avg loss 0.8803, total avg loss: inf, batch size: 198
+2021-09-16 00:42:35,489 INFO [train.py:450] Epoch 13, batch 40, batch avg loss 0.8413, total avg loss: inf, batch size: 194
+2021-09-16 00:42:59,818 INFO [train.py:450] Epoch 13, batch 50, batch avg loss 0.8831, total avg loss: inf, batch size: 203
+2021-09-16 00:43:16,390 INFO [train.py:450] Epoch 13, batch 60, batch avg loss 0.8578, total avg loss: inf, batch size: 209
+2021-09-16 00:43:31,869 INFO [train.py:450] Epoch 13, batch 70, batch avg loss 0.8434, total avg loss: inf, batch size: 220
+2021-09-16 00:43:46,182 INFO [train.py:450] Epoch 13, batch 80, batch avg loss inf, total avg loss: inf, batch size: 213
+2021-09-16 00:44:02,847 INFO [train.py:450] Epoch 13, batch 90, batch avg loss 0.8352, total avg loss: inf, batch size: 203
+2021-09-16 00:44:18,657 INFO [train.py:450] Epoch 13, batch 100, batch avg loss 0.8261, total avg loss: inf, batch size: 213
+2021-09-16 00:44:33,145 INFO [train.py:450] Epoch 13, batch 110, batch avg loss 0.8635, total avg loss: inf, batch size: 211
+2021-09-16 00:44:49,140 INFO [train.py:450] Epoch 13, batch 120, batch avg loss inf, total avg loss: inf, batch size: 172
+2021-09-16 00:45:04,534 INFO [train.py:450] Epoch 13, batch 130, batch avg loss 0.8823, total avg loss: inf, batch size: 203
+2021-09-16 00:45:20,877 INFO [train.py:450] Epoch 13, batch 140, batch avg loss 0.8962, total avg loss: inf, batch size: 190
+2021-09-16 00:45:35,449 INFO [train.py:450] Epoch 13, batch 150, batch avg loss 0.8451, total avg loss: inf, batch size: 212
+2021-09-16 00:45:51,507 INFO [train.py:450] Epoch 13, batch 160, batch avg loss 0.8071, total avg loss: inf, batch size: 193
+2021-09-16 00:46:08,713 INFO [train.py:450] Epoch 13, batch 170, batch avg loss 0.7808, total avg loss: inf, batch size: 153
+2021-09-16 00:46:23,457 INFO [train.py:450] Epoch 13, batch 180, batch avg loss 0.8450, total avg loss: inf, batch size: 193
+2021-09-16 00:46:40,386 INFO [train.py:450] Epoch 13, batch 190, batch avg loss 0.8517, total avg loss: inf, batch size: 181
+2021-09-16 00:46:56,179 INFO [train.py:450] Epoch 13, batch 200, batch avg loss 0.8627, total avg loss: inf, batch size: 185
+2021-09-16 00:47:12,694 INFO [train.py:450] Epoch 13, batch 210, batch avg loss 0.8569, total avg loss: inf, batch size: 206
+2021-09-16 00:47:26,848 INFO [train.py:450] Epoch 13, batch 220, batch avg loss 0.8550, total avg loss: inf, batch size: 180
+2021-09-16 00:47:43,183 INFO [train.py:450] Epoch 13, batch 230, batch avg loss 0.8574, total avg loss: inf, batch size: 214
+2021-09-16 00:47:58,223 INFO [train.py:450] Epoch 13, batch 240, batch avg loss 0.8388, total avg loss: inf, batch size: 186
+2021-09-16 00:48:16,189 INFO [train.py:450] Epoch 13, batch 250, batch avg loss 0.8917, total avg loss: inf, batch size: 176
+2021-09-16 00:48:32,344 INFO [train.py:450] Epoch 13, batch 260, batch avg loss 0.8657, total avg loss: inf, batch size: 201
+2021-09-16 00:48:49,628 INFO [train.py:450] Epoch 13, batch 270, batch avg loss 0.8074, total avg loss: inf, batch size: 178
+2021-09-16 00:49:03,632 INFO [train.py:450] Epoch 13, batch 280, batch avg loss 0.8212, total avg loss: inf, batch size: 180
+2021-09-16 00:49:18,760 INFO [train.py:450] Epoch 13, batch 290, batch avg loss 0.8286, total avg loss: inf, batch size: 170
+2021-09-16 00:49:35,083 INFO [train.py:450] Epoch 13, batch 300, batch avg loss 0.8210, total avg loss: inf, batch size: 199
+2021-09-16 00:49:50,492 INFO [train.py:450] Epoch 13, batch 310, batch avg loss 0.8262, total avg loss: inf, batch size: 216
+2021-09-16 00:50:05,996 INFO [train.py:450] Epoch 13, batch 320, batch avg loss 0.8337, total avg loss: inf, batch size: 195
+2021-09-16 00:50:11,979 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-13.pt
+2021-09-16 00:50:12,323 INFO [train.py:563] epoch 14, lr: 0.0001
+2021-09-16 00:50:23,077 INFO [train.py:450] Epoch 14, batch 0, batch avg loss 0.7892, total avg loss: 0.7892, batch size: 168
+2021-09-16 00:50:50,449 INFO [train.py:450] Epoch 14, batch 10, batch avg loss 0.8464, total avg loss: 0.8338, batch size: 201
+2021-09-16 00:51:10,457 INFO [train.py:450] Epoch 14, batch 20, batch avg loss 0.8621, total avg loss: 0.8371, batch size: 208
+2021-09-16 00:51:30,781 INFO [train.py:450] Epoch 14, batch 30, batch avg loss 0.7960, total avg loss: 0.8399, batch size: 179
+2021-09-16 00:51:45,656 INFO [train.py:450] Epoch 14, batch 40, batch avg loss 0.8419, total avg loss: inf, batch size: 192
+2021-09-16 00:52:05,372 INFO [train.py:450] Epoch 14, batch 50, batch avg loss 0.8906, total avg loss: inf, batch size: 184
+2021-09-16 00:52:21,522 INFO [train.py:450] Epoch 14, batch 60, batch avg loss 0.8954, total avg loss: inf, batch size: 191
+2021-09-16 00:52:37,360 INFO [train.py:450] Epoch 14, batch 70, batch avg loss 0.8280, total avg loss: inf, batch size: 175
+2021-09-16 00:52:52,602 INFO [train.py:450] Epoch 14, batch 80, batch avg loss 0.8391, total avg loss: inf, batch size: 200
+2021-09-16 00:53:07,953 INFO [train.py:450] Epoch 14, batch 90, batch avg loss 0.8520, total avg loss: inf, batch size: 197
+2021-09-16 00:53:25,120 INFO [train.py:450] Epoch 14, batch 100, batch avg loss 0.7762, total avg loss: inf, batch size: 183
+2021-09-16 00:53:39,672 INFO [train.py:450] Epoch 14, batch 110, batch avg loss 0.8836, total avg loss: inf, batch size: 183
+2021-09-16 00:53:55,571 INFO [train.py:450] Epoch 14, batch 120, batch avg loss 0.7997, total avg loss: inf, batch size: 191
+2021-09-16 00:54:12,419 INFO [train.py:450] Epoch 14, batch 130, batch avg loss 0.8567, total avg loss: inf, batch size: 193
+2021-09-16 00:54:28,919 INFO [train.py:450] Epoch 14, batch 140, batch avg loss 0.8515, total avg loss: inf, batch size: 199
+2021-09-16 00:54:44,329 INFO [train.py:450] Epoch 14, batch 150, batch avg loss 0.8746, total avg loss: inf, batch size: 179
+2021-09-16 00:55:01,272 INFO [train.py:450] Epoch 14, batch 160, batch avg loss 0.8135, total avg loss: inf, batch size: 212
+2021-09-16 00:55:19,251 INFO [train.py:450] Epoch 14, batch 170, batch avg loss inf, total avg loss: inf, batch size: 204
+2021-09-16 00:55:33,418 INFO [train.py:450] Epoch 14, batch 180, batch avg loss 0.8725, total avg loss: inf, batch size: 200
+2021-09-16 00:55:50,311 INFO [train.py:450] Epoch 14, batch 190, batch avg loss 0.8648, total avg loss: inf, batch size: 172
+2021-09-16 00:56:04,333 INFO [train.py:450] Epoch 14, batch 200, batch avg loss 0.8347, total avg loss: inf, batch size: 194
+2021-09-16 00:56:19,629 INFO [train.py:450] Epoch 14, batch 210, batch avg loss 0.8727, total avg loss: inf, batch size: 215
+2021-09-16 00:56:34,879 INFO [train.py:450] Epoch 14, batch 220, batch avg loss 0.8470, total avg loss: inf, batch size: 202
+2021-09-16 00:56:53,998 INFO [train.py:450] Epoch 14, batch 230, batch avg loss 0.8541, total avg loss: inf, batch size: 207
+2021-09-16 00:57:11,013 INFO [train.py:450] Epoch 14, batch 240, batch avg loss 0.8425, total avg loss: inf, batch size: 198
+2021-09-16 00:57:25,416 INFO [train.py:450] Epoch 14, batch 250, batch avg loss 0.8171, total avg loss: inf, batch size: 174
+2021-09-16 00:57:40,763 INFO [train.py:450] Epoch 14, batch 260, batch avg loss 0.8013, total avg loss: inf, batch size: 214
+2021-09-16 00:57:54,019 INFO [train.py:450] Epoch 14, batch 270, batch avg loss 0.8570, total avg loss: inf, batch size: 198
+2021-09-16 00:58:11,472 INFO [train.py:450] Epoch 14, batch 280, batch avg loss 0.8087, total avg loss: inf, batch size: 216
+2021-09-16 00:58:27,216 INFO [train.py:450] Epoch 14, batch 290, batch avg loss 0.8770, total avg loss: inf, batch size: 172
+2021-09-16 00:58:43,445 INFO [train.py:450] Epoch 14, batch 300, batch avg loss 0.8803, total avg loss: inf, batch size: 217
+2021-09-16 00:58:59,560 INFO [train.py:450] Epoch 14, batch 310, batch avg loss 0.8894, total avg loss: inf, batch size: 192
+2021-09-16 00:59:15,697 INFO [train.py:450] Epoch 14, batch 320, batch avg loss 0.8155, total avg loss: inf, batch size: 193
+2021-09-16 00:59:22,299 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-14.pt
+2021-09-16 00:59:22,614 INFO [train.py:563] epoch 15, lr: 0.0001
+2021-09-16 00:59:28,108 INFO [train.py:450] Epoch 15, batch 0, batch avg loss 0.8300, total avg loss: 0.8300, batch size: 198
+2021-09-16 00:59:42,814 INFO [train.py:450] Epoch 15, batch 10, batch avg loss 0.8776, total avg loss: 0.8395, batch size: 203
+2021-09-16 01:00:01,038 INFO [train.py:450] Epoch 15, batch 20, batch avg loss 0.9157, total avg loss: inf, batch size: 203
+2021-09-16 01:00:17,975 INFO [train.py:450] Epoch 15, batch 30, batch avg loss 0.8123, total avg loss: inf, batch size: 206
+2021-09-16 01:00:33,141 INFO [train.py:450] Epoch 15, batch 40, batch avg loss 0.8122, total avg loss: inf, batch size: 197
+2021-09-16 01:00:47,026 INFO [train.py:450] Epoch 15, batch 50, batch avg loss 0.8571, total avg loss: inf, batch size: 187
+2021-09-16 01:01:02,328 INFO [train.py:450] Epoch 15, batch 60, batch avg loss 0.8528, total avg loss: inf, batch size: 191
+2021-09-16 01:01:17,387 INFO [train.py:450] Epoch 15, batch 70, batch avg loss 0.9058, total avg loss: inf, batch size: 190
+2021-09-16 01:01:32,702 INFO [train.py:450] Epoch 15, batch 80, batch avg loss inf, total avg loss: inf, batch size: 209
+2021-09-16 01:01:50,457 INFO [train.py:450] Epoch 15, batch 90, batch avg loss 0.7815, total avg loss: inf, batch size: 180
+2021-09-16 01:02:05,803 INFO [train.py:450] Epoch 15, batch 100, batch avg loss 0.8464, total avg loss: inf, batch size: 201
+2021-09-16 01:02:23,470 INFO [train.py:450] Epoch 15, batch 110, batch avg loss 0.8245, total avg loss: inf, batch size: 161
+2021-09-16 01:02:40,042 INFO [train.py:450] Epoch 15, batch 120, batch avg loss 0.8704, total avg loss: inf, batch size: 219
+2021-09-16 01:02:53,819 INFO [train.py:450] Epoch 15, batch 130, batch avg loss 0.8626, total avg loss: inf, batch size: 197
+2021-09-16 01:03:08,997 INFO [train.py:450] Epoch 15, batch 140, batch avg loss 0.7596, total avg loss: inf, batch size: 157
+2021-09-16 01:03:24,552 INFO [train.py:450] Epoch 15, batch 150, batch avg loss 0.8856, total avg loss: inf, batch size: 205
+2021-09-16 01:03:40,479 INFO [train.py:450] Epoch 15, batch 160, batch avg loss 0.8229, total avg loss: inf, batch size: 183
+2021-09-16 01:03:56,124 INFO [train.py:450] Epoch 15, batch 170, batch avg loss 0.9208, total avg loss: inf, batch size: 192
+2021-09-16 01:04:11,457 INFO [train.py:450] Epoch 15, batch 180, batch avg loss 0.8080, total avg loss: inf, batch size: 180
+2021-09-16 01:04:26,545 INFO [train.py:450] Epoch 15, batch 190, batch avg loss 0.8220, total avg loss: inf, batch size: 187
+2021-09-16 01:04:43,502 INFO [train.py:450] Epoch 15, batch 200, batch avg loss 0.8823, total avg loss: inf, batch size: 218
+2021-09-16 01:04:58,929 INFO [train.py:450] Epoch 15, batch 210, batch avg loss 0.8835, total avg loss: inf, batch size: 185
+2021-09-16 01:05:13,384 INFO [train.py:450] Epoch 15, batch 220, batch avg loss 0.8438, total avg loss: inf, batch size: 170
+2021-09-16 01:05:28,592 INFO [train.py:450] Epoch 15, batch 230, batch avg loss 0.8981, total avg loss: inf, batch size: 197
+2021-09-16 01:05:45,578 INFO [train.py:450] Epoch 15, batch 240, batch avg loss 0.8892, total avg loss: inf, batch size: 218
+2021-09-16 01:06:03,208 INFO [train.py:450] Epoch 15, batch 250, batch avg loss 0.8265, total avg loss: inf, batch size: 222
+2021-09-16 01:06:19,260 INFO [train.py:450] Epoch 15, batch 260, batch avg loss 0.8358, total avg loss: inf, batch size: 191
+2021-09-16 01:06:34,702 INFO [train.py:450] Epoch 15, batch 270, batch avg loss 0.8719, total avg loss: inf, batch size: 220
+2021-09-16 01:06:51,332 INFO [train.py:450] Epoch 15, batch 280, batch avg loss 0.8598, total avg loss: inf, batch size: 223
+2021-09-16 01:07:06,552 INFO [train.py:450] Epoch 15, batch 290, batch avg loss 0.8771, total avg loss: inf, batch size: 211
+2021-09-16 01:07:19,964 INFO [train.py:450] Epoch 15, batch 300, batch avg loss 0.8536, total avg loss: inf, batch size: 218
+2021-09-16 01:07:36,214 INFO [train.py:450] Epoch 15, batch 310, batch avg loss inf, total avg loss: inf, batch size: 201
+2021-09-16 01:07:52,116 INFO [train.py:450] Epoch 15, batch 320, batch avg loss 0.7938, total avg loss: inf, batch size: 180
+2021-09-16 01:07:59,739 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-15.pt
+2021-09-16 01:08:00,076 INFO [train.py:563] epoch 16, lr: 1e-05
+2021-09-16 01:08:05,474 INFO [train.py:450] Epoch 16, batch 0, batch avg loss inf, total avg loss: inf, batch size: 190
+2021-09-16 01:08:21,950 INFO [train.py:450] Epoch 16, batch 10, batch avg loss 0.8433, total avg loss: inf, batch size: 214
+2021-09-16 01:08:37,855 INFO [train.py:450] Epoch 16, batch 20, batch avg loss 0.8346, total avg loss: inf, batch size: 207
+2021-09-16 01:08:52,045 INFO [train.py:450] Epoch 16, batch 30, batch avg loss 0.7593, total avg loss: inf, batch size: 191
+2021-09-16 01:09:09,740 INFO [train.py:450] Epoch 16, batch 40, batch avg loss 0.7964, total avg loss: inf, batch size: 196
+2021-09-16 01:09:24,047 WARNING [cut.py:1694] To perform mix, energy must be non-zero and non-negative (got 0.0).  MonoCut with id "2a160b46-f70d-ab15-ec80-0cbb5d364d8e" will not be mixed in.
+2021-09-16 01:09:27,857 INFO [train.py:450] Epoch 16, batch 50, batch avg loss 0.7802, total avg loss: inf, batch size: 177
+2021-09-16 01:09:43,557 INFO [train.py:450] Epoch 16, batch 60, batch avg loss 0.8256, total avg loss: inf, batch size: 196
+2021-09-16 01:09:59,494 INFO [train.py:450] Epoch 16, batch 70, batch avg loss 0.8398, total avg loss: inf, batch size: 187
+2021-09-16 01:10:12,811 INFO [train.py:450] Epoch 16, batch 80, batch avg loss 0.8772, total avg loss: inf, batch size: 187
+2021-09-16 01:10:26,670 INFO [train.py:450] Epoch 16, batch 90, batch avg loss 0.8407, total avg loss: inf, batch size: 187
+2021-09-16 01:10:42,376 INFO [train.py:450] Epoch 16, batch 100, batch avg loss 0.8314, total avg loss: inf, batch size: 210
+2021-09-16 01:10:59,384 INFO [train.py:450] Epoch 16, batch 110, batch avg loss 0.8557, total avg loss: inf, batch size: 191
+2021-09-16 01:11:15,212 INFO [train.py:450] Epoch 16, batch 120, batch avg loss 0.8387, total avg loss: inf, batch size: 202
+2021-09-16 01:11:32,598 INFO [train.py:450] Epoch 16, batch 130, batch avg loss 0.8354, total avg loss: inf, batch size: 163
+2021-09-16 01:11:48,363 INFO [train.py:450] Epoch 16, batch 140, batch avg loss 0.8455, total avg loss: inf, batch size: 187
+2021-09-16 01:12:04,373 INFO [train.py:450] Epoch 16, batch 150, batch avg loss 0.8316, total avg loss: inf, batch size: 174
+2021-09-16 01:12:20,924 INFO [train.py:450] Epoch 16, batch 160, batch avg loss 0.8608, total avg loss: inf, batch size: 211
+2021-09-16 01:12:35,906 INFO [train.py:450] Epoch 16, batch 170, batch avg loss 0.8179, total avg loss: inf, batch size: 182
+2021-09-16 01:12:49,682 INFO [train.py:450] Epoch 16, batch 180, batch avg loss inf, total avg loss: inf, batch size: 198
+2021-09-16 01:13:05,754 INFO [train.py:450] Epoch 16, batch 190, batch avg loss 0.8305, total avg loss: inf, batch size: 189
+2021-09-16 01:13:21,608 INFO [train.py:450] Epoch 16, batch 200, batch avg loss 0.8245, total avg loss: inf, batch size: 208
+2021-09-16 01:13:37,064 INFO [train.py:450] Epoch 16, batch 210, batch avg loss 0.8356, total avg loss: 0.8340, batch size: 182
+2021-09-16 01:13:52,361 INFO [train.py:450] Epoch 16, batch 220, batch avg loss 0.8673, total avg loss: inf, batch size: 202
+2021-09-16 01:14:06,722 INFO [train.py:450] Epoch 16, batch 230, batch avg loss 0.8287, total avg loss: inf, batch size: 196
+2021-09-16 01:14:22,794 INFO [train.py:450] Epoch 16, batch 240, batch avg loss 0.8196, total avg loss: inf, batch size: 191
+2021-09-16 01:14:38,300 INFO [train.py:450] Epoch 16, batch 250, batch avg loss inf, total avg loss: inf, batch size: 203
+2021-09-16 01:14:53,942 INFO [train.py:450] Epoch 16, batch 260, batch avg loss inf, total avg loss: inf, batch size: 221
+2021-09-16 01:15:08,688 INFO [train.py:450] Epoch 16, batch 270, batch avg loss 0.8508, total avg loss: inf, batch size: 200
+2021-09-16 01:15:22,840 INFO [train.py:450] Epoch 16, batch 280, batch avg loss 0.8075, total avg loss: inf, batch size: 197
+2021-09-16 01:15:38,971 INFO [train.py:450] Epoch 16, batch 290, batch avg loss 0.8434, total avg loss: inf, batch size: 194
+2021-09-16 01:15:53,109 INFO [train.py:450] Epoch 16, batch 300, batch avg loss 0.7959, total avg loss: inf, batch size: 178
+2021-09-16 01:16:08,452 INFO [train.py:450] Epoch 16, batch 310, batch avg loss 0.8618, total avg loss: inf, batch size: 223
+2021-09-16 01:16:24,408 INFO [train.py:450] Epoch 16, batch 320, batch avg loss 0.8766, total avg loss: inf, batch size: 193
+2021-09-16 01:16:30,667 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-16.pt
+2021-09-16 01:16:30,998 INFO [train.py:563] epoch 17, lr: 1e-05
+2021-09-16 01:16:36,284 INFO [train.py:450] Epoch 17, batch 0, batch avg loss 0.8385, total avg loss: 0.8385, batch size: 188
+2021-09-16 01:16:52,619 INFO [train.py:450] Epoch 17, batch 10, batch avg loss inf, total avg loss: inf, batch size: 198
+2021-09-16 01:17:09,718 INFO [train.py:450] Epoch 17, batch 20, batch avg loss 0.8699, total avg loss: inf, batch size: 185
+2021-09-16 01:17:25,613 INFO [train.py:450] Epoch 17, batch 30, batch avg loss 0.8410, total avg loss: inf, batch size: 178
+2021-09-16 01:17:42,503 INFO [train.py:450] Epoch 17, batch 40, batch avg loss 0.8609, total avg loss: inf, batch size: 182
+2021-09-16 01:17:57,873 INFO [train.py:450] Epoch 17, batch 50, batch avg loss 0.8168, total avg loss: inf, batch size: 188
+2021-09-16 01:18:14,163 INFO [train.py:450] Epoch 17, batch 60, batch avg loss 0.8450, total avg loss: inf, batch size: 187
+2021-09-16 01:18:30,648 INFO [train.py:450] Epoch 17, batch 70, batch avg loss inf, total avg loss: inf, batch size: 198
+2021-09-16 01:18:45,808 INFO [train.py:450] Epoch 17, batch 80, batch avg loss 0.7974, total avg loss: inf, batch size: 177
+2021-09-16 01:19:01,363 INFO [train.py:450] Epoch 17, batch 90, batch avg loss 0.8418, total avg loss: inf, batch size: 196
+2021-09-16 01:19:17,103 INFO [train.py:450] Epoch 17, batch 100, batch avg loss 0.8305, total avg loss: inf, batch size: 196
+2021-09-16 01:19:33,117 INFO [train.py:450] Epoch 17, batch 110, batch avg loss 0.8399, total avg loss: inf, batch size: 196
+2021-09-16 01:19:48,638 INFO [train.py:450] Epoch 17, batch 120, batch avg loss 0.8424, total avg loss: inf, batch size: 176
+2021-09-16 01:20:06,904 INFO [train.py:450] Epoch 17, batch 130, batch avg loss 0.8287, total avg loss: inf, batch size: 183
+2021-09-16 01:20:21,213 INFO [train.py:450] Epoch 17, batch 140, batch avg loss 0.8701, total avg loss: inf, batch size: 183
+2021-09-16 01:20:37,940 INFO [train.py:450] Epoch 17, batch 150, batch avg loss 0.8288, total avg loss: inf, batch size: 177
+2021-09-16 01:20:53,493 INFO [train.py:450] Epoch 17, batch 160, batch avg loss 0.8717, total avg loss: inf, batch size: 204
+2021-09-16 01:21:07,876 INFO [train.py:450] Epoch 17, batch 170, batch avg loss 0.8323, total avg loss: inf, batch size: 205
+2021-09-16 01:21:23,723 INFO [train.py:450] Epoch 17, batch 180, batch avg loss 0.8889, total avg loss: inf, batch size: 191
+2021-09-16 01:21:37,571 INFO [train.py:450] Epoch 17, batch 190, batch avg loss 0.8260, total avg loss: inf, batch size: 197
+2021-09-16 01:21:57,966 INFO [train.py:450] Epoch 17, batch 200, batch avg loss 0.8244, total avg loss: inf, batch size: 217
+2021-09-16 01:22:13,758 INFO [train.py:450] Epoch 17, batch 210, batch avg loss 0.7892, total avg loss: 0.8207, batch size: 169
+2021-09-16 01:22:29,957 INFO [train.py:450] Epoch 17, batch 220, batch avg loss 0.8382, total avg loss: 0.8310, batch size: 182
+2021-09-16 01:22:44,928 INFO [train.py:450] Epoch 17, batch 230, batch avg loss 0.8378, total avg loss: 0.8359, batch size: 162
+2021-09-16 01:22:59,878 INFO [train.py:450] Epoch 17, batch 240, batch avg loss inf, total avg loss: inf, batch size: 168
+2021-09-16 01:23:17,161 INFO [train.py:450] Epoch 17, batch 250, batch avg loss 0.8571, total avg loss: inf, batch size: 221
+2021-09-16 01:23:33,057 INFO [train.py:450] Epoch 17, batch 260, batch avg loss 0.7869, total avg loss: inf, batch size: 208
+2021-09-16 01:23:48,405 INFO [train.py:450] Epoch 17, batch 270, batch avg loss 0.8536, total avg loss: inf, batch size: 215
+2021-09-16 01:24:04,373 INFO [train.py:450] Epoch 17, batch 280, batch avg loss 0.8385, total avg loss: inf, batch size: 186
+2021-09-16 01:24:18,511 INFO [train.py:450] Epoch 17, batch 290, batch avg loss 0.8348, total avg loss: inf, batch size: 205
+2021-09-16 01:24:36,047 INFO [train.py:450] Epoch 17, batch 300, batch avg loss 0.9112, total avg loss: inf, batch size: 182
+2021-09-16 01:24:53,233 INFO [train.py:450] Epoch 17, batch 310, batch avg loss 0.8118, total avg loss: inf, batch size: 198
+2021-09-16 01:25:09,151 INFO [train.py:450] Epoch 17, batch 320, batch avg loss 0.7873, total avg loss: inf, batch size: 187
+2021-09-16 01:25:15,979 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-17.pt
+2021-09-16 01:25:16,285 INFO [train.py:563] epoch 18, lr: 1e-05
+2021-09-16 01:25:23,028 INFO [train.py:450] Epoch 18, batch 0, batch avg loss 0.8109, total avg loss: 0.8109, batch size: 192
+2021-09-16 01:25:40,335 INFO [train.py:450] Epoch 18, batch 10, batch avg loss 0.8424, total avg loss: inf, batch size: 215
+2021-09-16 01:25:55,268 INFO [train.py:450] Epoch 18, batch 20, batch avg loss 0.8444, total avg loss: inf, batch size: 163
+2021-09-16 01:26:10,134 INFO [train.py:450] Epoch 18, batch 30, batch avg loss 0.8637, total avg loss: inf, batch size: 207
+2021-09-16 01:26:24,855 INFO [train.py:450] Epoch 18, batch 40, batch avg loss 0.8086, total avg loss: inf, batch size: 194
+2021-09-16 01:26:41,578 INFO [train.py:450] Epoch 18, batch 50, batch avg loss 0.8292, total avg loss: inf, batch size: 202
+2021-09-16 01:26:56,503 INFO [train.py:450] Epoch 18, batch 60, batch avg loss 0.8440, total avg loss: inf, batch size: 222
+2021-09-16 01:27:12,299 INFO [train.py:450] Epoch 18, batch 70, batch avg loss 0.8169, total avg loss: inf, batch size: 196
+2021-09-16 01:27:25,874 INFO [train.py:450] Epoch 18, batch 80, batch avg loss 0.8177, total avg loss: inf, batch size: 191
+2021-09-16 01:27:41,950 INFO [train.py:450] Epoch 18, batch 90, batch avg loss inf, total avg loss: inf, batch size: 200
+2021-09-16 01:27:58,083 INFO [train.py:450] Epoch 18, batch 100, batch avg loss 0.8100, total avg loss: inf, batch size: 187
+2021-09-16 01:28:13,070 INFO [train.py:450] Epoch 18, batch 110, batch avg loss 0.7763, total avg loss: inf, batch size: 194
+2021-09-16 01:28:27,862 INFO [train.py:450] Epoch 18, batch 120, batch avg loss 0.8455, total avg loss: inf, batch size: 218
+2021-09-16 01:28:43,849 INFO [train.py:450] Epoch 18, batch 130, batch avg loss 0.8085, total avg loss: inf, batch size: 201
+2021-09-16 01:29:00,546 INFO [train.py:450] Epoch 18, batch 140, batch avg loss 0.8194, total avg loss: inf, batch size: 193
+2021-09-16 01:29:15,758 INFO [train.py:450] Epoch 18, batch 150, batch avg loss inf, total avg loss: inf, batch size: 216
+2021-09-16 01:29:31,927 INFO [train.py:450] Epoch 18, batch 160, batch avg loss 0.8284, total avg loss: inf, batch size: 173
+2021-09-16 01:29:48,198 INFO [train.py:450] Epoch 18, batch 170, batch avg loss 0.8799, total avg loss: inf, batch size: 184
+2021-09-16 01:30:04,383 INFO [train.py:450] Epoch 18, batch 180, batch avg loss 0.8463, total avg loss: inf, batch size: 208
+2021-09-16 01:30:22,052 INFO [train.py:450] Epoch 18, batch 190, batch avg loss 0.8574, total avg loss: inf, batch size: 201
+2021-09-16 01:30:37,255 INFO [train.py:450] Epoch 18, batch 200, batch avg loss 0.8632, total avg loss: inf, batch size: 204
+2021-09-16 01:30:51,535 INFO [train.py:450] Epoch 18, batch 210, batch avg loss 0.8669, total avg loss: 0.8423, batch size: 187
+2021-09-16 01:31:06,153 INFO [train.py:450] Epoch 18, batch 220, batch avg loss 0.8357, total avg loss: inf, batch size: 196
+2021-09-16 01:31:21,553 INFO [train.py:450] Epoch 18, batch 230, batch avg loss 0.8384, total avg loss: inf, batch size: 204
+2021-09-16 01:31:39,933 INFO [train.py:450] Epoch 18, batch 240, batch avg loss 0.8387, total avg loss: inf, batch size: 181
+2021-09-16 01:31:56,049 INFO [train.py:450] Epoch 18, batch 250, batch avg loss 0.8522, total avg loss: inf, batch size: 211
+2021-09-16 01:32:11,884 INFO [train.py:450] Epoch 18, batch 260, batch avg loss 0.8439, total avg loss: inf, batch size: 214
+2021-09-16 01:32:30,480 INFO [train.py:450] Epoch 18, batch 270, batch avg loss inf, total avg loss: inf, batch size: 217
+2021-09-16 01:32:45,307 INFO [train.py:450] Epoch 18, batch 280, batch avg loss 0.8349, total avg loss: inf, batch size: 203
+2021-09-16 01:33:00,044 INFO [train.py:450] Epoch 18, batch 290, batch avg loss 0.8739, total avg loss: inf, batch size: 184
+2021-09-16 01:33:15,717 INFO [train.py:450] Epoch 18, batch 300, batch avg loss 0.7985, total avg loss: inf, batch size: 212
+2021-09-16 01:33:32,596 INFO [train.py:450] Epoch 18, batch 310, batch avg loss 0.8709, total avg loss: inf, batch size: 194
+2021-09-16 01:33:48,754 INFO [train.py:450] Epoch 18, batch 320, batch avg loss 0.8305, total avg loss: inf, batch size: 186
+2021-09-16 01:33:56,047 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-18.pt
+2021-09-16 01:33:56,398 INFO [train.py:563] epoch 19, lr: 1e-05
+2021-09-16 01:34:01,380 INFO [train.py:450] Epoch 19, batch 0, batch avg loss 0.8609, total avg loss: 0.8609, batch size: 205
+2021-09-16 01:34:17,016 INFO [train.py:450] Epoch 19, batch 10, batch avg loss 0.8265, total avg loss: 0.8384, batch size: 173
+2021-09-16 01:34:34,170 INFO [train.py:450] Epoch 19, batch 20, batch avg loss 0.9144, total avg loss: 0.8417, batch size: 209
+2021-09-16 01:34:52,000 INFO [train.py:450] Epoch 19, batch 30, batch avg loss 0.8751, total avg loss: 0.8443, batch size: 202
+2021-09-16 01:35:06,801 INFO [train.py:450] Epoch 19, batch 40, batch avg loss 0.8027, total avg loss: 0.8406, batch size: 194
+2021-09-16 01:35:22,667 INFO [train.py:450] Epoch 19, batch 50, batch avg loss 0.8058, total avg loss: 0.8416, batch size: 183
+2021-09-16 01:35:37,949 INFO [train.py:450] Epoch 19, batch 60, batch avg loss 0.7356, total avg loss: 0.8391, batch size: 169
+2021-09-16 01:35:53,276 INFO [train.py:450] Epoch 19, batch 70, batch avg loss 0.8226, total avg loss: inf, batch size: 194
+2021-09-16 01:36:10,681 INFO [train.py:450] Epoch 19, batch 80, batch avg loss 0.8347, total avg loss: inf, batch size: 185
+2021-09-16 01:36:27,743 INFO [train.py:450] Epoch 19, batch 90, batch avg loss 0.7995, total avg loss: inf, batch size: 195
+2021-09-16 01:36:45,324 INFO [train.py:450] Epoch 19, batch 100, batch avg loss 0.7789, total avg loss: inf, batch size: 197
+2021-09-16 01:37:01,702 INFO [train.py:450] Epoch 19, batch 110, batch avg loss inf, total avg loss: inf, batch size: 168
+2021-09-16 01:37:15,310 INFO [train.py:450] Epoch 19, batch 120, batch avg loss 0.8222, total avg loss: inf, batch size: 204
+2021-09-16 01:37:31,237 INFO [train.py:450] Epoch 19, batch 130, batch avg loss inf, total avg loss: inf, batch size: 213
+2021-09-16 01:37:47,624 INFO [train.py:450] Epoch 19, batch 140, batch avg loss 0.7929, total avg loss: inf, batch size: 178
+2021-09-16 01:38:03,326 INFO [train.py:450] Epoch 19, batch 150, batch avg loss 0.8241, total avg loss: inf, batch size: 188
+2021-09-16 01:38:19,611 INFO [train.py:450] Epoch 19, batch 160, batch avg loss 0.8268, total avg loss: inf, batch size: 176
+2021-09-16 01:38:35,377 INFO [train.py:450] Epoch 19, batch 170, batch avg loss 0.8727, total avg loss: inf, batch size: 191
+2021-09-16 01:38:52,809 INFO [train.py:450] Epoch 19, batch 180, batch avg loss 0.8675, total avg loss: inf, batch size: 208
+2021-09-16 01:39:09,770 INFO [train.py:450] Epoch 19, batch 190, batch avg loss 0.8213, total avg loss: inf, batch size: 216
+2021-09-16 01:39:24,726 INFO [train.py:450] Epoch 19, batch 200, batch avg loss 0.8520, total avg loss: inf, batch size: 194
+2021-09-16 01:39:40,372 INFO [train.py:450] Epoch 19, batch 210, batch avg loss 0.8592, total avg loss: 0.8473, batch size: 216
+2021-09-16 01:39:56,110 INFO [train.py:450] Epoch 19, batch 220, batch avg loss 0.7811, total avg loss: inf, batch size: 201
+2021-09-16 01:40:11,591 INFO [train.py:450] Epoch 19, batch 230, batch avg loss 0.8487, total avg loss: inf, batch size: 210
+2021-09-16 01:40:28,907 INFO [train.py:450] Epoch 19, batch 240, batch avg loss 0.8643, total avg loss: inf, batch size: 204
+2021-09-16 01:40:44,267 INFO [train.py:450] Epoch 19, batch 250, batch avg loss inf, total avg loss: inf, batch size: 196
+2021-09-16 01:40:59,308 INFO [train.py:450] Epoch 19, batch 260, batch avg loss 0.8504, total avg loss: inf, batch size: 202
+2021-09-16 01:41:13,997 INFO [train.py:450] Epoch 19, batch 270, batch avg loss 0.8734, total avg loss: inf, batch size: 185
+2021-09-16 01:41:29,630 INFO [train.py:450] Epoch 19, batch 280, batch avg loss 0.8673, total avg loss: inf, batch size: 218
+2021-09-16 01:41:47,594 INFO [train.py:450] Epoch 19, batch 290, batch avg loss 0.8286, total avg loss: inf, batch size: 194
+2021-09-16 01:42:01,217 INFO [train.py:450] Epoch 19, batch 300, batch avg loss 0.8212, total avg loss: inf, batch size: 191
+2021-09-16 01:42:16,501 INFO [train.py:450] Epoch 19, batch 310, batch avg loss 0.8882, total avg loss: inf, batch size: 195
+2021-09-16 01:42:31,785 INFO [train.py:450] Epoch 19, batch 320, batch avg loss 0.8360, total avg loss: inf, batch size: 197
+2021-09-16 01:42:38,575 INFO [checkpoint.py:62] Saving checkpoint to tdnn_lstm_ctc/exp/epoch-19.pt
+2021-09-16 01:42:38,900 INFO [train.py:596] Done!
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9528942: ended at Thu Sep 16 01:42:41 EDT 2021

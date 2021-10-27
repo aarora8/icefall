@@ -1,0 +1,112 @@
+Saved current collection of modules to: "default"
+
+SGE_HGR_gpu=8
+CUDA_VISIBLE_DEVICES=8
+Thu Sep 16 10:24:05 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 465.19.01    Driver Version: 465.19.01    CUDA Version: 11.3     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA Tesla V1...  On   | 00000000:1A:00.0 Off |                    0 |
+| N/A   47C    P0   199W / 200W |   6503MiB / 32510MiB |     99%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA Tesla V1...  On   | 00000000:1B:00.0 Off |                    0 |
+| N/A   38C    P0   106W / 200W |   2437MiB / 32510MiB |     61%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA Tesla V1...  On   | 00000000:1C:00.0 Off |                    0 |
+| N/A   46C    P0   123W / 200W |   6517MiB / 32510MiB |     96%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA Tesla V1...  On   | 00000000:3D:00.0 Off |                    0 |
+| N/A   44C    P0   147W / 200W |   2437MiB / 32510MiB |     60%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   4  NVIDIA Tesla V1...  On   | 00000000:3E:00.0 Off |                    0 |
+| N/A   38C    P0    91W / 200W |   2437MiB / 32510MiB |      2%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   5  NVIDIA Tesla V1...  On   | 00000000:8B:00.0 Off |                    0 |
+| N/A   46C    P0   141W / 200W |   6517MiB / 32510MiB |     93%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   6  NVIDIA Tesla V1...  On   | 00000000:8C:00.0 Off |                    0 |
+| N/A   49C    P0   148W / 200W |  14665MiB / 32510MiB |     98%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   7  NVIDIA Tesla V1...  On   | 00000000:B4:00.0 Off |                    0 |
+| N/A   44C    P0   173W / 200W |   2437MiB / 32510MiB |     63%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   8  NVIDIA Tesla V1...  On   | 00000000:B5:00.0 Off |                    0 |
+| N/A   29C    P0    27W / 200W |      0MiB / 32510MiB |      0%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   9  NVIDIA Tesla V1...  On   | 00000000:B6:00.0 Off |                    0 |
+| N/A   45C    P0   128W / 200W |   6487MiB / 32510MiB |     76%   E. Process |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A    345763      C   python                           6499MiB |
+|    1   N/A  N/A    154113      C   python                           2433MiB |
+|    2   N/A  N/A    345764      C   python                           6513MiB |
+|    3   N/A  N/A    149849      C   python                           2433MiB |
+|    4   N/A  N/A    156194      C   python                           2433MiB |
+|    5   N/A  N/A    345956      C   python                           6513MiB |
+|    6   N/A  N/A    112873      C   python                          14661MiB |
+|    7   N/A  N/A    158826      C   python                           2433MiB |
+|    9   N/A  N/A    346159      C   python                           6483MiB |
++-----------------------------------------------------------------------------+
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9548597: Running on r7n03
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9548597: Started at Thu Sep 16 10:24:06 EDT 2021
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9548597: Running the job on GPU(s) 8
+2021-09-16 10:24:09,694 INFO [train.py:629] Training started
+2021-09-16 10:24:09,694 INFO [train.py:630] {'exp_dir': PosixPath('conformer_ctc/exp'), 'lang_dir': PosixPath('data/lang_bpe'), 'best_train_loss': inf, 'best_valid_loss': inf, 'best_train_epoch': -1, 'best_valid_epoch': -1, 'batch_idx_train': 0, 'log_interval': 10, 'reset_interval': 200, 'valid_interval': 3000, 'feature_dim': 80, 'subsampling_factor': 4, 'use_feat_batchnorm': True, 'attention_dim': 512, 'nhead': 8, 'num_decoder_layers': 6, 'beam_size': 10, 'reduction': 'sum', 'use_double_scores': True, 'att_rate': 0.7, 'weight_decay': 1e-06, 'lr_factor': 5.0, 'warm_step': 80000, 'world_size': 1, 'master_port': 12354, 'tensorboard': True, 'num_epochs': 35, 'start_epoch': 0, 'full_libri': True, 'feature_dir': PosixPath('data/fbank'), 'max_duration': 200.0, 'bucketing_sampler': True, 'num_buckets': 30, 'concatenate_cuts': False, 'duration_factor': 1.0, 'gap': 1.0, 'on_the_fly_feats': False, 'shuffle': True, 'return_cuts': True, 'num_workers': 2}
+2021-09-16 10:24:09,917 INFO [lexicon.py:113] Loading pre-compiled data/lang_bpe/Linv.pt
+2021-09-16 10:24:10,358 INFO [train.py:652] About to create model
+2021-09-16 10:24:15,201 INFO [asr_datamodule.py:158] About to get train cuts
+2021-09-16 10:24:15,201 INFO [asr_datamodule.py:319] About to get train cuts
+2021-09-16 10:24:18,812 INFO [asr_datamodule.py:161] About to get Musan cuts
+2021-09-16 10:24:20,590 INFO [asr_datamodule.py:164] About to create train dataset
+2021-09-16 10:24:20,590 INFO [asr_datamodule.py:216] Using BucketingSampler.
+2021-09-16 10:24:20,789 INFO [asr_datamodule.py:232] About to create train dataloader
+2021-09-16 10:24:20,790 INFO [asr_datamodule.py:245] About to get dev cuts
+2021-09-16 10:24:20,790 INFO [asr_datamodule.py:327] About to get dev cuts
+2021-09-16 10:24:20,843 INFO [asr_datamodule.py:256] About to create dev dataset
+2021-09-16 10:24:20,843 INFO [asr_datamodule.py:275] About to create dev dataloader
+2021-09-16 10:24:20,843 INFO [train.py:696] epoch 0, learning rate 0
+2021-09-16 10:24:30,391 INFO [train.py:518] Epoch 0, batch 0, batch avg ctc loss 3.5791, batch avg att loss 1.3006, batch avg loss 1.9841, total avg ctc loss: 3.5791, total avg att loss: 1.3006, total avg loss: 1.9841, batch size: 49
+2021-09-16 10:25:05,776 INFO [train.py:518] Epoch 0, batch 10, batch avg ctc loss 3.7245, batch avg att loss 1.2063, batch avg loss 1.9618, total avg ctc loss: 3.5729, total avg att loss: 1.3504, total avg loss: 2.0171, batch size: 142
+2021-09-16 10:26:44,236 INFO [train.py:518] Epoch 0, batch 20, batch avg ctc loss inf, batch avg att loss 1.6482, batch avg loss inf, total avg ctc loss: inf, total avg att loss: 1.3425, total avg loss: inf, batch size: 599
+2021-09-16 10:27:08,613 INFO [train.py:518] Epoch 0, batch 30, batch avg ctc loss 3.4102, batch avg att loss 1.4251, batch avg loss 2.0206, total avg ctc loss: inf, total avg att loss: 1.3025, total avg loss: inf, batch size: 86
+2021-09-16 10:27:51,868 INFO [train.py:518] Epoch 0, batch 40, batch avg ctc loss 3.1230, batch avg att loss 1.2937, batch avg loss 1.8425, total avg ctc loss: inf, total avg att loss: 1.3049, total avg loss: inf, batch size: 20
+2021-09-16 10:28:09,293 INFO [train.py:518] Epoch 0, batch 50, batch avg ctc loss 3.0598, batch avg att loss 1.3669, batch avg loss 1.8748, total avg ctc loss: inf, total avg att loss: 1.3017, total avg loss: inf, batch size: 86
+2021-09-16 10:28:38,647 INFO [train.py:518] Epoch 0, batch 60, batch avg ctc loss 2.7662, batch avg att loss 1.3736, batch avg loss 1.7914, total avg ctc loss: inf, total avg att loss: 1.2969, total avg loss: inf, batch size: 53
+2021-09-16 10:29:22,310 INFO [train.py:518] Epoch 0, batch 70, batch avg ctc loss 2.4264, batch avg att loss 1.2663, batch avg loss 1.6143, total avg ctc loss: inf, total avg att loss: 1.2964, total avg loss: inf, batch size: 27
+2021-09-16 10:29:40,445 INFO [train.py:518] Epoch 0, batch 80, batch avg ctc loss 2.3004, batch avg att loss 1.4032, batch avg loss 1.6723, total avg ctc loss: inf, total avg att loss: 1.2976, total avg loss: inf, batch size: 62
+2021-09-16 10:29:52,544 INFO [train.py:518] Epoch 0, batch 90, batch avg ctc loss 1.9972, batch avg att loss 1.3265, batch avg loss 1.5277, total avg ctc loss: inf, total avg att loss: 1.2962, total avg loss: inf, batch size: 46
+2021-09-16 10:30:23,627 INFO [train.py:518] Epoch 0, batch 100, batch avg ctc loss 1.6945, batch avg att loss 1.2051, batch avg loss 1.3520, total avg ctc loss: inf, total avg att loss: 1.2944, total avg loss: inf, batch size: 40
+Traceback (most recent call last):
+  File "conformer_ctc/train.py", line 742, in <module>
+    main()
+  File "conformer_ctc/train.py", line 735, in main
+    run(rank=0, world_size=1, args=args)
+  File "conformer_ctc/train.py", line 700, in run
+    train_one_epoch(
+  File "conformer_ctc/train.py", line 485, in train_one_epoch
+    loss, ctc_loss, att_loss = compute_loss(
+  File "conformer_ctc/train.py", line 333, in compute_loss
+    dense_fsa_vec = k2.DenseFsaVec(
+  File "/home/hltcoe/aarora/miniconda3/envs/icef/lib/python3.8/site-packages/k2/dense_fsa_vec.py", line 105, in __init__
+    assert duration > 0
+AssertionError
+/cm/local/apps/uge/var/spool/r7n03/job_scripts/9548597: ended at Thu Sep 16 10:31:02 EDT 2021
