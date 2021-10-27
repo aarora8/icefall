@@ -13,14 +13,14 @@ from collections import defaultdict
 import torch
 import lhotse
 from lhotse import CutSet, Fbank, FbankConfig, LilcomHdf5Writer, combine
-from lhotse import load_manifest
+from lhotse import load_manifest, fix_manifests
 from lhotse.recipes import prepare_ami, prepare_musan
 from lhotse.utils import fastcopy
 from lhotse import validate_recordings_and_supervisions
 from lhotse.audio import Recording, RecordingSet
 from lhotse.supervision import SupervisionSegment, SupervisionSet
+from lhotse.features import FeatureSet
 from lhotse.utils import Pathlike, check_and_rglob, recursion_limit
-from snowfall.common import str2bool
 
 # Torch's multithreaded behavior needs to be disabled or it wastes a lot of CPU and
 # slow things down.  Do this outside of main() in case it needs to take effect
