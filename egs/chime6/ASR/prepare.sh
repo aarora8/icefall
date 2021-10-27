@@ -88,10 +88,8 @@ log "dl_dir: $dl_dir"
 
 if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
   log "Stage 1: Prepare LibriSpeech manifest"
-  # We assume that you have downloaded the LibriSpeech corpus
-  # to $dl_dir/LibriSpeech
   mkdir -p data/manifests
-  lhotse prepare librispeech -j $nj $dl_dir/LibriSpeech data/manifests
+  local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare.py
 fi
 
 if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
