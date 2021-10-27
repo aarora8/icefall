@@ -1,7 +1,6 @@
 icefall.egg-info/
 data
 __pycache__
-path.sh
 exp
 exp*/
 *.pt
