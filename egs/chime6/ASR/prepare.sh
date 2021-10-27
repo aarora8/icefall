@@ -91,7 +91,7 @@ if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
   mkdir -p data/manifests
   local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare.py
 fi
-
+exit
 if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
   log "Stage 2: Prepare musan manifest"
   # We assume that you have downloaded the musan corpus
@@ -100,11 +100,11 @@ if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
   lhotse prepare musan $dl_dir/musan data/manifests
 fi
 
-if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
-  log "Stage 3: Compute fbank for librispeech"
-  mkdir -p data/fbank
-  ./local/compute_fbank_librispeech.py
-fi
+#if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
+#  log "Stage 3: Compute fbank for librispeech"
+#  mkdir -p data/fbank
+#  ./local/compute_fbank_librispeech.py
+#fi
 
 if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
   log "Stage 4: Compute fbank for musan"
@@ -112,23 +112,57 @@ if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
   ./local/compute_fbank_musan.py
 fi
 
+#if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
+#  log "Stage 5: Prepare phone based lang"
+#  lang_dir=data/lang_phone
+#  mkdir -p $lang_dir
+#  cat /exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/local/dict/lexicon.txt |
+#    sort | uniq > $lang_dir/lexicon.txt
+#
+#  if [ ! -f $lang_dir/L_disambig.pt ]; then
+#    ./local/prepare_lang.py --lang-dir $lang_dir
+#  fi
+#fi
+
+#if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
+#  log "Stage 5: Prepare phone based lang"
+#  mkdir -p data/lang_phone data/lm
+#  wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
+#  cat data/lm/librispeech-lexicon.txt \
+#  <( echo "mm m"
+#      echo "<unk> spn"
+#      echo "cuz k aa z"
+#      echo "cuz k ah z"
+#      echo "cuz k ao z"
+#      echo "[laughs] laughs"
+#      echo "[noise] noise"
+#      echo "[inaudible] inaudible"
+#      echo "[spn] spn"
+#      echo "[sil] sil"
+#      echo "mmm m"; \
+#      echo "hmm hh m"; \
+#    ) | sort | uniq > data/lang_phone/lexicon.txt
+#
+#  if [ ! -f data/lang_phone/L_disambig.pt ]; then
+#    ./local/prepare_lang.py
+#  fi
+#fi
+
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
-  lang_dir=data/lang_phone
-  mkdir -p $lang_dir
-
+  mkdir -p data/lang_phone data/lm
+  wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
   (echo '!SIL SIL'; echo '<SPOKEN_NOISE> SPN'; echo '<UNK> SPN'; ) |
-    cat - $dl_dir/lm/librispeech-lexicon.txt |
-    sort | uniq > $lang_dir/lexicon.txt
+    cat - data/lm/librispeech-lexicon.txt |
+    sort | uniq > data/lang_phone/lexicon.txt
 
-  if [ ! -f $lang_dir/L_disambig.pt ]; then
-    ./local/prepare_lang.py --lang-dir $lang_dir
+  if [ ! -f data/lang_phone/L_disambig.pt ]; then
+    ./local/prepare_lang.py
   fi
 fi
 
-
 if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
-  log "Stage 6: Prepare BPE based lang"
+  log "State 6: Prepare BPE based lang"
 
   for vocab_size in ${vocab_sizes[@]}; do
     lang_dir=data/lang_bpe_${vocab_size}
@@ -136,17 +170,11 @@ if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
     # We reuse words.txt from phone based lexicon
     # so that the two can share G.pt later.
     cp data/lang_phone/words.txt $lang_dir
-
-    if [ ! -f $lang_dir/transcript_words.txt ]; then
+    local/prepare_lm_text.py
+    local/train_lm.sh
+    if [ ! -f $lang_dir/train.txt ]; then
       log "Generate data for BPE training"
-      files=$(
-        find "$dl_dir/LibriSpeech/train-clean-100" -name "*.trans.txt"
-        find "$dl_dir/LibriSpeech/train-clean-360" -name "*.trans.txt"
-        find "$dl_dir/LibriSpeech/train-other-500" -name "*.trans.txt"
-      )
-      for f in ${files[@]}; do
-        cat $f | cut -d " " -f 2-
-      done > $lang_dir/transcript_words.txt
+      cat data/lm/lm_train_text > $lang_dir/transcript_words.txt
     fi
 
     ./local/train_bpe_model.py \
@@ -195,25 +223,12 @@ if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
   log "Stage 8: Prepare G"
   # We assume you have install kaldilm, if not, please install
   # it using: pip install kaldilm
-
-  mkdir -p data/lm
-  if [ ! -f data/lm/G_3_gram.fst.txt ]; then
-    # It is used in building HLG
-    python3 -m kaldilm \
-      --read-symbol-table="data/lang_phone/words.txt" \
-      --disambig-symbol='#0' \
-      --max-order=3 \
-      $dl_dir/lm/3-gram.pruned.1e-7.arpa > data/lm/G_3_gram.fst.txt
-  fi
-
-  if [ ! -f data/lm/G_4_gram.fst.txt ]; then
-    # It is used for LM rescoring
-    python3 -m kaldilm \
-      --read-symbol-table="data/lang_phone/words.txt" \
-      --disambig-symbol='#0' \
-      --max-order=4 \
-      $dl_dir/lm/4-gram.arpa > data/lm/G_4_gram.fst.txt
-  fi
+  gunzip -c data/lm/lm.gz >data/lm/lm.arpa
+  python3 -m kaldilm \
+    --read-symbol-table="data/lang_phone/words.txt" \
+    --disambig-symbol='#0' \
+    --max-order=3 \
+    data/lm/lm.arpa > data/lm/G_3_gram.fst.txt
 fi
 
 if [ $stage -le 9 ] && [ $stop_stage -ge 9 ]; then
