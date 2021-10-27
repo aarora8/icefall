@@ -21,25 +21,11 @@ from lhotse.audio import Recording, RecordingSet
 from lhotse.supervision import SupervisionSegment, SupervisionSet
 from lhotse.features import FeatureSet
 from lhotse.utils import Pathlike, check_and_rglob, recursion_limit
-
-# Torch's multithreaded behavior needs to be disabled or it wastes a lot of CPU and
-# slow things down.  Do this outside of main() in case it needs to take effect
-# even when we are not invoking the main (e.g. when spawning subprocesses).
 torch.set_num_threads(1)
 torch.set_num_interop_threads(1)
 
-def get_parser():
-    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument(
-        '--num-jobs',
-        type=int,
-        default=min(15, os.cpu_count()),
-        help='number if cpu jobs')
-    return parser
-
 
 def main():
-    args = get_parser().parse_args()
     output_dir = Path('data/manifests')
 
     print('CHiME-6 manifest preparation:')
