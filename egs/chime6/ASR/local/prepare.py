@@ -46,6 +46,7 @@ def main():
     chime_manifests['eval']['cuts'] = cut_set
     cut_set.to_json(output_dir / f'cuts_chime_eval_gss.json.gz')
     supervision_set_eval.to_json(output_dir / f'supervisions_chime_eval_gss.json')
+    recording_set_eval.to_json(output_dir / f'recordings_chime_eval_gss.json')
 
     recording_set_dev, supervision_set_dev, feature_set_dev = lhotse.kaldi.load_kaldi_data_dir(dev_path, 16000, 0.01)
     recording_set_dev, supervision_set_dev = fix_manifests(
@@ -58,6 +59,7 @@ def main():
     chime_manifests['dev']['cuts'] = cut_set
     cut_set.to_json(output_dir / f'cuts_chime_dev_gss.json.gz')
     supervision_set_dev.to_json(output_dir / f'supervisions_chime_dev_gss.json')
+    recording_set_dev.to_json(output_dir / f'recordings_chime_dev_gss.json')
 
     recording_set_train, supervision_set_train, feature_set_train = lhotse.kaldi.load_kaldi_data_dir(train_path, 16000, 0.01)
     recording_set_train, supervision_set_train = fix_manifests(
@@ -70,6 +72,7 @@ def main():
     chime_manifests['train']['cuts'] = cut_set
     cut_set.to_json(output_dir / f'cuts_chime_train.json.gz')
     supervision_set_train.to_json(output_dir / f'supervisions_chime_train.json')
+    recording_set_train.to_json(output_dir / f'recordings_chime_train.json')
 
 if __name__ == '__main__':
     main()
