@@ -30,9 +30,9 @@ def main():
 
     print('CHiME-6 manifest preparation:')
     chime_manifests = defaultdict(dict)
-    eval_path = '/exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/eval_gss_hires'
-    dev_path = '/exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/dev_gss_hires'
-    train_path = '/exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/train_worn_simu_u400k_cleaned_trim_sp_hires'
+    eval_path = '/exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/eval_gss_hires_fork2'
+    dev_path = '/exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/dev_gss_hires_fork2'
+    train_path = '/exp/aarora/kaldi_work_env/kaldi_me/egs/chime6/s5b_track1/data/train_worn_simu_u400k_cleaned_trim_sp_hires_fork2'
 
     recording_set_eval, supervision_set_eval, feature_set_eval = lhotse.kaldi.load_kaldi_data_dir(eval_path, 16000, 0.01)
     recording_set_eval, supervision_set_eval = fix_manifests(
@@ -67,7 +67,7 @@ def main():
     validate_recordings_and_supervisions(recording_set_train, supervision_set_train)
     cut_set = CutSet.from_manifests(recordings=recording_set_train, supervisions=supervision_set_train,
                                         features=feature_set_train).trim_to_supervisions()
-    safet_manifests['train']['cuts'] = cut_set
+    chime_manifests['train']['cuts'] = cut_set
     cut_set.to_json(output_dir / f'cuts_chime_train.json.gz')
     supervision_set_train.to_json(output_dir / f'supervisions_chime_train.json')
 

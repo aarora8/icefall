@@ -41,20 +41,16 @@ torch.set_num_threads(1)
 torch.set_num_interop_threads(1)
 
 
-def compute_fbank_librispeech():
+def compute_fbank_chime():
     src_dir = Path("data/manifests")
     output_dir = Path("data/fbank")
     num_jobs = min(15, os.cpu_count())
     num_mel_bins = 80
 
     dataset_parts = (
-        "dev-clean",
-        "dev-other",
-        "test-clean",
-        "test-other",
-        "train-clean-100",
-        "train-clean-360",
-        "train-other-500",
+        "chime_dev_gss",
+        "chime_eval_gss",
+        "chime_train"
     )
     manifests = read_manifests_if_cached(
         dataset_parts=dataset_parts, output_dir=src_dir
@@ -97,4 +93,4 @@ if __name__ == "__main__":
 
     logging.basicConfig(format=formatter, level=logging.INFO)
 
-    compute_fbank_librispeech()
+    compute_fbank_chime()
