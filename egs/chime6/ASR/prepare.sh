@@ -124,35 +124,44 @@ fi
 #  fi
 #fi
 
-#if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
-#  log "Stage 5: Prepare phone based lang"
-#  mkdir -p data/lang_phone data/lm
-#  wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
-#  cat data/lm/librispeech-lexicon.txt \
-#  <( echo "mm m"
-#      echo "<unk> spn"
-#      echo "cuz k aa z"
-#      echo "cuz k ah z"
-#      echo "cuz k ao z"
-#      echo "[laughs] laughs"
-#      echo "[noise] noise"
-#      echo "[inaudible] inaudible"
-#      echo "[spn] spn"
-#      echo "[sil] sil"
-#      echo "mmm m"; \
-#      echo "hmm hh m"; \
-#    ) | sort | uniq > data/lang_phone/lexicon.txt
-#
-#  if [ ! -f data/lang_phone/L_disambig.pt ]; then
-#    ./local/prepare_lang.py
-#  fi
-#fi
+if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
+  log "Stage 5: Prepare phone based lang"
+  mkdir -p data/lang_phone data/lm
+  wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
+  cat data/lm/librispeech-lexicon.txt \
+  <( echo "mm m"
+      echo "<unk> spn"
+      echo "cuz k aa z"
+      echo "cuz k ah z"
+      echo "cuz k ao z"
+      echo "[laughs] laughs"
+      echo "[noise] noise"
+      echo "[inaudible] inaudible"
+      echo "[spn] spn"
+      echo "[sil] sil"
+      echo "mmm m"; \
+      echo "hmm hh m"; \
+    ) | sort | uniq > data/lang_phone/lexicon.txt
+
+  if [ ! -f data/lang_phone/L_disambig.pt ]; then
+    ./local/prepare_lang.py
+  fi
+fi
 
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
   mkdir -p data/lang_phone data/lm
   wget -P data/lm/ https://www.openslr.org/resources/11/librispeech-lexicon.txt
   (echo '!SIL SIL'; echo '<SPOKEN_NOISE> SPN'; echo '<UNK> SPN'; ) |
+  ( echo "MM SPN"
+    echo "[LAUGHS] LAUGHS"
+    echo "[NOISE] NOISE"
+    echo "[INAUDIBLE] INAUDIBLE"
+    echo "[SPN] SPN"
+    echo "[SIL] SIL"
+    echo "MMM SPN"; \
+    echo "HMM SPN"; \
+    )
     cat - data/lm/librispeech-lexicon.txt |
     sort | uniq > data/lang_phone/lexicon.txt
 
