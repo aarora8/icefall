@@ -24,11 +24,11 @@ log() {
 log "dl_dir: $dl_dir"
 
 if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
-  log "Stage 1: Prepare LibriSpeech manifest"
+  log "Stage 1: Prepare CHiME manifest"
   mkdir -p data/manifests
   local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare.py
 fi
-exit
+
 if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
   log "Stage 2: Prepare musan manifest"
   mkdir -p data/manifests
@@ -36,7 +36,7 @@ if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
 fi
 
 if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
-  log "Stage 3: Compute fbank for librispeech"
+  log "Stage 3: Compute fbank for CHiME"
   mkdir -p data/fbank
   ./local/compute_fbank_chime.py
 fi
