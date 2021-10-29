@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 export PYTHONPATH=/exp/aarora/icefall_work_env/icefall:$PYTHONPATH
+source utils/activate_k2_release.sh
 set -eou pipefail
 
 nj=15

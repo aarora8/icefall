@@ -50,9 +50,7 @@ log "dl_dir: $dl_dir"
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
   lang_dir=data/lang_phone
-  mkdir -p $lang_dir
-
-  mkdir -p data/lm
+  mkdir -p $lang_dir data/lm
   wget --no-check-certificate -P data/lm https://www.openslr.org/resources/11/librispeech-lexicon.txt
   cat data/lm/librispeech-lexicon.txt  | \
   perl -ne '($a, $b) = split " ", $_, 2; $b =~ s/[0-9]//g; print "$a $b";' > data/lm/lexicon_raw_nosil.txt
@@ -135,8 +133,6 @@ fi
 
 if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
   log "Stage 8: Prepare G"
-  # We assume you have install kaldilm, if not, please install
-  # it using: pip install kaldilm
   gunzip -c data/lm/lm.gz >data/lm/lm.arpa
   python3 -m kaldilm \
     --read-symbol-table="data/lang_phone/words.txt" \

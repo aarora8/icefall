@@ -23,6 +23,6 @@ echo "Using dev text  : $dev_text"
 # Extract the word list from the training dictionary; exclude special symbols
 sort $words_file | awk '{print $1}' | grep -v '\#0' | grep -v '<eps>' | grep -v -F "$oov_symbol" > $tgtdir/vocab
 
-ngram-count -lm $tgtdir/lm.gz -kndiscount1 -gt1min 0 -kndiscount2 -gt2min 1 -order 2 -text $train_text -vocab $tgtdir/vocab -unk -sort -map-unk "$oov_symbol"
+ngram-count -lm $tgtdir/lm.gz -order 1 -text $train_text -vocab $tgtdir/vocab -unk -sort -map-unk "$oov_symbol"
 
-ngram -order 3 -lm $tgtdir/lm.gz -unk -map-unk "<UNK>" -ppl $dev_text
+ngram -order 1 -lm $tgtdir/lm.gz -unk -map-unk "<UNK>" -ppl $dev_text
