@@ -9,10 +9,12 @@ def main():
     for s in sups:
         print(s.text, file=f)
 
-    sups = load_manifest('data/manifests/supervisions_chime_dev.json')
+    sups = load_manifest('data/manifests/supervisions_chime_dev_gss.json')
     f = open('data/lm/lm_dev_text', 'w')
     for s in sups:
-        print(s.text, file=f)
+        text = s.text
+        text = text.upper()
+        print(text, file=f)
 
 if __name__ == '__main__':
     main()

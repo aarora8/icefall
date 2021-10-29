@@ -6,8 +6,8 @@ nj=15
 stage=-1
 stop_stage=100
 dl_dir=$PWD/download
-
 . shared/parse_options.sh || exit 1
+. ./local/path.sh || exit 1
 vocab_sizes=(
   5000
   2000
@@ -23,51 +23,55 @@ log() {
 
 log "dl_dir: $dl_dir"
 
-if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
-  log "Stage 1: Prepare CHiME manifest"
-  mkdir -p data/manifests
-  local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare.py
-fi
-
-if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
-  log "Stage 2: Prepare musan manifest"
-  mkdir -p data/manifests
-  lhotse prepare musan $dl_dir/musan data/manifests
-fi
-
-if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
-  log "Stage 3: Compute fbank for CHiME"
-  mkdir -p data/fbank
-  ./local/compute_fbank_chime.py
-fi
-
-if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
-  log "Stage 4: Compute fbank for musan"
-  mkdir -p data/fbank
-  ./local/compute_fbank_musan.py
-fi
+#if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
+#  log "Stage 1: Prepare CHiME manifest"
+#  mkdir -p data/manifests
+#  local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare.py
+#fi
+#
+#if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
+#  log "Stage 2: Prepare musan manifest"
+#  mkdir -p data/manifests
+#  lhotse prepare musan $dl_dir/musan data/manifests
+#fi
+#
+#if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
+#  log "Stage 3: Compute fbank for CHiME"
+#  mkdir -p data/fbank
+#  local/queue.pl --mem 30G --config local/coe.conf data/fbank.log ~/miniconda3/envs/k2/bin/python3 local/compute_fbank_chime.py
+#fi
+#
+#if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
+#  log "Stage 4: Compute fbank for musan"
+#  mkdir -p data/fbank
+#  ./local/compute_fbank_musan.py
+#fi
 
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
-  mkdir -p data/lang_phone data/lm
+  lang_dir=data/lang_phone
+  mkdir -p $lang_dir
+
+  mkdir -p data/lm
   wget --no-check-certificate -P data/lm https://www.openslr.org/resources/11/librispeech-lexicon.txt
   cat data/lm/librispeech-lexicon.txt  | \
   perl -ne '($a, $b) = split " ", $_, 2; $b =~ s/[0-9]//g; print "$a $b";' > data/lm/lexicon_raw_nosil.txt
-  (echo '!SIL SIL'; echo '<SPOKEN_NOISE> SPN'; echo '<UNK> SPN'; ) |
-  ( echo "MM SPN"
-    echo "[LAUGHS] LAUGHS"
-    echo "[NOISE] NOISE"
-    echo "[INAUDIBLE] INAUDIBLE"
-    echo "[SPN] SPN"
-    echo "[SIL] SIL"
-    echo "MMM SPN"; \
-    echo "HMM SPN"; \
-    )
-    cat - data/lm/lexicon_raw_nosil.txt |
+  (echo "MM SPN";
+    echo '!SIL SIL';
+    echo '<SPOKEN_NOISE> SPN';
+    echo '<UNK> SPN';
+    echo "[LAUGHS] SPN";
+    echo "[NOISE] SPN";
+    echo "[INAUDIBLE] SPN";
+    echo "[SPN] SPN";
+    echo "[SIL] SIL";
+    echo "MMM SPN";
+    echo "HMM SPN"; ) | \
+    cat - data/lm/lexicon_raw_nosil.txt | \
     sort | uniq > data/lang_phone/lexicon.txt
 
   if [ ! -f data/lang_phone/L_disambig.pt ]; then
-    ./local/prepare_lang.py
+    ./local/prepare_lang.py --lang-dir $lang_dir
   fi
 fi
 
