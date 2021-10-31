@@ -135,12 +135,13 @@ fi
 
 if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
   log "Stage 8: Prepare G"
+  mkdir -p data/lm
   gunzip -c download/uppercase/lm.gz >download/uppercase/lm.arpa
   python3 -m kaldilm \
     --read-symbol-table="data/lang_phone/words.txt" \
     --disambig-symbol='#0' \
     --max-order=3 \
-    download/uppercase/lm.arpa > download/uppercase/G_3_gram.fst.txt
+    download/uppercase/lm.arpa > data/lm/G_3_gram.fst.txt
 fi
 
 if [ $stage -le 9 ] && [ $stop_stage -ge 9 ]; then
