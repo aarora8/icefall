@@ -48,30 +48,33 @@ log "dl_dir: $dl_dir"
 #  ./local/compute_fbank_musan.py
 #fi
 
+
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
   lang_dir=data/lang_phone
-  mkdir -p $lang_dir data/lm
-  wget --no-check-certificate -P data/lm https://www.openslr.org/resources/11/librispeech-lexicon.txt
-  cat data/lm/librispeech-lexicon.txt  | \
-  perl -ne '($a, $b) = split " ", $_, 2; $b =~ s/[0-9]//g; print "$a $b";' > data/lm/lexicon_raw_nosil.txt
-  (echo "MM SPN";
-    echo '!SIL SIL';
-    echo '<SPOKEN_NOISE> SPN';
-    echo '<UNK> SPN';
-    echo "[LAUGHS] SPN";
-    echo "[NOISE] SPN";
-    echo "[INAUDIBLE] SPN";
-    echo "[SPN] SPN";
-    echo "[SIL] SIL";
-    echo "MMM SPN";
-    echo "HMM SPN"; ) | \
-    cat - data/lm/lexicon_raw_nosil.txt | \
-    sort | uniq > data/lang_phone/lexicon.txt
+  mkdir -p $lang_dir
 
-  if [ ! -f data/lang_phone/L_disambig.pt ]; then
+  cp download/uppercase/lexicon.txt $lang_dir/lexicon.txt
+#  (echo "MM SPN";
+#    echo '!SIL SIL';
+#    echo '<SPOKEN_NOISE> SPN';
+#    echo '<UNK> SPN';
+#    echo "[LAUGHS] SPN";
+#    echo "[NOISE] SPN";
+#    echo "[INAUDIBLE] SPN";
+#    echo "[SPN] SPN";
+#    echo "[SIL] SIL";
+#    echo "MMM SPN";
+#    echo "HMM SPN"; ) | \
+#    cat - data/lm/lexicon_raw_nosil.txt | \
+#    sort | uniq > data/lang_phone/lexicon.txt
+
+  if [ ! -f $lang_dir/L_disambig.pt ]; then
     ./local/prepare_lang.py --lang-dir $lang_dir
   fi
+
+  #local/prepare_lm_text.py
+  local/train_lm.sh
 fi
 
 if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
@@ -83,11 +86,9 @@ if [ $stage -le 6 ] && [ $stop_stage -ge 6 ]; then
     # We reuse words.txt from phone based lexicon
     # so that the two can share G.pt later.
     cp data/lang_phone/words.txt $lang_dir
-    local/prepare_lm_text.py
-    local/train_lm.sh
     if [ ! -f $lang_dir/train.txt ]; then
       log "Generate data for BPE training"
-      cat data/lm/lm_train_text > $lang_dir/transcript_words.txt
+      cat download/uppercase/lm_train_text > $lang_dir/transcript_words.txt
     fi
 
     ./local/train_bpe_model.py \
@@ -134,12 +135,12 @@ fi
 
 if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
   log "Stage 8: Prepare G"
-  gunzip -c data/lm/lm.gz >data/lm/lm.arpa
+  gunzip -c download/uppercase/lm.gz >download/uppercase/lm.arpa
   python3 -m kaldilm \
     --read-symbol-table="data/lang_phone/words.txt" \
     --disambig-symbol='#0' \
     --max-order=3 \
-    data/lm/lm.arpa > data/lm/G_3_gram.fst.txt
+    download/uppercase/lm.arpa > download/uppercase/G_3_gram.fst.txt
 fi
 
 if [ $stage -le 9 ] && [ $stop_stage -ge 9 ]; then

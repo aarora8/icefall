@@ -7,7 +7,9 @@ def main():
     sups = load_manifest('data/manifests/supervisions_chime_train.json')
     f = open('data/lm/lm_train_text', 'w')
     for s in sups:
-        print(s.text, file=f)
+        text = s.text
+        text = text.upper()
+        print(text, file=f)
 
     sups = load_manifest('data/manifests/supervisions_chime_dev_gss.json')
     f = open('data/lm/lm_dev_text', 'w')
