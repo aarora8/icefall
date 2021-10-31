@@ -323,7 +323,7 @@ class LibriSpeechAsrDataModule(DataModule):
     def train_cuts(self) -> CutSet:
         logging.info("About to get train cuts")
         cuts_train = load_manifest(
-            self.args.feature_dir / "cuts_train.json.gz"
+            self.args.feature_dir / "cuts_chime_train.json.gz"
         )
         return cuts_train
 

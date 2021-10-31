@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-
+export PYTHONPATH=/exp/aarora/icefall_work_env/icefall:$PYTHONPATH
+source utils/activate_k2_release.sh
 set -eou pipefail
-
 stage=-1
 stop_stage=100
 
@@ -11,7 +11,7 @@ lang_dir=data/lang_phone
 lm_dir=data/lm
 
 . shared/parse_options.sh || exit 1
-
+. ./local/path.sh || exit 1
 mkdir -p $lang_dir
 mkdir -p $lm_dir
 
