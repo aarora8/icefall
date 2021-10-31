@@ -8,7 +8,7 @@ echo "Building an SRILM language model     "
 echo "-------------------------------------"
 
 
-tgtdir=download/uppercase/
+tgtdir=data/lm/
 train_text=download/uppercase/lm_train_text
 dev_text=download/uppercase/lm_dev_text
 words_file=download/uppercase/lexicon.txt

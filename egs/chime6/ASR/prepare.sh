@@ -53,6 +53,7 @@ if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
   log "Stage 5: Prepare phone based lang"
   lang_dir=data/lang_phone
   mkdir -p $lang_dir
+  mkdir -p data/lm
 
   cp download/uppercase/lexicon.txt $lang_dir/lexicon.txt
 #  (echo "MM SPN";
@@ -69,6 +70,7 @@ if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
 #    cat - data/lm/lexicon_raw_nosil.txt | \
 #    sort | uniq > data/lang_phone/lexicon.txt
 
+  
   if [ ! -f $lang_dir/L_disambig.pt ]; then
     ./local/prepare_lang.py --lang-dir $lang_dir
   fi
@@ -135,13 +137,12 @@ fi
 
 if [ $stage -le 8 ] && [ $stop_stage -ge 8 ]; then
   log "Stage 8: Prepare G"
-  mkdir -p data/lm
-  gunzip -c download/uppercase/lm.gz >download/uppercase/lm.arpa
+  gunzip -c data/lm/lm.gz > data/lm/lm.arpa
   python3 -m kaldilm \
     --read-symbol-table="data/lang_phone/words.txt" \
     --disambig-symbol='#0' \
     --max-order=3 \
-    download/uppercase/lm.arpa > data/lm/G_3_gram.fst.txt
+    data/lm/lm.arpa > data/lm/G_3_gram.fst.txt
 fi
 
 if [ $stage -le 9 ] && [ $stop_stage -ge 9 ]; then
