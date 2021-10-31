@@ -78,7 +78,6 @@ def compute_fbank_chime():
             cut_set = cut_set.compute_and_store_features(
                 extractor=extractor,
                 storage_path=f"{output_dir}/feats_{partition}",
-                # when an executor is specified, make more partitions
                 num_jobs=num_jobs if ex is None else 80,
                 executor=ex,
                 storage_type=LilcomHdf5Writer,
