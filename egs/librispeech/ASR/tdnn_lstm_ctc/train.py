@@ -491,9 +491,11 @@ def run(rank, world_size, args):
         setup_dist(rank, world_size, params.master_port)
 
     setup_logger(f"{params.exp_dir}/log/log-train")
+    print(torch.version.cuda)
+    logging.info(torch.version.cuda)
     logging.info("Training started")
     logging.info(params)
-
+    print(torch.version.cuda)
     if args.tensorboard and rank == 0:
         tb_writer = SummaryWriter(log_dir=f"{params.exp_dir}/tensorboard")
     else:
