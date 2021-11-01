@@ -140,4 +140,4 @@ if [ $stage -le 9 ] && [ $stop_stage -ge 9 ]; then
   done
 fi
 
-#local/queue.pl --mem 30G --config local/coe.conf data/train.log ~/miniconda3/envs/k2_scratch2/bin/python3 ./tdnn_lstm_ctc/train.py
+# local/queue.pl --mem 30G --gpu 1 --config local/coe.conf data/train.log ~/miniconda3/envs/k2_scratch2/bin/python3 ./tdnn_lstm_ctc/train.py
