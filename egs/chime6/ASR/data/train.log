@@ -1,0 +1,34 @@
+# Running on r8n03
+# Started at Mon Nov 1 17:08:55 EDT 2021
+# /home/hltcoe/aarora/miniconda3/envs/k2/bin/python3 ./tdnn_lstm_ctc/train.py 
+2021-11-01 17:09:13,721 INFO [train.py:494] Training started
+2021-11-01 17:09:13,721 INFO [train.py:495] {'exp_dir': PosixPath('tdnn_lstm_ctc/exp'), 'lang_dir': PosixPath('data/lang_phone'), 'lr': 0.001, 'feature_dim': 80, 'weight_decay': 0.0005, 'subsampling_factor': 3, 'best_train_loss': inf, 'best_valid_loss': inf, 'best_train_epoch': -1, 'best_valid_epoch': -1, 'batch_idx_train': 0, 'log_interval': 10, 'reset_interval': 200, 'valid_interval': 1000, 'beam_size': 10, 'reduction': 'sum', 'use_double_scores': True, 'env_info': {'k2-version': '1.9', 'k2-build-type': 'Release', 'k2-with-cuda': True, 'k2-git-sha1': '7178d67e594bc7fa89c2b331ad7bd1c62a6a9eb4', 'k2-git-date': 'Tue Oct 26 10:12:54 2021', 'lhotse-version': '0.11.0.dev+git.7f56dd1.dirty', 'torch-cuda-available': True, 'torch-cuda-version': '10.1', 'python-version': '3.8', 'icefall-git-branch': 'coe_asr2', 'icefall-git-sha1': '5aed7ee-clean', 'icefall-git-date': 'Mon Nov 1 17:01:17 2021', 'icefall-path': '/exp/aarora/icefall_work_env/icefall', 'k2-path': '/exp/aarora/icefall_work_env/k2_v100/k2/python/k2/__init__.py', 'lhotse-path': '/exp/aarora/icefall_work_env/lhotse/lhotse/__init__.py'}, 'world_size': 1, 'master_port': 12354, 'tensorboard': True, 'num_epochs': 20, 'start_epoch': 0, 'full_libri': True, 'feature_dir': PosixPath('data/fbank'), 'max_duration': 100.0, 'bucketing_sampler': True, 'num_buckets': 30, 'concatenate_cuts': False, 'duration_factor': 1.0, 'gap': 1.0, 'on_the_fly_feats': False, 'shuffle': True, 'return_cuts': True, 'num_workers': 1}
+2021-11-01 17:09:14,001 INFO [lexicon.py:176] Loading pre-compiled data/lang_phone/Linv.pt
+2021-11-01 17:09:29,350 INFO [asr_datamodule.py:158] About to get train cuts
+2021-11-01 17:09:29,351 INFO [asr_datamodule.py:324] About to get train cuts
+2021-11-01 17:09:41,197 INFO [asr_datamodule.py:161] About to get Musan cuts
+2021-11-01 17:09:43,297 INFO [asr_datamodule.py:164] About to create train dataset
+2021-11-01 17:09:43,297 INFO [asr_datamodule.py:218] Using BucketingSampler.
+2021-11-01 17:09:43,992 INFO [asr_datamodule.py:234] About to create train dataloader
+2021-11-01 17:09:43,992 INFO [asr_datamodule.py:247] About to get dev cuts
+2021-11-01 17:09:43,992 INFO [asr_datamodule.py:332] About to get dev cuts
+2021-11-01 17:09:44,231 INFO [asr_datamodule.py:258] About to create dev dataset
+2021-11-01 17:09:44,240 INFO [asr_datamodule.py:277] About to create dev dataloader
+/exp/aarora/icefall_work_env/lhotse/lhotse/dataset/sampling/single_cut.py:237: UserWarning: The first cut drawn in batch collection violates the max_frames, max_cuts, or max_duration constraints - we'll return it anyway. Consider increasing max_frames/max_cuts/max_duration.
+  warnings.warn(
+Traceback (most recent call last):
+  File "./tdnn_lstm_ctc/train.py", line 595, in <module>
+    main()
+  File "./tdnn_lstm_ctc/train.py", line 591, in main
+    run(rank=0, world_size=1, args=args)
+  File "./tdnn_lstm_ctc/train.py", line 554, in run
+    train_one_epoch(
+  File "./tdnn_lstm_ctc/train.py", line 429, in train_one_epoch
+    loss.backward()
+  File "/home/hltcoe/aarora/miniconda3/envs/k2/lib/python3.8/site-packages/torch/tensor.py", line 245, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/hltcoe/aarora/miniconda3/envs/k2/lib/python3.8/site-packages/torch/autograd/__init__.py", line 145, in backward
+    Variable._execution_engine.run_backward(
+RuntimeError: CUDA out of memory. Tried to allocate 564.00 MiB (GPU 0; 31.75 GiB total capacity; 29.65 GiB already allocated; 39.50 MiB free; 30.53 GiB reserved in total by PyTorch)
+# Accounting: time=1803 threads=1
+# Finished at Mon Nov 1 17:38:58 EDT 2021 with status 1
