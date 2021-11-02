@@ -69,6 +69,7 @@ def compute_fbank_chime():
                 recordings=m["recordings"],
                 supervisions=m["supervisions"],
             )
+            cut_set = cut_set.trim_to_supervisions()
 #            if "train" in partition:
 #                cut_set = (
 #                    cut_set

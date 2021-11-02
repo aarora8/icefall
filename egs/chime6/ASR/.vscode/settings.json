@@ -1,5 +1,5 @@
 {
-    "AREPL.envFile": "/exp/aarora/icefall_work_env/icefall/egs/librispeech/ASR/utils/.env"
-    "python.pythonPath": "/exp/aarora/icefall_work_env/icefall:/exp/aarora/icefall_work_env/k2_v100/build_release/lib:/exp/aarora/icefall_work_env/k2_v100/k2/python"
+    "AREPL.envFile": "/exp/aarora/icefall_work_env/icefall/egs/librispeech/ASR/utils/.env",
+    "python.pythonPath": "/exp/aarora/icefall_work_env/icefall:/exp/aarora/icefall_work_env/k2_v100/build_release/lib:/exp/aarora/icefall_work_env/k2_v100/k2/python",
     "python.envFile": "/exp/aarora/icefall_work_env/icefall/egs/librispeech/ASR/utils/.env"
 }
