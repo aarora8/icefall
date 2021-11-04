@@ -60,7 +60,7 @@ if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
     ./local/prepare_lang.py --lang-dir $lang_dir
   fi
 
-  #local/prepare_lm_text.py
+  local/prepare_lm_text.py
   local/train_lm.sh
 fi
 
