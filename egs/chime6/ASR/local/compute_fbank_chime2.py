@@ -30,7 +30,7 @@ from pathlib import Path
 import torch
 from lhotse import CutSet, Fbank, FbankConfig, LilcomHdf5Writer
 from lhotse.recipes.utils import read_manifests_if_cached
-
+from lhotse import KaldifeatFbank, KaldifeatFbankConfig
 from icefall.utils import get_executor
 
 # Torch's multithreaded behavior needs to be disabled or
@@ -58,7 +58,7 @@ def compute_fbank_chime():
     assert manifests is not None
 
     extractor = Fbank(FbankConfig(num_mel_bins=num_mel_bins))
-
+    extractor = KaldifeatFbank(KaldifeatFbankConfig(device='cuda'))
     with get_executor() as ex:  # Initialize the executor only once.
         for partition, m in manifests.items():
             if (output_dir / f"cuts_{partition}.json.gz").is_file():
@@ -70,12 +70,6 @@ def compute_fbank_chime():
                 supervisions=m["supervisions"],
             )
             cut_set = cut_set.trim_to_supervisions(keep_overlapping=False)
-#            if "train" in partition:
-#                cut_set = (
-#                    cut_set
-#                    + cut_set.perturb_speed(0.9)
-#                    + cut_set.perturb_speed(1.1)
-#                )
             cut_set = cut_set.compute_and_store_features(
                 extractor=extractor,
                 storage_path=f"{output_dir}/feats_{partition}",
