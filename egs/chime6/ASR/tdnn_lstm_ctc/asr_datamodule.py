@@ -166,6 +166,7 @@ class LibriSpeechAsrDataModule(DataModule):
         #transforms = [
         #    CutMix(cuts=cuts_musan, prob=0.5, snr=(10, 20), preserve_id=True)
         #]
+        transforms = []
         if self.args.concatenate_cuts:
             logging.info(
                 f"Using cut concatenation with duration factor "

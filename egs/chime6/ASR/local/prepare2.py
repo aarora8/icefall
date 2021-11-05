@@ -61,6 +61,7 @@ def main():
                     executor=ex,
                     storage_type=LilcomHdf5Writer,
                 )
-            cut_set.to_json(output_dir / f"cuts_{partition}.json.gz")
+            cut_set.to_json('data/fbank' / f'cuts_{partition}.json.gz')
+
 if __name__ == '__main__':
     main()
