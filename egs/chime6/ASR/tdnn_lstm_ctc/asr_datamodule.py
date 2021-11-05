@@ -14,7 +14,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-
+# removing spec-augment and noise transform
+# using speed perturbation during cut preparation
 import argparse
 import logging
 from functools import lru_cache
@@ -162,9 +163,9 @@ class LibriSpeechAsrDataModule(DataModule):
         cuts_musan = load_manifest(self.args.feature_dir / "cuts_musan.json.gz")
 
         logging.info("About to create train dataset")
-        transforms = [
-            CutMix(cuts=cuts_musan, prob=0.5, snr=(10, 20), preserve_id=True)
-        ]
+        #transforms = [
+        #    CutMix(cuts=cuts_musan, prob=0.5, snr=(10, 20), preserve_id=True)
+        #]
         if self.args.concatenate_cuts:
             logging.info(
                 f"Using cut concatenation with duration factor "
@@ -173,24 +174,34 @@ class LibriSpeechAsrDataModule(DataModule):
             # Cut concatenation should be the first transform in the list,
             # so that if we e.g. mix noise in, it will fill the gaps between
             # different utterances.
+            #transforms = [
+            #    CutConcatenate(
+            #        duration_factor=self.args.duration_factor, gap=self.args.gap
+            #    )
+            #] + transforms
+
             transforms = [
                 CutConcatenate(
                     duration_factor=self.args.duration_factor, gap=self.args.gap
                 )
-            ] + transforms
+            ]
 
-        input_transforms = [
-            SpecAugment(
-                num_frame_masks=2,
-                features_mask_size=27,
-                num_feature_masks=2,
-                frames_mask_size=100,
-            )
-        ]
+#        input_transforms = [
+#            SpecAugment(
+#                num_frame_masks=2,
+#                features_mask_size=27,
+#                num_feature_masks=2,
+#                frames_mask_size=100,
+#            )
+#        ]
 
+#        train = K2SpeechRecognitionDataset(
+#            cut_transforms=transforms,
+#            input_transforms=input_transforms,
+#            return_cuts=self.args.return_cuts,
+#        )
         train = K2SpeechRecognitionDataset(
             cut_transforms=transforms,
-            input_transforms=input_transforms,
             return_cuts=self.args.return_cuts,
         )
 
@@ -205,15 +216,23 @@ class LibriSpeechAsrDataModule(DataModule):
             # to be strict (e.g. could be randomized)
             # transforms = [PerturbSpeed(factors=[0.9, 1.1], p=2/3)] + transforms   # noqa
             # Drop feats to be on the safe side.
+
+            #train = K2SpeechRecognitionDataset(
+            #    cut_transforms=transforms,
+            #    input_strategy=OnTheFlyFeatures(
+            #        Fbank(FbankConfig(num_mel_bins=80))
+            #    ),
+            #    input_transforms=input_transforms,
+            #    return_cuts=self.args.return_cuts,
+            #)
+
             train = K2SpeechRecognitionDataset(
                 cut_transforms=transforms,
                 input_strategy=OnTheFlyFeatures(
                     Fbank(FbankConfig(num_mel_bins=80))
                 ),
-                input_transforms=input_transforms,
                 return_cuts=self.args.return_cuts,
             )
-
         if self.args.bucketing_sampler:
             logging.info("Using BucketingSampler.")
             train_sampler = BucketingSampler(
@@ -323,7 +342,7 @@ class LibriSpeechAsrDataModule(DataModule):
     def train_cuts(self) -> CutSet:
         logging.info("About to get train cuts")
         cuts_train = load_manifest(
-            self.args.feature_dir / "cuts_chime_train.json.gz"
+            self.args.feature_dir / "cuts_train.json.gz"
         )
         return cuts_train
 
@@ -331,7 +350,7 @@ class LibriSpeechAsrDataModule(DataModule):
     def valid_cuts(self) -> CutSet:
         logging.info("About to get dev cuts")
         cuts_valid = load_manifest(
-            self.args.feature_dir / "cuts_chime_dev_gss.json.gz"
+            self.args.feature_dir / "cuts_dev.json.gz"
         )
         return cuts_valid
 
@@ -339,6 +358,6 @@ class LibriSpeechAsrDataModule(DataModule):
     def test_cuts(self) -> List[CutSet]:
         logging.debug("About to get test cuts")
         cuts_test = load_manifest(
-                    self.args.feature_dir / f"cuts_chime_eval_gss.json.gz"
+                    self.args.feature_dir / f"cuts_dev.json.gz"
                 )
         return cuts_test

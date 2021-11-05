@@ -47,7 +47,13 @@ def main():
                     supervisions=supervision_set,
                 ).trim_to_supervisions(keep_overlapping=False)
 
-            #cut_set.to_json(output_dir / f'cuts_chime_{partition}_1.json.gz')
+            if "train" in partition:
+                cut_set = (
+                    cut_set
+                    + cut_set.perturb_speed(0.9)
+                    + cut_set.perturb_speed(1.1)
+                )
+
             cut_set = cut_set.compute_and_store_features(
                     extractor=extractor,
                     storage_path=f"data/fbank/feats_{partition}",
