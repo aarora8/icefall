@@ -423,7 +423,8 @@ def train_one_epoch(
             is_training=True,
         )
         # summary stats.
-        tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
+        #tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
+        tot_loss = tot_loss + loss_info
 
         optimizer.zero_grad()
         loss.backward()
