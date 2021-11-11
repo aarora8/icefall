@@ -23,6 +23,7 @@ from lhotse.features import FeatureSet
 from lhotse.utils import Pathlike, check_and_rglob, recursion_limit
 from lhotse.recipes import prepare_chime
 from icefall.utils import get_executor
+
 def main():
     output_dir = Path('data/manifests')
     corpus_dir = Path('/exp/aarora/CHiME6_data_prep/CHiME6/')
@@ -34,6 +35,7 @@ def main():
     num_jobs = min(50, os.cpu_count())
     num_mel_bins = 80
     extractor = Fbank(FbankConfig(num_mel_bins=num_mel_bins))
+    output_dir = Path('data/fbank')
     with get_executor() as ex:  # Initialize the executor only once.
         for partition, m in chime_manifests.items():
             print(partition)
@@ -59,7 +61,7 @@ def main():
                     executor=ex,
                     storage_type=LilcomHdf5Writer,
                 )
-            cut_set.to_json('data/fbank' / f'cuts_{partition}.json.gz')
+            cut_set.to_json(output_dir / f'cuts_{partition}.json.gz')
 
 if __name__ == '__main__':
     main()
