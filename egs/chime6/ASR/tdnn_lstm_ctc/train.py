@@ -165,7 +165,7 @@ def get_params() -> AttributeDict:
             "best_train_epoch": -1,
             "best_valid_epoch": -1,
             "batch_idx_train": 0,
-            "log_interval": 10,
+            "log_interval": 1,
             "reset_interval": 200,
             "valid_interval": 1000,
             "beam_size": 10,
@@ -412,6 +412,10 @@ def train_one_epoch(
     tot_loss = MetricsTracker()
 
     for batch_idx, batch in enumerate(train_dl):
+        batch_supervisions = batch["supervisions"]
+        #batch_num_frames = batch["supervisions"]["num_frames"]
+        #batch_cut = batch["supervisions"]["num_cut"]
+
         params.batch_idx_train += 1
         batch_size = len(batch["supervisions"]["text"])
 
@@ -425,6 +429,17 @@ def train_one_epoch(
         # summary stats.
         #tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
         tot_loss = tot_loss + loss_info
+
+        loss_check = tot_loss["loss"] / tot_loss["frames"]
+        tot_frames = tot_loss["frames"]
+        tot_loss_val = tot_loss["loss"]
+        #logging.info(f"loss {loss_check}")
+        if loss_check > 100:
+            logging.info(f"loss {loss_check}")
+            logging.info(f"batch_idx {batch_idx}")
+            logging.info(f"batch {batch_supervisions}")
+            logging.info(f"tot_frames {tot_frames}")
+            logging.info(f"tot_loss_val {tot_loss_val}")
 
         optimizer.zero_grad()
         loss.backward()
