@@ -167,7 +167,7 @@ def get_params() -> AttributeDict:
             "batch_idx_train": 0,
             "log_interval": 1,
             "reset_interval": 200,
-            "valid_interval": 100,
+            "valid_interval": 500,
             "beam_size": 10,
             "reduction": "sum",
             "use_double_scores": True,
@@ -364,11 +364,11 @@ def compute_validation_loss(
         utt_loss_val = loss_info["loss"]
         batch_supervisions = batch["supervisions"]
         if loss_check > 100:
-            logging.info(f"loss {loss_check}")
+            #logging.info(f"loss {loss_check}")
             logging.info(f"batch_idx {batch_idx}")
             #logging.info(f"batch {batch_supervisions}")
             logging.info(f"utt_frames {utt_frames}")
-            logging.info(f"utt_loss_val {utt_loss_val}")
+            #logging.info(f"utt_loss_val {utt_loss_val}")
             continue
         else:
             tot_loss = tot_loss + loss_info
@@ -439,14 +439,15 @@ def train_one_epoch(
         utt_loss_val = loss_info["loss"]
         batch_supervisions = batch["supervisions"]
         if loss_check > 100:
-            logging.info(f"loss {loss_check}")
+            #logging.info(f"loss {loss_check}")
             logging.info(f"batch_idx {batch_idx}")
             #logging.info(f"batch {batch_supervisions}")
             logging.info(f"utt_frames {utt_frames}")
-            logging.info(f"utt_loss_val {utt_loss_val}")
+            #logging.info(f"utt_loss_val {utt_loss_val}")
             continue
         else:
-            tot_loss = tot_loss + loss_info
+            tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
+            #tot_loss = tot_loss + loss_info
         # summary stats.
         #tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
 
