@@ -90,7 +90,7 @@ class LibriSpeechAsrDataModule(DataModule):
         group.add_argument(
             "--bucketing-sampler",
             type=str2bool,
-            default=True,
+            default=False,
             help="When enabled, the batches will come from buckets of "
             "similar duration (saves padding frames).",
         )
@@ -248,7 +248,7 @@ class LibriSpeechAsrDataModule(DataModule):
             logging.info("Using SingleCutSampler.")
             train_sampler = SingleCutSampler(
                 cuts_train,
-                max_duration=self.args.max_duration,
+                max_samples=1,
                 shuffle=self.args.shuffle,
             )
         logging.info("About to create train dataloader")
@@ -289,9 +289,14 @@ class LibriSpeechAsrDataModule(DataModule):
                 cut_transforms=transforms,
                 return_cuts=self.args.return_cuts,
             )
-        valid_sampler = BucketingSampler(
+        #valid_sampler = BucketingSampler(
+        #    cuts_valid,
+        #    max_duration=self.args.max_duration,
+        #    shuffle=False,
+        #)
+        valid_sampler = SingleCutSampler(
             cuts_valid,
-            max_duration=self.args.max_duration,
+            max_samples=1,
             shuffle=False,
         )
         logging.info("About to create dev dataloader")
@@ -299,7 +304,7 @@ class LibriSpeechAsrDataModule(DataModule):
             validate,
             sampler=valid_sampler,
             batch_size=None,
-            num_workers=2,
+            num_workers=1,
             persistent_workers=False,
         )
 
@@ -322,8 +327,11 @@ class LibriSpeechAsrDataModule(DataModule):
                 else PrecomputedFeatures(),
                 return_cuts=self.args.return_cuts,
             )
-            sampler = BucketingSampler(
-                cuts_test, max_duration=self.args.max_duration, shuffle=False
+            #sampler = BucketingSampler(
+            #    cuts_test, max_duration=self.args.max_duration, shuffle=False
+            #)
+            sampler = SingleCutSampler(
+                cuts_test, max_samples=1
             )
             logging.debug("About to create test dataloader")
             test_dl = DataLoader(
