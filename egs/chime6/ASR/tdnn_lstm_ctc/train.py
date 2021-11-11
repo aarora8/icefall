@@ -60,7 +60,7 @@ def get_parser():
     parser.add_argument(
         "--world-size",
         type=int,
-        default=1,
+        default=2,
         help="Number of GPUs for DDP training.",
     )
 
@@ -359,7 +359,19 @@ def compute_validation_loss(
         )
         assert loss.requires_grad is False
 
-        tot_loss = tot_loss + loss_info
+        loss_check = loss_info["loss"] / loss_info["frames"]
+        utt_frames = loss_info["frames"]
+        utt_loss_val = loss_info["loss"]
+        batch_supervisions = batch["supervisions"]
+        if loss_check > 100:
+            logging.info(f"loss {loss_check}")
+            logging.info(f"batch_idx {batch_idx}")
+            logging.info(f"batch {batch_supervisions}")
+            logging.info(f"utt_frames {utt_frames}")
+            logging.info(f"utt_loss_val {utt_loss_val}")
+            continue
+        else:
+            tot_loss = tot_loss + loss_info
 
     if world_size > 1:
         tot_loss.reduce(loss.device)
@@ -432,6 +444,7 @@ def train_one_epoch(
             logging.info(f"batch {batch_supervisions}")
             logging.info(f"utt_frames {utt_frames}")
             logging.info(f"utt_loss_val {utt_loss_val}")
+            continue
         else:
             tot_loss = tot_loss + loss_info
         # summary stats.
