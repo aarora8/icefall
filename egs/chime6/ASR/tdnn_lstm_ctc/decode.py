@@ -71,7 +71,7 @@ def get_parser():
     parser.add_argument(
         "--method",
         type=str,
-        default="whole-lattice-rescoring",
+        default="1best",
         help="""Decoding method.
         Supported values are:
             - (1) 1best. Extract the best path from the decoding lattice as the
@@ -310,6 +310,8 @@ def decode_dataset(
 
     results = defaultdict(list)
     for batch_idx, batch in enumerate(dl):
+        #logging.info(f"batch {batch_idx}")
+        #logging.info(f"batch {batch}")
         texts = batch["supervisions"]["text"]
 
         hyps_dict = decode_one_batch(
@@ -408,12 +410,11 @@ def main():
         HLG.lm_scores = HLG.scores.clone()
 
     if params.method in ["nbest-rescoring", "whole-lattice-rescoring"]:
-        if not (params.lm_dir / "G_4_gram.pt").is_file():
-            logging.info("Loading G_4_gram.fst.txt")
+        if not (params.lm_dir / "G_3_gram.pt").is_file():
+            logging.info("Loading G_3_gram.fst.txt")
             logging.warning("It may take 8 minutes.")
-            with open(params.lm_dir / "G_4_gram.fst.txt") as f:
+            with open(params.lm_dir / "G_3_gram.fst.txt") as f:
                 first_word_disambig_id = lexicon.word_table["#0"]
-
                 G = k2.Fsa.from_openfst(f.read(), acceptor=False)
                 # G.aux_labels is not needed in later computations, so
                 # remove it here.
@@ -424,10 +425,10 @@ def main():
                 G.labels[G.labels >= first_word_disambig_id] = 0
                 G = k2.Fsa.from_fsas([G]).to(device)
                 G = k2.arc_sort(G)
-                torch.save(G.as_dict(), params.lm_dir / "G_4_gram.pt")
+                torch.save(G.as_dict(), params.lm_dir / "G_3_gram.pt")
         else:
-            logging.info("Loading pre-compiled G_4_gram.pt")
-            d = torch.load(params.lm_dir / "G_4_gram.pt", map_location="cpu")
+            logging.info("Loading pre-compiled G_3_gram.pt")
+            d = torch.load(params.lm_dir / "G_3_gram.pt", map_location="cpu")
             G = k2.Fsa.from_dict(d).to(device)
 
         if params.method == "whole-lattice-rescoring":
@@ -477,20 +478,20 @@ def main():
     #
     #   if test_set == 'test-clean': continue
     #
-    test_sets = ["test-clean", "test-other"]
-    for test_set, test_dl in zip(test_sets, librispeech.test_dataloaders()):
-        results_dict = decode_dataset(
-            dl=test_dl,
-            params=params,
-            model=model,
-            HLG=HLG,
-            lexicon=lexicon,
-            G=G,
-        )
+    valid_set = "dev-close-talk"
+    valid_dl = librispeech.valid_dataloaders()
+    results_dict = decode_dataset(
+        dl=valid_dl,
+        params=params,
+        model=model,
+        HLG=HLG,
+        lexicon=lexicon,
+        G=G,
+    )
 
-        save_results(
-            params=params, test_set_name=test_set, results_dict=results_dict
-        )
+    save_results(
+        params=params, test_set_name=valid_set, results_dict=results_dict
+    )
 
     logging.info("Done!")
 
