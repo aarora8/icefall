@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Tuple
 
 import k2
+import re
 import torch
 import torch.nn as nn
 from asr_datamodule import LibriSpeechAsrDataModule
@@ -267,6 +268,47 @@ def decode_one_batch(
     return ans
 
 
+#def WER_output_filter(text: list):
+#    filtered_text = []
+#    for word in text:
+#        word = word.upper()
+#
+#        word = re.sub('[NOISE]','<UNK>', word)
+#        word = re.sub('[LAUGHS]','<UNK>', word)
+#        word = re.sub('[INAUDIBLE]','<UNK>', word)
+#        word = re.sub('MHM','<UNK>', word)
+#        word = re.sub('MM','<UNK>', word)
+#        word = re.sub('MMM','<UNK>', word)
+#        word = re.sub('<UNK>', '', word)
+#        word = word.strip()
+#        if word:
+#            filtered_text.append(word)
+#    return(filtered_text)
+
+
+def WER_output_filter(text: list):
+    filtered_text = []
+#    text = ' '.join(text)
+#    text.replace("[NOISE]", "<UNK>")
+#    text.replace("[LAUGHS]", "<UNK>")
+#    text.replace("[INAUDIBLE]", "<UNK>")
+#    text.replace("MHM", "<UNK>")
+#    text.replace("MM", "<UNK>")
+#    text.replace("MMM", "<UNK>")
+    for word in text:
+        word = word.upper()
+        if word in  ('[INAUDIBLE]', '[LAUGHS]', '[NOISE]'):
+            continue
+        if word in  ('MHM', 'MM', 'MMM', 'HMM'):
+            continue
+        if word in  ('<UNK>'):
+            continue
+        word = word.strip()
+        if word:
+            filtered_text.append(word)
+    return(filtered_text)
+
+
 def decode_dataset(
     dl: torch.utils.data.DataLoader,
     params: AttributeDict,
@@ -327,8 +369,12 @@ def decode_dataset(
             this_batch = []
             assert len(hyps) == len(texts)
             for hyp_words, ref_text in zip(hyps, texts):
+
                 ref_words = ref_text.split()
-                this_batch.append((ref_words, hyp_words))
+#                this_batch.append((ref_words, hyp_words))
+                ref_words_filtered = WER_output_filter(ref_words)
+                hyp_words_filtered = WER_output_filter(hyp_words)
+                this_batch.append((ref_words_filtered, hyp_words_filtered))
 
             results[lm_scale].extend(this_batch)
 
@@ -341,6 +387,7 @@ def decode_dataset(
                 f"batch {batch_str}, cuts processed until now is {num_cuts}"
             )
     return results
+
 
 
 def save_results(
