@@ -298,11 +298,12 @@ def WER_output_filter(text: list):
     for word in text:
         word = word.upper()
         if word in  ('[INAUDIBLE]', '[LAUGHS]', '[NOISE]'):
-            continue
-        if word in  ('MHM', 'MM', 'MMM', 'HMM'):
-            continue
-        if word in  ('<UNK>'):
-            continue
+            word = '<UNK>'
+#            continue
+#        if word in  ('MHM', 'MM', 'MMM', 'HMM'):
+#            continue
+#        if word in  ('<UNK>'):
+#            continue
         word = word.strip()
         if word:
             filtered_text.append(word)

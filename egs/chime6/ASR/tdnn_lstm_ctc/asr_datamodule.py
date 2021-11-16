@@ -175,36 +175,36 @@ class LibriSpeechAsrDataModule(DataModule):
             # Cut concatenation should be the first transform in the list,
             # so that if we e.g. mix noise in, it will fill the gaps between
             # different utterances.
-            #transforms = [
-            #    CutConcatenate(
-            #        duration_factor=self.args.duration_factor, gap=self.args.gap
-            #    )
-            #] + transforms
-
             transforms = [
                 CutConcatenate(
                     duration_factor=self.args.duration_factor, gap=self.args.gap
                 )
-            ]
+            ] + transforms
 
-#        input_transforms = [
-#            SpecAugment(
-#                num_frame_masks=2,
-#                features_mask_size=27,
-#                num_feature_masks=2,
-#                frames_mask_size=100,
-#            )
-#        ]
+            #transforms = [
+            #    CutConcatenate(
+            #        duration_factor=self.args.duration_factor, gap=self.args.gap
+            #    )
+            #]
 
-#        train = K2SpeechRecognitionDataset(
-#            cut_transforms=transforms,
-#            input_transforms=input_transforms,
-#            return_cuts=self.args.return_cuts,
-#        )
+        input_transforms = [
+            SpecAugment(
+                num_frame_masks=2,
+                features_mask_size=27,
+                num_feature_masks=2,
+                frames_mask_size=100,
+            )
+        ]
+
         train = K2SpeechRecognitionDataset(
             cut_transforms=transforms,
+            input_transforms=input_transforms,
             return_cuts=self.args.return_cuts,
         )
+#        train = K2SpeechRecognitionDataset(
+#            cut_transforms=transforms,
+#            return_cuts=self.args.return_cuts,
+#        )
 
         if self.args.on_the_fly_feats:
             # NOTE: the PerturbSpeed transform should be added only if we
@@ -218,22 +218,22 @@ class LibriSpeechAsrDataModule(DataModule):
             # transforms = [PerturbSpeed(factors=[0.9, 1.1], p=2/3)] + transforms   # noqa
             # Drop feats to be on the safe side.
 
-            #train = K2SpeechRecognitionDataset(
-            #    cut_transforms=transforms,
-            #    input_strategy=OnTheFlyFeatures(
-            #        Fbank(FbankConfig(num_mel_bins=80))
-            #    ),
-            #    input_transforms=input_transforms,
-            #    return_cuts=self.args.return_cuts,
-            #)
-
             train = K2SpeechRecognitionDataset(
                 cut_transforms=transforms,
                 input_strategy=OnTheFlyFeatures(
                     Fbank(FbankConfig(num_mel_bins=80))
                 ),
+                input_transforms=input_transforms,
                 return_cuts=self.args.return_cuts,
             )
+
+            #train = K2SpeechRecognitionDataset(
+            #    cut_transforms=transforms,
+            #    input_strategy=OnTheFlyFeatures(
+            #        Fbank(FbankConfig(num_mel_bins=80))
+            #    ),
+            #    return_cuts=self.args.return_cuts,
+            #)
         if self.args.bucketing_sampler:
             logging.info("Using BucketingSampler.")
             train_sampler = BucketingSampler(
@@ -291,7 +291,7 @@ class LibriSpeechAsrDataModule(DataModule):
             )
         valid_sampler = BucketingSampler(
             cuts_valid,
-            max_duration=self.args.max_duration,
+            max_duration=100,
             shuffle=False,
         )
         logging.info("About to create dev dataloader")
@@ -299,7 +299,7 @@ class LibriSpeechAsrDataModule(DataModule):
             validate,
             sampler=valid_sampler,
             batch_size=None,
-            num_workers=2,
+            num_workers=1,
             persistent_workers=False,
         )
 
@@ -323,7 +323,7 @@ class LibriSpeechAsrDataModule(DataModule):
                 return_cuts=self.args.return_cuts,
             )
             sampler = BucketingSampler(
-                cuts_test, max_duration=self.args.max_duration, shuffle=False
+                cuts_test, max_duration=100, shuffle=False
             )
             logging.debug("About to create test dataloader")
             test_dl = DataLoader(

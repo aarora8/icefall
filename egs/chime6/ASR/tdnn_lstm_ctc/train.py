@@ -60,7 +60,7 @@ def get_parser():
     parser.add_argument(
         "--world-size",
         type=int,
-        default=1,
+        default=4,
         help="Number of GPUs for DDP training.",
     )
 
@@ -365,9 +365,9 @@ def compute_validation_loss(
         batch_supervisions = batch["supervisions"]
         if loss_check > 100:
             #logging.info(f"loss {loss_check}")
-            logging.info(f"batch_idx {batch_idx}")
+            logging.warning(f"batch_idx {batch_idx}")
             #logging.info(f"batch {batch_supervisions}")
-            logging.info(f"utt_frames {utt_frames}")
+            logging.warning(f"utt_frames {utt_frames}")
             #logging.info(f"utt_loss_val {utt_loss_val}")
             continue
         else:
@@ -440,9 +440,9 @@ def train_one_epoch(
         batch_supervisions = batch["supervisions"]
         if loss_check > 100:
             #logging.info(f"loss {loss_check}")
-            logging.info(f"batch_idx {batch_idx}")
+            logging.warning(f"batch_idx {batch_idx}")
             #logging.info(f"batch {batch_supervisions}")
-            logging.info(f"utt_frames {utt_frames}")
+            logging.warning(f"utt_frames {utt_frames}")
             #logging.info(f"utt_loss_val {utt_loss_val}")
             continue
         else:
@@ -457,7 +457,7 @@ def train_one_epoch(
         optimizer.step()
 
         if batch_idx % params.log_interval == 0:
-            logging.info(
+            logging.warning(
                 f"Epoch {params.cur_epoch}, "
                 f"batch {batch_idx}, loss[{loss_info}], "
                 f"tot_loss[{tot_loss}], batch size: {batch_size}"
@@ -481,7 +481,7 @@ def train_one_epoch(
                 world_size=world_size,
             )
             model.train()
-            logging.info(f"Epoch {params.cur_epoch}, validation {valid_info}")
+            logging.warning(f"Epoch {params.cur_epoch}, validation {valid_info}")
             if tb_writer is not None:
                 valid_info.write_summary(
                     tb_writer,
@@ -516,9 +516,9 @@ def run(rank, world_size, args):
         setup_dist(rank, world_size, params.master_port)
 
     setup_logger(f"{params.exp_dir}/log/log-train")
-    logging.info("Training started")
-    logging.info(params)
-
+    logging.warning("Training started")
+    logging.warning(params)
+    print(torch.version.cuda)
     if args.tensorboard and rank == 0:
         tb_writer = SummaryWriter(log_dir=f"{params.exp_dir}/tensorboard")
     else:
@@ -564,7 +564,7 @@ def run(rank, world_size, args):
         train_dl.sampler.set_epoch(epoch)
 
         if epoch > params.start_epoch:
-            logging.info(f"epoch {epoch}, lr: {scheduler.get_last_lr()[0]}")
+            logging.warning(f"epoch {epoch}, lr: {scheduler.get_last_lr()[0]}")
 
         if tb_writer is not None:
             tb_writer.add_scalar(
@@ -597,7 +597,7 @@ def run(rank, world_size, args):
             rank=rank,
         )
 
-    logging.info("Done!")
+    logging.warning("Done!")
     if world_size > 1:
         torch.distributed.barrier()
         cleanup_dist()
