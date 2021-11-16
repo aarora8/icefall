@@ -51,7 +51,7 @@ from icefall.utils import (
     str2bool,
 )
 
-
+logging.info = print
 def get_parser():
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
@@ -364,11 +364,8 @@ def compute_validation_loss(
         utt_loss_val = loss_info["loss"]
         batch_supervisions = batch["supervisions"]
         if loss_check > 100:
-            #logging.info(f"loss {loss_check}")
             logging.warning(f"batch_idx {batch_idx}")
-            #logging.info(f"batch {batch_supervisions}")
             logging.warning(f"utt_frames {utt_frames}")
-            #logging.info(f"utt_loss_val {utt_loss_val}")
             continue
         else:
             tot_loss = tot_loss + loss_info
@@ -439,11 +436,8 @@ def train_one_epoch(
         utt_loss_val = loss_info["loss"]
         batch_supervisions = batch["supervisions"]
         if loss_check > 100:
-            #logging.info(f"loss {loss_check}")
             logging.warning(f"batch_idx {batch_idx}")
-            #logging.info(f"batch {batch_supervisions}")
             logging.warning(f"utt_frames {utt_frames}")
-            #logging.info(f"utt_loss_val {utt_loss_val}")
             continue
         else:
             tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info

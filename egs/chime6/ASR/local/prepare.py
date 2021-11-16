@@ -57,7 +57,7 @@ def main():
                cut_set = (
                    cut_set
                    + cuts.perturb_volume(2.0)
-                   + cuts.perturb_volume(0.125)
+                   + cuts.perturb_volume(0.5)
                 )
             cut_set = cut_set.compute_and_store_features(
                     extractor=extractor,
