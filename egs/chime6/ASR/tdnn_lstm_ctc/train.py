@@ -366,7 +366,7 @@ def compute_validation_loss(
         if loss_check > 100:
             logging.warning(f"batch_idx {batch_idx}")
             logging.warning(f"utt_frames {utt_frames}")
-            continue
+            #continue
         else:
             tot_loss = tot_loss + loss_info
 
@@ -438,10 +438,11 @@ def train_one_epoch(
         if loss_check > 100:
             logging.warning(f"batch_idx {batch_idx}")
             logging.warning(f"utt_frames {utt_frames}")
-            continue
+            #continue
         else:
             tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
             #tot_loss = tot_loss + loss_info
+
         # summary stats.
         #tot_loss = (tot_loss * (1 - 1 / params.reset_interval)) + loss_info
 
