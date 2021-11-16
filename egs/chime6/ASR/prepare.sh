@@ -27,14 +27,14 @@ log "dl_dir: $dl_dir"
 if [ $stage -le 1 ] && [ $stop_stage -ge 1 ]; then
   log "Stage 1: Prepare CHiME manifest"
   mkdir -p data/manifests
-  local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare2.py
+  local/queue.pl --mem 30G --config local/coe.conf data/prepare.log ~/miniconda3/envs/k2/bin/python3 local/prepare.py
 fi
 
-if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
-  log "Stage 2: Prepare musan manifest"
-  mkdir -p data/manifests
-  lhotse prepare musan $dl_dir/musan data/manifests
-fi
+#if [ $stage -le 2 ] && [ $stop_stage -ge 2 ]; then
+#  log "Stage 2: Prepare musan manifest"
+#  mkdir -p data/manifests
+#  lhotse prepare musan $dl_dir/musan data/manifests
+#fi
 
 #if [ $stage -le 3 ] && [ $stop_stage -ge 3 ]; then
 #  log "Stage 3: Compute fbank for CHiME"
@@ -42,11 +42,11 @@ fi
 #  local/queue.pl --mem 30G --config local/coe.conf data/fbank.log ~/miniconda3/envs/k2/bin/python3 local/compute_fbank_chime.py
 #fi
 
-if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
-  log "Stage 4: Compute fbank for musan"
-  mkdir -p data/fbank
-  ./local/compute_fbank_musan.py
-fi
+#if [ $stage -le 4 ] && [ $stop_stage -ge 4 ]; then
+#  log "Stage 4: Compute fbank for musan"
+#  mkdir -p data/fbank
+#  ./local/compute_fbank_musan.py
+#fi
 
 
 if [ $stage -le 5 ] && [ $stop_stage -ge 5 ]; then
@@ -140,5 +140,5 @@ if [ $stage -le 9 ] && [ $stop_stage -ge 9 ]; then
   done
 fi
 
-# local/queue.pl --mem 30G --gpu 2 --config local/coe.conf tdnn_lstm_ctc/exp/train.log ~/miniconda3/envs/k2/bin/python3 ./tdnn_lstm_ctc/train.py
+# local/queue.pl --mem 30G --gpu 4 --config local/coe.conf tdnn_lstm_ctc/exp/train.log ~/miniconda3/envs/k2/bin/python3 ./tdnn_lstm_ctc/train.py
 # local/queue.pl --mem 35G --gpu 1 --config local/coe.conf data/decode.log ~/miniconda3/envs/k2/bin/python3 ./tdnn_lstm_ctc/decode.py

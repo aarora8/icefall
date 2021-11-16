@@ -83,7 +83,7 @@ class LibriSpeechAsrDataModule(DataModule):
         group.add_argument(
             "--max-duration",
             type=int,
-            default=100.0,
+            default=200.0,
             help="Maximum pooled recordings duration (seconds) in a "
             "single batch. You can reduce it if it causes CUDA OOM.",
         )
@@ -291,7 +291,7 @@ class LibriSpeechAsrDataModule(DataModule):
             )
         valid_sampler = BucketingSampler(
             cuts_valid,
-            max_duration=100,
+            max_duration=self.args.max_duration,
             shuffle=False,
         )
         logging.info("About to create dev dataloader")
@@ -323,7 +323,7 @@ class LibriSpeechAsrDataModule(DataModule):
                 return_cuts=self.args.return_cuts,
             )
             sampler = BucketingSampler(
-                cuts_test, max_duration=100, shuffle=False
+                cuts_test, max_duration=self.args.max_duration, shuffle=False
             )
             logging.debug("About to create test dataloader")
             test_dl = DataLoader(
