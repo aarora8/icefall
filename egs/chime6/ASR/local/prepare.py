@@ -25,7 +25,7 @@ from lhotse.recipes import prepare_chime
 from icefall.utils import get_executor
 
 def main():
-    output_dir = Path('data/manifests_new')
+    output_dir = Path('data/manifests')
     corpus_dir = Path('/exp/aarora/CHiME6_data_prep/CHiME6/')
     print('CHiME-6 manifest preparation:')
     chime_manifests = prepare_chime(
@@ -35,7 +35,7 @@ def main():
     num_jobs = min(50, os.cpu_count())
     num_mel_bins = 80
     extractor = Fbank(FbankConfig(num_mel_bins=num_mel_bins))
-    output_dir = Path('data/fbank_new')
+    output_dir = Path('data/fbank')
     with get_executor() as ex:  # Initialize the executor only once.
         for partition, m in chime_manifests.items():
             print(partition)
@@ -53,15 +53,12 @@ def main():
                     cut_set
                     + cut_set.perturb_speed(0.9)
                     + cut_set.perturb_speed(1.1)
-                )
-               cut_set = (
-                   cut_set
-                   + cuts.perturb_volume(2.0)
-                   + cuts.perturb_volume(0.5)
+                    + cut_set.perturb_volume(2.0)
+                    + cut_set.perturb_volume(0.5)
                 )
             cut_set = cut_set.compute_and_store_features(
                     extractor=extractor,
-                    storage_path=f"data/fbank_new/feats_{partition}",
+                    storage_path=f"data/fbank/feats_{partition}",
                     num_jobs=num_jobs if ex is None else 80,
                     executor=ex,
                     storage_type=LilcomHdf5Writer,
